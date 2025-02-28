@@ -1,0 +1,188 @@
+.con900 {
+    width: 900px;
+    margin: auto;
+    /* background-color: aliceblue; */
+}
+
+.article-icon {
+    color: black;
+    margin-left: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  */
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    height: 10000px;
+}
+
+p {
+    margin: 0;
+}
+
+.header {
+    height: 150px;
+    width: 100%;
+    /* background-color: blueviolet; */
+}
+
+.article-cat-name {
+    font-family: Open Sans;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0%;
+}
+
+.article-subcat-name {
+    font-family: Open Sans;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0%;
+    color: #4D4D4D;
+}
+
+.article-title {
+    height: 158px;
+    margin: auto;
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.article-title h2 {
+    font-family: Open Sans;
+    font-weight: 700;
+    font-size: 40px;
+    letter-spacing: 0%;
+    margin: 0;
+    margin-top: 5px;
+}
+
+.article-title .article-title-info h6 {
+    display: inline-block;
+    margin: 0px;
+}
+
+.article-title .article-title-info p {
+    display: inline-block;
+    margin: 0px;
+}
+
+.article-under-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.article-title .article-title-author-info {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+}
+
+.article-title .article-title-author-info p {
+    display: inline-block;
+    margin: 0px;
+}
+
+.article-title .article-title-author-info .author-name {
+    color: #B32A45;
+    font-family: Open Sans;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0%;
+}
+
+.author-upload-info {
+    font-family: Open Sans;
+    color: #686868;
+    letter-spacing: 0%;
+}
+
+.hero-image{
+    position: relative;
+    top: 32px;
+    height: 700px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.red-background {
+    background-color: #B32A45;
+    position: absolute;
+    width: 100%;
+    height: 400px;
+    top: 522px;
+    z-index: -1;
+}
+
+.article-body {
+    /* background-color:antiquewhite; */
+    /* height: 1000px; */
+    position: relative;
+    top: 81px;
+}
+
+.article-body p {
+    font-family: Open Sans;
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: 0%; 
+}
+
+.article-body img {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.article-body .img-info {
+    text-align: left;
+    color: #717171;
+    font-family: Open Sans;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 0%;
+    margin-bottom: 30px;
+}
+
+.go-back-button {
+    position: absolute;
+    top: -150px;
+    right: 0px;
+}
+
+.comment-section {
+    position: relative;
+    background-color: #F1F1F1;
+    height: 1000px;
+    margin-top: 200px;
+}
+
+
+
+
+
+
