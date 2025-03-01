@@ -41,7 +41,7 @@ function addPost() {
     userId.message = userComment.value;
     userId.date = new Date().toLocaleString();
     let published = "";
-    if (totalHeight <= 500 ) {
+    if (totalHeight <= 1000 ) {
         published = 
         `<div class="parents">
             <div class="info-commented-container">
