@@ -14,6 +14,11 @@
     margin-left: 5px;
 }
 
+.mau-den {
+    background-color: black;
+
+}
+
 
 
 
@@ -32,10 +37,6 @@
 * {
     margin: 0px;
     padding: 0px;
-}
-
-body {
-    height: 10000px;
 }
 
 p {
@@ -183,6 +184,7 @@ span {
     position: absolute;
     top: -150px;
     right: 0px;
+    cursor: pointer;
 }
 
 .comment-section {
@@ -222,6 +224,7 @@ span {
     font-weight: 600;
     font-size: 20px;
     letter-spacing: 0%;
+    margin: 0px;
 }
 
 .comment-section-user {
@@ -289,7 +292,7 @@ span {
 }
 
 .comments {
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .parents {
@@ -298,6 +301,9 @@ span {
     flex-direction: column;
     justify-content: space-around;
     width: 100%;
+    border-left: 2px solid lightblue;
+    height: auto;
+    margin-top: 10px;
 }
 
 
@@ -310,9 +316,13 @@ span {
 
 .info-commented-container {
     display: flex;
-    flex-direction: crow;
+    flex-direction: row;
     justify-content: flex-start;
     gap: 5px;
+}
+
+.info-commented-container > img {
+    margin-left: 20px;
 }
 
 .user-commented {
@@ -367,6 +377,95 @@ span {
     line-height: 28px;
     letter-spacing: 0%;
 }
+
+.thu-gon-container .xem-them {
+    border: none;
+    border-bottom: 1px solid #0d6efd;
+}
+
+.thu-gon-container .xem-them > p {
+    font-family: Open Sans;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0%;
+}
+
+
+
+
+
+
+
+.tin-lien-quan-section {
+    margin-top: 100px;
+    height: 700px;
+    background-color: #F1F1F1;
+    padding-top: 50px;
+
+}
+
+.tin-lien-quan-line-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tin-lien-quan-section img {
+    margin: auto;
+}
+
+.tin-lien-quan-section .tin-lien-quan-container h3 {
+    font-family: Open Sans;
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: 0%;
+    margin-top: 20px;
+}
+
+.tin-lien-quan-layout {
+    margin-top: 50px !important;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* height: 518px; */
+    grid-template-rows: repeat(3, 140px);
+    gap: 30px;
+    margin: auto;
+}
+
+.tin-lien-quan-item-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.tin-lien-quan-item-container img {
+    width: 200px;
+    
+}
+
+.tlq-title .tlq-heading {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 0%;
+}
+
+.tlq-title .tlq-sub-article {
+    font-family: Open Sans;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0%;
+}
+
+
+
+
+.footer {
+    background-color: black;
+    height: 500px;
+}
+
+
 
 
 

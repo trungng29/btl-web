@@ -14,6 +14,9 @@ const comments = document.querySelector(".comments")
 const userName = document.querySelector(".user-name")
 const userAvatar = document.querySelector(".user-avatar").src;
 
+// scroll to top button
+const scrollBtn = document.querySelector(".go-back-button")
+
 userComment.addEventListener("input", e => {
     if (!userComment.value) {
         publishBtn.setAttribute("disabled", "disabled");
@@ -41,10 +44,9 @@ function addPost() {
                     <h3>${userId.name}<h3>
                     <span class="date">${userId.date}</span>
                 </div>
-                <p>${userId.message}<p>
+                <p>${userId.message}</p>
             </div>
-        </div>
-        
+        </div> 
         <div class="user-commented-message con900">
             <div class="engagements"></div>
         </div>
@@ -57,3 +59,12 @@ function addPost() {
 }
 
 publishBtn.addEventListener("click", addPost)
+
+
+//event cho nút scroll back to top
+scrollBtn.addEventListener("click", () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+});
+
+
