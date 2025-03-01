@@ -19,6 +19,10 @@
 
 }
 
+.hidden {
+    display: none !important;
+}
+
 
 
 
@@ -306,6 +310,10 @@ span {
     margin-top: 10px;
 }
 
+.parents:last-of-type {
+    margin-bottom: 100px;
+}
+
 
 .parents img {
     display: inline;
@@ -381,6 +389,7 @@ span {
 .thu-gon-container .xem-them {
     border: none;
     border-bottom: 1px solid #0d6efd;
+    margin-bottom: 30px;
 }
 
 .thu-gon-container .xem-them > p {
