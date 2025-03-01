@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebApp.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+				<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="c:\users\admin\source\repos\webapp\webapp\pictures\group 2 1.png" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul id="MenuBar" class="navbar-nav flex-grow-1">
+                     
+                        <li>Quản trị</li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - WebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+<script>
+    const uri = window.location.host;
+    function fetchData(query, callback) {
+        fetch('api/Menu', {
+             method: 'POST',
+             headers: {
+                 'Content-Type': 'application/json'
+             },
+             body: JSON.stringify({ query: query })
+        })
+    .then(response => response.json())
+    .then(data => callback(data))
+    }
+    function renderMenu() {
+        fetchData(" select * from [dbo].[Menu_table] where Menu_level = 1 order by Display_order", function(data) {
+            const menuList = document.getElementById('MenuBar');
+
+            // Loop through each main menu item
+            data.forEach(item => {
+                const li = document.createElement('li');
+                li.classList.add('dropdown');
+
+                const Menu_links = item.Menu_links || ''; // Kiểm tra và xử lý undefined
+                const Menu_name = item.Menu_name || ''; // Kiểm tra và xử lý undefined
+
+                // Check if the menu item has a valid link
+                if (Menu_links.length > 2) {
+                    li.innerHTML = `
+                        <a class="active" href="${uri}/${Menu_links.replace(uri, '')}">${Menu_name}</a>
+                    `;
+                } else {
+                    li.innerHTML = `
+                        <a class="active" href="#">${Menu_name} <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                    `;
+                }
+                // Fetch sub-menu items (where isParent = 1 and parent = item.id)
+                fetchData(`select * from [dbo].[Menu_table] where Menu_level = 2 and Menu_parent = ${item.id} order by Display_order`, function(subMenuData) {
+                    if (subMenuData && subMenuData.length > 0) {
+                        const ul = document.createElement('ul');
+                        subMenuData.forEach(subItem => {
+                            const subLi = document.createElement('li');
+                            subLi.innerHTML = `<a href="${uri}/${subItem.Menu_links}">${subItem.Menu_name}</a>`;
+                            ul.appendChild(subLi);
+                        });
+                        li.appendChild(ul);
+                    }
+                });
+                menuList.appendChild(li);
+            });
+        });
+    }
+
+    // Call renderMenu function to generate the menu on page load
+    renderMenu();
+</script>
