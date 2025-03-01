@@ -120,8 +120,7 @@ p {
 }
 
 .hero-image{
-    position: relative;
-    top: 32px;
+    margin-top: 32px;
     height: 700px;
 }
 
@@ -142,8 +141,7 @@ p {
 .article-body {
     /* background-color:antiquewhite; */
     /* height: 1000px; */
-    position: relative;
-    top: 81px;
+    margin-top: 50px;
 }
 
 .article-body p {
