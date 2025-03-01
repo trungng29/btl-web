@@ -1,3 +1,8 @@
+.position-fixed {
+    position: fixed;
+    top: 0;
+}
+
 a {
     text-decoration: none;
 }
@@ -28,6 +33,14 @@ a {
 
 .navbar-duoi {
     border-bottom: 0.5px solid #E6E6E6;
+    width: 100%;
+    background-color: white;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-duoi-container {
