@@ -1,3 +1,24 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scrollbar-gutter: stable;
+}
+
+
+body {
+    scrollbar-width: none; /* Ẩn scroller trên Firefox */
+    -ms-overflow-style: none; /* Ẩn scroller trên IE/Edge */
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Ẩn scroller trên Chrome, Safari */
+}
+
+
 .position-fixed {
     position: fixed;
     top: 0;
@@ -13,6 +34,27 @@ ul {
 a {
     text-decoration: none;
 }
+
+.hidden-overlay {
+    display: none !important;
+}
+
+#overlay {
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: calc(var(--navbar-tren-height, 50px) + var(--navbar-duoi-height, 50px)); 
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    z-index: 2;    
+
+}
+
+
 .navbar-tren {
     height: 80px;
     /* background-color: #6C6C6C; */
@@ -156,6 +198,10 @@ a {
   z-index: 1;
   transform: translateY(0%);
   transition-delay: 0s, 0s, 0.1s;
+}
+
+#burgerIcon {
+    cursor: pointer;
 }
 
 
