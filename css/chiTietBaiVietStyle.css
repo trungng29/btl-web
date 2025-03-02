@@ -75,12 +75,14 @@ span {
 }
 
 .article-title {
+    position: relative;
     height: 158px;
     margin: auto;
     margin-top: 32px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    z-index: -9999;
 }
 
 .article-title h2 {
