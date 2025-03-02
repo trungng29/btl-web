@@ -7,7 +7,7 @@ window.addEventListener("scroll", function(){
         bigMenu.style.zIndex = "30"; // Đảm bảo big-menu luôn trên overlay
     } else {
         header.classList.remove("sticky");
-        bigMenu.style.zIndex = "1"; // Đặt lại nếu không sticky
+        bigMenu.style.zIndex = "10"; // Đặt lại nếu không sticky
     }
 });
 

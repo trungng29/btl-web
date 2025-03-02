@@ -8,6 +8,10 @@ html {
     scrollbar-gutter: stable;
 }
 
+p {
+    margin: 0;
+}
+
 
 body {
     scrollbar-width: none; /* Ẩn scroller trên Firefox */
