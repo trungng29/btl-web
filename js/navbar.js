@@ -16,7 +16,7 @@ document.getElementById("burgerIcon").addEventListener("click", function() {
     // document.getElementById("overlay").classList.toggle("hidden-overlay")
     document.getElementById("bigMenu").classList.toggle("hidden-overlay")
     document.querySelectorAll(".sub-menu").forEach(el => {
-        el.classList.toggle("hidden");
+        el.classList.toggle("hidden-overlay");
     });
 })
 
