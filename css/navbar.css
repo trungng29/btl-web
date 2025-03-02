@@ -1,0 +1,163 @@
+.position-fixed {
+    position: fixed;
+    top: 0;
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+.navbar-tren {
+    height: 80px;
+    /* background-color: #6C6C6C; */
+    width: 100%;
+    border-bottom: 0.5px solid #E6E6E6;
+    z-index: 10;
+}
+
+.navbar-tren-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-tren-container > img {
+    height: 60px;
+    margin-left: 100px;
+}
+
+.navbar-tren-tien-ich {
+    display: inline-block;
+    margin-right: 100px;
+}
+
+.navbar-duoi {
+    border-bottom: 0.5px solid #E6E6E6;
+    width: 100%;
+    background-color: white;
+    z-index: 20;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-duoi-container {
+    height: 50px;
+    background-color: white;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navbar-duoi-container > img {
+    height: 50px;
+}
+
+.navbar-duoi-line-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbarDuoiLine {
+    height: 35px;
+}
+
+.cat-set {
+    display: flex;
+    min-width: 900px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cat-set-title {
+    cursor: pointer;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 0%;
+    color: black;
+    border: 2px solid transparent;
+    transition: color 0.2s ease-in-out; 
+}
+
+.cat-set-title:hover {
+    color: #B32A45;
+}
+
+.cat-set > ul {
+    height: 100%;
+}
+
+.cat-set > li {
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.sub-menu-parent {
+    position: relative;
+}
+
+.sub-menu {
+    background-color: white; /* Đảm bảo nền trắng ngay lập tức */
+    border-top: 2px solid #B32A45; /* Viền nhẹ */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    width: 210px;
+    height: auto;
+}
+
+.sub-menu li {
+    cursor: pointer;
+    display: block;
+    margin-top: 10px;
+    padding: 0px 10px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    transition: color 0.1s ease-in-out; 
+}
+
+.sub-menu li:hover {
+    color: #B32A45;
+}
+
+.sub-menu-parent:focus .sub-menu,
+.sub-menu-parent:focus-within .sub-menu,
+.sub-menu-parent:hover .sub-menu {
+  visibility: visible; /* shows sub-menu */
+  opacity: 1;
+  z-index: 1;
+  transform: translateY(0%);
+  transition-delay: 0s, 0s, 0.1s;
+}
+
+
+
+

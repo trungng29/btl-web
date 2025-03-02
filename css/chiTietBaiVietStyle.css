@@ -1,0 +1,475 @@
+.con900 {
+    width: 900px;
+    margin: auto;
+    /* background-color: aliceblue; */
+}
+
+.con1140 {
+    width: 1140px;
+    margin: auto;
+}
+
+.article-icon {
+    color: black;
+    margin-left: 5px;
+}
+
+.mau-den {
+    background-color: black;
+
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+
+
+
+/*  */
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+p {
+    display: inline-block;
+    margin: 0;
+}
+
+span {
+    display: inline-block;
+    margin: 0;
+}
+
+.header {
+    height: 150px;
+    width: 100%;
+    /* background-color: blueviolet; */
+}
+
+.article-cat-name {
+    font-family: Open Sans;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0%;
+}
+
+.article-subcat-name {
+    font-family: Open Sans;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0%;
+    color: #4D4D4D;
+}
+
+.article-title {
+    height: 158px;
+    margin: auto;
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.article-title h2 {
+    font-family: Open Sans;
+    font-weight: 700;
+    font-size: 40px;
+    letter-spacing: 0%;
+    margin: 0;
+    margin-top: 5px;
+}
+
+.article-title .article-title-info h6 {
+    display: inline-block;
+    margin: 0px;
+}
+
+.article-title .article-title-info p {
+    display: inline-block;
+    margin: 0px;
+}
+
+.article-under-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.article-title .article-title-author-info {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+}
+
+.article-title .article-title-author-info p {
+    display: inline-block;
+    margin: 0px;
+}
+
+.article-title .article-title-author-info .author-name {
+    color: #B32A45;
+    font-family: Open Sans;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0%;
+}
+
+.author-upload-info {
+    font-family: Open Sans;
+    color: #686868;
+    letter-spacing: 0%;
+}
+
+.hero-image{
+    margin-top: 32px;
+    height: 700px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.red-background {
+    background-color: #B32A45;
+    position: absolute;
+    width: 100%;
+    height: 400px;
+    top: 522px;
+    z-index: -1;
+}
+
+.article-body {
+    /* background-color:antiquewhite; */
+    /* height: 1000px; */
+    margin-top: 50px;
+}
+
+.article-body p {
+    font-family: Open Sans;
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: 0%; 
+}
+
+.article-body img {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.article-body .img-info {
+    text-align: left;
+    color: #717171;
+    font-family: Open Sans;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 0%;
+    margin-bottom: 30px;
+}
+
+.go-back-button {
+    position: absolute;
+    top: -150px;
+    right: 0px;
+    cursor: pointer;
+}
+
+.comment-section {
+    height: auto;
+    position: relative;
+    background-color: #F1F1F1;
+    min-height: 1000px;
+    margin-top: 200px;
+}
+
+.comment-section-container > h3 {
+    margin: 0px;
+    padding-left: 50px;
+    padding-top: 50px;
+    font-family: Open Sans;
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: 0%;
+}
+
+.comment-numbers {
+    margin-top: 15px;
+    margin-left: 70px;
+}
+
+.comment-numbers .comment-num {
+    font-family: Open Sans;
+    margin-right: 5px;
+    color:#B32A45;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0%;
+}
+
+.comment-numbers p {
+    font-family: Open Sans;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0%;
+    margin: 0px;
+}
+
+.comment-section-user {
+    margin-top: 30px;
+    background-color: #ffffff;
+    height: 250px;
+    border: 1px solid #0089FF;
+    border-radius: 20px;
+    transition: box-shadow 0.3s ease-in-out;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.comment-section-user:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.comment-section .user-avatar {
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.comment-section .user-name {
+    display: inline;
+    margin-left: 15px;
+    font-family: Open Sans;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0%;
+}
+
+.comment-section .comment-section-user .comment-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+.comment-section .comment-section-user .comment-input > input {
+    border: none;
+    padding: 10px;
+    padding-left: 0;
+    outline: none;
+    border-bottom: 2px solid lightblue;
+    margin-bottom: 10px;
+    width: 85%;
+}
+
+.comment-input-button {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.comment-input-button > button {
+    margin-right: 90px;
+    cursor: pointer;
+}
+
+.comments {
+    margin-top: 50px;
+}
+
+.parents {
+    /* background-color: aliceblue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    border-left: 2px solid lightblue;
+    height: auto;
+    margin-top: 10px;
+}
+
+.parents:last-of-type {
+    margin-bottom: 100px;
+}
+
+
+.parents img {
+    display: inline;
+    width: 40px;
+    height: 40px;
+    
+}
+
+.info-commented-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 5px;
+}
+
+.info-commented-container > img {
+    margin-left: 20px;
+}
+
+.user-commented {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.user-commented h3 {
+    display: inline-block;
+    margin-left: 15px;
+    font-family: Open Sans;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0%;
+    margin: 0;
+    margin-left: 5px;
+}
+
+.user-commented p {
+    margin-left: 20px;
+    margin-top: 10px;
+    display: inline-block;
+    font-family: Open Sans;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0%;
+}
+
+.user-commented span {
+    font-family: Open Sans;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0%;
+    color:#363636;
+}
+
+.user-commented-message {
+    margin-top: 10px;
+}
+
+.user-commented-info {
+    display: flex;
+
+}
+
+.user-commented-info span {
+    margin-left: 5px;
+    font-family: Open Sans;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0%;
+}
+
+.thu-gon-container .xem-them {
+    border: none;
+    border-bottom: 1px solid #0d6efd;
+    margin-bottom: 30px;
+}
+
+.thu-gon-container .xem-them > p {
+    font-family: Open Sans;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0%;
+}
+
+
+
+
+
+
+
+.tin-lien-quan-section {
+    margin-top: 100px;
+    height: 700px;
+    background-color: #F1F1F1;
+    padding-top: 50px;
+
+}
+
+.tin-lien-quan-line-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tin-lien-quan-section img {
+    margin: auto;
+}
+
+.tin-lien-quan-section .tin-lien-quan-container h3 {
+    font-family: Open Sans;
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: 0%;
+    margin-top: 20px;
+}
+
+.tin-lien-quan-layout {
+    margin-top: 50px !important;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* height: 518px; */
+    grid-template-rows: repeat(3, 140px);
+    gap: 30px;
+    margin: auto;
+}
+
+.tin-lien-quan-item-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.tin-lien-quan-item-container img {
+    width: 200px;
+    
+}
+
+.tlq-title .tlq-heading {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 0%;
+}
+
+.tlq-title .tlq-sub-article {
+    font-family: Open Sans;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0%;
+}
+
+
+
+
+.footer {
+    background-color: black;
+    height: 500px;
+}
+
+
+
+
+
+
+
+
+
