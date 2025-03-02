@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../css/chiTietBaiVietStyle.css">
+        <link rel="stylesheet" href="../css/navbar.css">
+    </head>
+
+    <body>
+
+        <div class="header">
+
+            <div class="navbar-tren">
+                <div class="navbar-tren-container">
+                    <img src="../assets/navbarLogo.png" alt="">
+
+                    <div class="navbar-tren-tien-ich">
+                        <i class="bi bi-search fs-1"></i>
+                        <i class="bi bi-person-circle fs-1 ms-3"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar-duoi">
+
+                <div class="navbar-duoi-container container">
+
+                    <img src="../assets/navbarLogoSmall.png" alt="">
+
+                    <div class="navbar-duoi-line-container">
+                        <img src="../assets/navbarLine.png" alt="" class="navbarDuoiLine">
+                    </div>
+                        
+                    <div class="cat-set">
+                        <ul class="cat-set">
+                            <li class="sub-menu-parent">
+                                <a href=""><p class="cat-set-title xa-hoi-title">Xã hội</p></a>
+
+                                <div class="drop-down-menu">
+                                    <ul class="sub-menu">
+                                        <li>Thời sự</li>
+                                        <li>Giao thông</li>
+                                        <li>Môi trường - Khí hậu</li>
+                                    </ul>
+                                </div>
+                            
+                            </li>
+
+                            <li class="sub-menu-parent">
+                                <a href=""><p class="cat-set-title khcn-title">Khoa học & Công nghệ</p></a>
+
+                                <div class="drop-down-menu">
+                                    <ul class="sub-menu">
+                                        <li>Tin tức công nghệ</li>
+                                        <li>Hoạt động công nghệ</li>
+                                        <li>Tạp chí</li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li class="sub-menu-parent">
+                                <a href=""><p class="cat-set-title suc-khoe-title">Sức khỏe</p></a>
+
+                                <div class="drop-down-menu">
+                                    <ul class="sub-menu">
+                                        <li>Dinh dưỡng</li>
+                                        <li>Làm đẹp</li>
+                                        <li>Y tế</li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li class="sub-menu-parent">
+                                <a href=""><p class="cat-set-title the-thao-title">Thể thao</p></a>
+
+                                <div class="drop-down-menu">
+                                    <ul class="sub-menu">
+                                        <li>Bóng đá</li>
+                                        <li>Bóng rổ</li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li class="sub-menu-parent">
+                                <a href=""><p class="cat-set-title giai-tri-title">Giải trí</p></a>
+
+                                <div class="drop-down-menu">
+                                    <ul class="sub-menu">
+                                        <li>Âm nhạc</li>
+                                        <li>Thời trang</li>
+                                        <li>Điện ảnh - Truyền hình</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            
+                            <li class="sub-menu-parent">
+                                <a href=""><p class="cat-set-title giao-duc-title">Giáo dục</p></a>
+
+                                <div class="drop-down-menu">
+                                    <ul class="sub-menu">
+                                        <li>Tin tức công nghệ</li>
+                                        <li>Hoạt động công nghệ</li>
+                                        <li>Tạp chí</li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <i class="bi bi-list fs-2" id="burgerIcon"></i>
+                </div>
+
+                <div id="bigMenu" class="big-menu hidden-overlay">
+                
+                    <div class="cat-set-big container">
+                        <ul class="cat-set-ul">
+                            <li>
+                                <a href=""><p class="cat-set-big-title xa-hoi-title">Xã hội</p></a>
+                                <ul class="sub-menu-big">
+                                    <li>Thời sự</li>
+                                    <li>Giao thông</li>
+                                    <li>Môi trường - Khí hậu</li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href=""><p class="cat-set-big-title khcn-title">Khoa học & Công nghệ</p></a>
+                                <ul class="sub-menu-big">
+                                    <li>Tin tức công nghệ</li>
+                                    <li>Hoạt động công nghệ</li>
+                                    <li>Tạp chí</li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href=""><p class="cat-set-big-title suc-khoe-title">Sức khỏe</p></a>
+                                <ul class="sub-menu-big">
+                                    <li>Dinh dưỡng</li>
+                                    <li>Làm đẹp</li>
+                                    <li>Y tế</li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href=""><p class="cat-set-big-title the-thao-title">Thể thao</p></a>
+                                <ul class="sub-menu-big">
+                                    <li>Bóng đá</li>
+                                    <li>Bóng rổ</li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href=""><p class="cat-set-big-title giai-tri-title">Giải trí</p></a>
+                                <ul class="sub-menu-big">
+                                    <li>Âm nhạc</li>
+                                    <li>Thời trang</li>
+                                    <li>Điện ảnh - Truyền hình</li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href=""><p class="cat-set-big-title giao-duc-title">Giáo dục</p></a>
+                                <ul class="sub-menu-big">
+                                    <li>Thi cử</li>
+                                    <li>Đào tạo</li>
+                                    <li>Học bổng - Du học</li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <!-- <div id="overlay" class="hidden-overlay"></div> -->
+
+
+            
+        </div>
+
+        <div class="page-container">
+            
+            <div class="article-title con900">
+                <div class="article-title-info">
+                    <h6 class="article-cat-name">Thể thao</h6>
+                    <i class="bi bi-caret-right-fill"></i>
+                    <p class="article-subcat-name">Bóng đá</p>
+
+                    <h2>Hậu vệ Nhật Bản ghi dấu lịch sử tại Bayern</h2>
+                </div>
+
+                <div class="article-under-title">
+                    <div class="article-title-author-info">
+                        <p class="author-name">Nguyễn Quang Trung</p>  
+                        <p class="author-upload-info">Thứ hai, 24/2/2025, 05:31 (GMT+7)</p>
+                    </div>
+
+                    <div class="article-title-share">
+                        <a href=""><i class="bi bi-facebook fs-3 article-icon"></i></a>
+                        <a href=""><i class="bi bi-messenger fs-3 article-icon"></i></a>
+                        <a href=""><i class="bi bi-twitter-x fs-3 article-icon"></i></a>
+                    </div>
+                </div>
+
+                
+            </div>
+
+            <div class="hero-image container">
+                <img src="../assets/chiTietBaiVietImages/heroImage.png" alt="">
+            </div>
+
+            <div class="red-background"></div>
+
+            <div class="article-body con900">
+
+                <p>
+                    Phút 61, thủ môn Kevin Trapp băng ra đấm hụt cú đá phạt góc của 
+                    Michael Olise. Bóng đập vào người hậu vệ Rasmus Kristensen ở phía sau và 
+                    nảy đúng vị trí để Ito đệm vào lưới trống.
+                </p>
+                
+                <p>
+                    Ito ghi bàn đầu tiên trong màu áo Bayern, và cũng là cầu thủ Nhật Bản đầu 
+                    tiên ghi bàn ở Bundesliga cho Bayern. Anh là cầu thủ Bayern thứ 16 lập công 
+                    tại Bundesliga mùa này - thông số không CLB nào khác chạm đến tại giải.
+                </p>
+
+                <p>
+                    Ngoài Ito, Olise, Jamal Musiala và Serge Gnabry cũng lập công, giúp Bayern 
+                    thắng tưng bừng trên sân nhà. Trong đó, Musiala nâng thành tích lên 44 bàn 
+                    tại Bundesliga 3 ngày trước sinh nhật lần thứ 22. Chỉ 6 cầu thủ từng chạm mốc 
+                    này ở độ tuổi trẻ hơn, trong đó có Erling Haaland, Gerd Muller và Uli Hoeness. 
+                    Tiền vệ người Đức có 11 bàn tại Bundesliga mùa này, chỉ kém 1 bàn so với thành 
+                    tích tốt nhất của anh trong một mùa ở 2022-2023.
+                </p>
+                
+                <p>
+                    Chiến thắng 4-0 cũng giúp Bayern vững đỉnh bảng Bundesliga với 58 điểm. "Hùm xám" 
+                    tái lập khoảng cách 8 điểm hơn Leverkusen - đội ĐKVĐ thắng Holstein Kiel 2-0 ở 
+                    trận đấu sớm.
+                </p>
+
+                <p>
+                    "Chúng tôi tạo cơ hội và thi đấu tốt hôm nay, thể hiện tất cả nỗ lực, nhiệt huyết"
+                    , Kompany nói sau trận, hài lòng với màn trình diễn của đội. 
+                    Tiền đạo Thomas Muller thì nhấn mạnh "Bayern xứng đáng giành ba 
+                    điểm khi đá với cường độ cao".
+                </p>
+
+                <p>
+                    Ngày 28/2, Bayern làm khách của Stuttgart ở vòng 24 Bundesliga, rồi trở về 
+                    sân nhà tiếp Leverkusen ở lượt đi vòng 1/8 Champions League ngày 5/3.
+                </p>
+
+                <img src="../assets/chiTietBaiVietImages/articleImage.png" alt="">
+
+                <p class="img-info">
+                    Hiroki Ito đệm vào lưới trống nâng tỷ số lên 2-0...
+                </p>
+
+                <p>
+                    Ito là tân binh đầu tiên của dưới thời tân HLV Vincent Kompany, khi được tuyển mộ với 
+                    mức phí 25 triệu USD từ Stuttgart. Nhưng hậu vệ 25 tuổi gãy xương cổ chân trong giai đoạn 
+                    tiền mùa giải và phải nghỉ nửa năm. Anh mới trở lại và ra mắt trong trận thắng 2-1 trên sân 
+                    Celtic ở lượt đi vòng play-off Champions League.
+                </p>
+
+                <p>
+                    Trong trận gặp Frankfurt hôm qua, Ito đá hậu vệ trái và nhường chỗ cho 
+                    Alphonso Davies ở phút 63. Anh chạm bóng 75 lần, chuyền chính xác 91% với một 
+                    đường quyết định (key pass), tạo một cơ hội rõ ràng, đấu tay đôi thắng ba lần, phá bóng hai 
+                    lần và được trang Sofascore chấm 7,8 điểm - chỉ kém Olise với 8,7 điểm.
+                </p>
+      
+            </div>
+
+            <div class="comment-section container">
+
+                <img src="../assets/vectors/goBackBtn.png" alt="" class="go-back-button">
+
+                <div class="comment-section-container container">
+
+                    <h3>Bình luận</h3>
+
+                    <div class="comment-numbers"><span class="comment-num">0</span><p>bình luận</p></div>
+                    
+                    <div class="comment-section-user con900">
+
+                        <div class="user-info">
+                            <img src="../assets/vectors/avatarComment.png" alt="" class="user-avatar">
+                            <h3 class="user-name">Nguyễn Quang Trung</h3>
+                        </div>
+
+                        <div class="comment-input">
+                            <input type="text" placeholder="Hãy để lại bình luận của bạn." class="user-comment">
+                            <div class="comment-input-button">
+                                <button type="submit" disabled id="publish-button" class="btn btn-outline-primary">Đăng tải</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="comments con1140"></div>
+
+                </div>
+
+                <div class="thu-gon-container">
+                    <div class="d-grid gap-2 col-2 mx-auto">
+                        <button class="btn btn-outline-primary xem-them hidden" type="button"><p>Xem thêm</p></button>
+                      </div>
+                </div>
+
+            </div>
+
+            <div class="tin-lien-quan-section">
+                <div class="tin-lien-quan-container container">
+                    <div class="tin-lien-quan-line-container">
+                        <img src="../assets/vectors/line.png" alt="">
+                    </div>
+                    <h3>Tin Liên Quan</h3>
+                </div>
+
+                <div class="tin-lien-quan-layout container">
+                    <div class="tin-lien-quan-item-container">
+                        <img src="../assets/chiTietBaiVietImages/tlqImage.png" alt="" class="tlq-image">
+                        <div class="tlq-title">
+                            <h3 class="tlq-heading">Muller thách thức HLV Flick trước trận Barca - Bayern</h3>
+                            <p class="tlq-sub-article">
+                                Tiền đạo Bayern Thomas Muller gửi thông điệp thách thức thầy cũ Hansi Flick 
+                                khi lên đường tới Tây Ban Nha chuẩn bị cho trận đấu.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="tin-lien-quan-item-container">
+                        <img src="../assets/chiTietBaiVietImages/tlqImage.png" alt="" class="tlq-image">
+                        <div class="tlq-title">
+                            <h3 class="tlq-heading">Muller thách thức HLV Flick trước trận Barca - Bayern</h3>
+                            <p class="tlq-sub-article">
+                                Tiền đạo Bayern Thomas Muller gửi thông điệp thách thức thầy cũ Hansi Flick 
+                                khi lên đường tới Tây Ban Nha chuẩn bị cho trận đấu.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="tin-lien-quan-item-container">
+                        <img src="../assets/chiTietBaiVietImages/tlqImage.png" alt="" class="tlq-image">
+                        <div class="tlq-title">
+                            <h3 class="tlq-heading">Muller thách thức HLV Flick trước trận Barca - Bayern</h3>
+                            <p class="tlq-sub-article">
+                                Tiền đạo Bayern Thomas Muller gửi thông điệp thách thức thầy cũ Hansi Flick 
+                                khi lên đường tới Tây Ban Nha chuẩn bị cho trận đấu.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="tin-lien-quan-item-container">
+                        <img src="../assets/chiTietBaiVietImages/tlqImage.png" alt="" class="tlq-image">
+                        <div class="tlq-title">
+                            <h3 class="tlq-heading">Muller thách thức HLV Flick trước trận Barca - Bayern</h3>
+                            <p class="tlq-sub-article">
+                                Tiền đạo Bayern Thomas Muller gửi thông điệp thách thức thầy cũ Hansi Flick 
+                                khi lên đường tới Tây Ban Nha chuẩn bị cho trận đấu.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="tin-lien-quan-item-container">
+                        <img src="../assets/chiTietBaiVietImages/tlqImage.png" alt="" class="tlq-image">
+                        <div class="tlq-title">
+                            <h3 class="tlq-heading">Muller thách thức HLV Flick trước trận Barca - Bayern</h3>
+                            <p class="tlq-sub-article">
+                                Tiền đạo Bayern Thomas Muller gửi thông điệp thách thức thầy cũ Hansi Flick 
+                                khi lên đường tới Tây Ban Nha chuẩn bị cho trận đấu.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="tin-lien-quan-item-container">
+                        <img src="../assets/chiTietBaiVietImages/tlqImage.png" alt="" class="tlq-image">
+                        <div class="tlq-title">
+                            <h3 class="tlq-heading">Muller thách thức HLV Flick trước trận Barca - Bayern</h3>
+                            <p class="tlq-sub-article">
+                                Tiền đạo Bayern Thomas Muller gửi thông điệp thách thức thầy cũ Hansi Flick 
+                                khi lên đường tới Tây Ban Nha chuẩn bị cho trận đấu.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            
+        </div>
+
+        <div class="footer">
+            
+        </div>
+
+        <script src="../js/chiTietBaiViet.js"></script>
+        <script src="../js/navbar.js"></script>
+        
+    </body>
+
+</html>
+
