@@ -24,15 +24,24 @@
                     <img src="../assets/navbarLogo.png" alt="">
 
                     <div class="navbar-tren-tien-ich">
-                        <i class="bi bi-search fs-1"></i>
+                        <div class="search-bar">
+                            <input type="text" placeholder="Search...">
+                            <i class="bi bi-search fs-1"></i>
+                        </div>
                         <i class="bi bi-person-circle fs-1 ms-3"></i>
                     </div>
+
+                    
+
                 </div>
             </div>
 
             <div class="navbar-duoi">
+
                 <div class="navbar-duoi-container container">
+
                     <img src="../assets/navbarLogoSmall.png" alt="">
+
                     <div class="navbar-duoi-line-container">
                         <img src="../assets/navbarLine.png" alt="" class="navbarDuoiLine">
                     </div>
@@ -113,7 +122,77 @@
                         </ul>
                     </div>
 
-                    <i class="bi bi-list fs-2"></i>
+                    <i class="bi bi-list fs-2" id="burgerIcon"></i>
+                </div>
+
+                <div id="bigMenu" class="big-menu hidden-overlay">
+
+                    <div class="search-bar-big-container">
+                        <div class="search-bar-big">
+                            <input type="text" placeholder="Search...">
+                            <i class="bi bi-search fs-1"></i>
+                        </div>
+                    </div>
+                   
+                    <div class="cat-set-big container">
+                        
+                        <ul class="cat-set-ul">
+                            <li>
+                                <a href=""><p class="cat-set-big-title xa-hoi-title">Xã hội</p></a>
+                                <ul class="sub-menu-big">
+                                    <li>Thời sự</li>
+                                    <li>Giao thông</li>
+                                    <li>Môi trường - Khí hậu</li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href=""><p class="cat-set-big-title khcn-title">Khoa học & Công nghệ</p></a>
+                                <ul class="sub-menu-big">
+                                    <li>Tin tức công nghệ</li>
+                                    <li>Hoạt động công nghệ</li>
+                                    <li>Tạp chí</li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href=""><p class="cat-set-big-title suc-khoe-title">Sức khỏe</p></a>
+                                <ul class="sub-menu-big">
+                                    <li>Dinh dưỡng</li>
+                                    <li>Làm đẹp</li>
+                                    <li>Y tế</li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href=""><p class="cat-set-big-title the-thao-title">Thể thao</p></a>
+                                <ul class="sub-menu-big">
+                                    <li>Bóng đá</li>
+                                    <li>Bóng rổ</li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href=""><p class="cat-set-big-title giai-tri-title">Giải trí</p></a>
+                                <ul class="sub-menu-big">
+                                    <li>Âm nhạc</li>
+                                    <li>Thời trang</li>
+                                    <li>Điện ảnh - Truyền hình</li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href=""><p class="cat-set-big-title giao-duc-title">Giáo dục</p></a>
+                                <ul class="sub-menu-big">
+                                    <li>Thi cử</li>
+                                    <li>Đào tạo</li>
+                                    <li>Học bổng - Du học</li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+
                 </div>
             </div>
             
@@ -159,7 +238,7 @@
                     Michael Olise. Bóng đập vào người hậu vệ Rasmus Kristensen ở phía sau và 
                     nảy đúng vị trí để Ito đệm vào lưới trống.
                 </p>
-
+                
                 <p>
                     Ito ghi bàn đầu tiên trong màu áo Bayern, và cũng là cầu thủ Nhật Bản đầu 
                     tiên ghi bàn ở Bundesliga cho Bayern. Anh là cầu thủ Bayern thứ 16 lập công 
@@ -338,8 +417,8 @@
             
         </div>
 
-        <script src="../js/chiTietBaiViet.js"></script>
-        <script src="../js/navbar.js"></script>
+        <script src="../js/chiTietBaiViet.js" defer></script>
+        <script src="../js/navbar.js" defer></script>
         
     </body>
 
