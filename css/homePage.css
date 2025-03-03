@@ -77,6 +77,8 @@ body {
 }
 
 .big-news-image {
+    width: 800px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -182,4 +184,6 @@ body {
 }
 
 
-
+.big-news-img {
+    object-fit: cover;
+}
