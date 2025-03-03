@@ -18,6 +18,7 @@ body {
 .image-title {
     position: relative;
     display: inline-block;
+    height: 350px;
     width: 100%;
 }
 
@@ -25,12 +26,11 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-
 }
 
 .title {
-    width: 505;
-    height: 141;
+    width: 505px;
+    height: 141px;
     top: 180px;
     left: 504px;
 }
@@ -65,7 +65,7 @@ body {
 .grid-section {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
-    gap: 20px;
+    gap: 30px;
 }
 
 .grid-section-items {
@@ -143,3 +143,9 @@ body {
     margin-left: 1267px;
 }
         
+
+.page-container {
+    position: absolute;
+    width: 100%;
+    top: 130px;
+}
