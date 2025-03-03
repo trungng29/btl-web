@@ -2,13 +2,17 @@ body {
     margin: 0;
 }
 
+.position-absolute {
+    width: 100%;
+    position: absolute;
+}
 
-.container-1000 {
+.container {
     margin-top: 390px !important;
     width: 1000px;
     margin: auto;
 }
-.container {
+.items {
     width: 1000px;
     height: 200px;
     display: flex;
