@@ -323,3 +323,37 @@ a {
     transition: 0.8s;
     background: transparent;
 }
+
+.dong{
+    display: none!important;
+}
+.mo{
+    display: block!important;
+}
+#CongDangnhap{
+    width: 100%;
+    height: 100%;
+    background-color: hsla(0,0%,0%,0.5);
+    display: none;
+    z-index: 100;
+    top: 0px;
+    position: fixed;
+}
+.rt{
+    border-bottom-color: #B32A45!important;
+}
+.ut{
+    border-bottom-color: gray!important;
+}
+.form {
+    transition: all .5s ease-in-out; /* Thêm hiệu ứng chuyển đổi */
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.form.active {
+    opacity: 1!important;
+    visibility: visible;
+}
