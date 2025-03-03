@@ -1,0 +1,99 @@
+body{
+    margin: 0;
+}
+nav{
+    display: flex!important;
+    text-align: center;
+    font-size: 22px;
+}
+.navbar{
+    position: relative;
+    display: inline-block;
+}
+.navbar span{
+    cursor: pointer;
+}
+.navbar span:not(span:nth-of-type(4), span:nth-of-type(1), span:nth-of-type(2)){
+    margin-top: 9px;
+    width: 150px;
+}
+.navbar span:nth-of-type(4){
+    margin-top: 9px;
+    width: 250px;
+}
+.hamburger-menu-icon{
+    width: 150px;
+    height: 44px;
+}
+.hamburger-menu-icon:hover{
+    color: #B32A45;
+}
+.icon_narbar{
+    width: 33px;
+    height: 60px;
+}
+.dropdown{
+    position: absolute;
+    opacity: 0;
+    border-top:1px solid #B32A45;
+    color: black!important;
+    margin-top: 15px;
+    cursor: pointer;
+}
+.dropdown li{
+    padding: 4px;
+}
+.dropdown li:hover{
+    text-decoration: underline;
+}
+.dropdown-menu{
+    transition: all .5s ease;
+}
+.dropdown-menu:hover{
+    color: #B32A45;
+}
+.dropdown-menu:hover .dropdown{
+    opacity: 1;
+}
+#menuH{
+    width: 100%;
+    height: 100%;
+    background-color: hsla(0,0%,0%,0.5);
+    padding-top: 1px;
+    transition: all 0.5s ease;
+    display: none;
+}
+.cerq{
+    display: block!important;
+}
+.cer{
+    display: none!important;
+}
+#CongDangnhap{
+    width: 100%;
+    height: 100%;
+    background-color: hsla(0,0%,0%,0.5);
+    display: none;
+    z-index: 100;
+    top: 0px;
+    position: fixed;
+}
+.rt{
+    border-bottom-color: #B32A45!important;
+}
+.ut{
+    border-bottom-color: gray!important;
+}
+.form {
+    transition: all .5s ease-in-out; /* Thêm hiệu ứng chuyển đổi */
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.form.active {
+    opacity: 1!important;
+    visibility: visible;
+}
+

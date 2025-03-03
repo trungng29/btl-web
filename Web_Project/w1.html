@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="w1.css">
+</head>
+<body>
+    <div style="display: flex;">
+        <div style="width: 50%;"><img src="/pictures/logo 1.png" style="width: 200px;margin-left: 85px;"></div>
+        <div style="width: 50%;display: flex">
+            <a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search icon_narbar" style="margin-left: 535px;" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+            </svg></a>
+            <span id="User_name">
+                <svg id="User" onclick="CongDangnhap()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle icon_narbar" style="margin-left:60px"  viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                </svg>
+            </span>
+        </div>
+    </div>
+    <nav class="navbar">
+        <span style="width: 320px"><a><img src="/pictures/Group 2 1.png" style="width: 100px"></a></span>
+        <span style="background-color: grey;width: 2px;height: 30px;opacity: 0.2;margin-top: 6px;"></span>
+        <span class="dropdown-menu">
+            <a>Xã hội</a>
+            <div class="dropdown" style="width: 150px;">
+                <ul style="list-style: none;text-align: left;font-size: 18px;margin-left: -32px;">
+                    <li>Thời sự</li>
+                    <li>Giao thông</li>
+                    <li>Môi trường-khí hậu</li>
+                </ul>
+            </div>
+        </span>
+        <span class="dropdown-menu">
+            <a>Khoa học & Công nghệ</a>
+            <div class="dropdown" style="width: 250px;">
+                <ul style="list-style: none; font-size: 18px;text-align: left;margin-left: -32px;">
+                    <li>Tin tức công nghệ</li>
+                    <li>Hoạt động công nghệ</li>
+                    <li>Tạp chí</li>
+                </ul>
+            </div>
+        </span>
+        <span class="dropdown-menu">
+            <a>Sức khỏe</a>
+            <div class="dropdown" style="width: 150px;">
+                <ul style="list-style: none; font-size: 18px;text-align: left;margin-left: -32px;">
+                    <li>Dinh dưỡng</li>
+                    <li>Làm đẹp</li>
+                    <li>Y tế</li>
+                </ul>
+            </div>
+        </span>
+        <span class="dropdown-menu">
+            <a>Thể thao</a>
+            <div class="dropdown" style="width: 150px;">
+                <ul style="list-style: none; font-size: 18px;text-align: left;margin-left: -32px;">
+                    <li>Bóng đá - Bóng rổ</li>
+                </ul>
+            </div>
+        </span>
+        <span class="dropdown-menu">
+            <a>Giải trí</a>
+            <div class="dropdown" style="width: 150px;">
+                <ul style="list-style: none; font-size: 18px;text-align: left;margin-left: -32px;">
+                    <li>Âm nhạc</li>
+                    <li>Thời trang</li>
+                    <li>Điện ảnh truyền hình</li>
+                </ul>
+            </div>
+        </span>
+        <span class="dropdown-menu">
+            <a>Giáo dục</a>
+            <div class="dropdown" style="width: 150px;"> 
+                <ul style="list-style: none; font-size: 18px;text-align: left;margin-left: -32px;">
+                    <li>Thi cử</li>
+                    <li>Đào tạo</li>
+                    <li>Học bổng - Du học</li>
+                </ul>
+            </div>
+        </span>
+        <span id="Quantri" class="cer">
+            <a>Quản trị</a>
+        </span>
+        <a>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list hamburger-menu-icon" viewBox="0 0 16 16" onclick="menuHamburger()">
+                <path  fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+            </svg>
+        </a>
+    </nav>
+    <div id="menuH">
+        <div style="width: 100%;background-color: white;height: 100px;padding-top:1px;">
+            <div style="margin-left: 265px;">
+                <div style="display: flex;">
+                    <h4 style="font-size: 25px;margin-left: -20px;">Tất cả các chuyên mục</h4>
+                    <button type="button" class="close closs-css" aria-label="Close" style="margin-left: 755px;border: none;font-size: 40px;background-color: white;margin-top: 10px;height: 10px;" onclick="removemenuHamburger()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <hr style="width: 1050px;margin-left: -30px;">
+                <div style="display: flex;font-size: 18px;margin-left: -45px;">
+                    <ul style="list-style: none;">
+                        <li style="color: #B32A45;font-weight: bolder;">Xã hội</li>
+                        <li>Thời sự</li>
+                        <li>Giao thông</li>
+                        <li>Môi trường-khí hậu</li>
+                    </ul>
+                    <ul style="list-style: none;">
+                        <li style="color: #B32A45;font-weight: bolder;">Khoa học & Công nghệ</li>
+                        <li>Tin tức công nghệ</li>
+                        <li>Hoạt động công nghệ</li>
+                        <li>Tạp chí</li>
+                    </ul>
+                    <ul style="list-style: none;">
+                        <li style="color: #B32A45;font-weight: bolder;">Sức khỏe</li>
+                        <li>Dinh dưỡng</li>
+                        <li>Làm đẹp</li>
+                        <li>Y tế</li>
+                    </ul>
+                    <ul style="list-style: none;">
+                        <li style="color: #B32A45;font-weight: bolder;">Thể thao</li>
+                        <li>Bóng đá - Bóng rổ</li>
+                    </ul>
+                    <ul style="list-style: none;">
+                        <li style="color: #B32A45;font-weight: bolder;">Giải trí</li>
+                        <li>Âm nhạc</li>
+                        <li>Thời trang</li>
+                        <li>Điện ảnh truyền hình</li>
+                    </ul>
+                    <ul style="list-style: none;">
+                        <li style="color: #B32A45;font-weight: bolder;">Giáo dục</li>
+                        <li>Thi cử</li>
+                        <li>Đào tạo</li>
+                        <li>Học bổng - Du học</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="CongDangnhap">
+        <div style="width: 450px;height: 650px;background-color: white;margin-left: 35%;margin-top: 22px;">
+            <div style="display: flex;border-bottom: 1px solid gray;">
+                <img src="/pictures/logo 1.png" style="width: 200px;margin-left: 120px;">
+                <button onclick="DongDangnhap()" type="button" class="close closs-css" aria-label="Close" style="background-color: white;font-size: 38px;margin-left: 18%;border: none;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div style="display: flex;font-size: 25px;text-align: center;line-height: 80px;font-weight: bolder;">
+                <div id="txt_dn" onclick="switchToLogin()" style="border-bottom: 2px solid #B32A45;width: 180px;margin-left: 45px;">Đăng nhập</div>
+                <div id="txt_dk" onclick="switchToSignup()" style="border-bottom: 2px solid gray;width: 180px;">Đăng ký</div>
+            </div>
+            <br>
+            <br>
+
+            <div id="Dangnhap" class="form active">
+                <form>
+                    <label for="email1" style="font-weight: bolder; margin-left: 45px;" class="User">Email</label>
+                    <br>
+                    <input id="email1" style="border-radius: 7px; height: 40px; width: 353px; margin-left: 45px;" type="email" placeholder="Email">
+                    <br><br>
+                    <label for="password1" style="font-weight: bolder; margin-left: 45px;" class="User">Mật khẩu</label>
+                    <br>
+                    <input id="password1" style="border-radius: 7px; height: 40px; width: 353px; margin-left: 45px;" type="password" placeholder="Mật khẩu">
+                    <br><br><br>
+                    <button type="button" onclick="Login()" style="background-color: red; color: white; border-radius: 7px; height: 40px; width: 359px; margin-left: 45px; font-weight: bolder; font-size: 20px;">Đăng nhập</button>
+                </form>
+                <p style="margin-left: 45px;">Chưa có tài khoản? <span onclick="switchToSignup()" style="color: blue; cursor: pointer;">Đăng ký</span></p>
+            </div>
+            <div id="Dangky" class="form">
+                <form>
+                    <label for="email2" style="font-weight: bolder; margin-left: 45px;" class="User">Email</label>
+                    <br>
+                    <input id="email2" style="border-radius: 7px; height: 40px; width: 353px; margin-left: 45px;" type="email" placeholder="Email">
+                    <br><br>
+                    <label for="password2" style="font-weight: bolder; margin-left: 45px;" class="User">Mật khẩu</label>
+                    <br>
+                    <input id="password2" style="border-radius: 7px; height: 40px; width: 353px; margin-left: 45px;" type="password" placeholder="Mật khẩu">
+                    <br><br><br>
+                    <button type="button" onclick="CreateLogin()" style="background-color: red; color: white; border-radius: 7px; height: 40px; width: 359px; margin-left: 45px; font-weight: bolder; font-size: 20px;">Đăng ký</button>
+                </form>
+                <p style="margin-left: 45px;">Đã có tài khoản? <span onclick="switchToLogin()" style="color: blue; cursor: pointer;">Đăng nhập</span></p>
+            </div>
+        </div>
+    </div>
+    <script src="w1.js"></script>
+</body>
+</html>
