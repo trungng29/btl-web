@@ -1,5 +1,5 @@
 .con1000 {
-    width: 1000px;
+    width: 1020px;
     margin: auto;
 }
 
@@ -46,9 +46,10 @@ body {
 }
 
 .section {
-    width: 1000px;
+    width: 1020px;
     height: 1190px;
     /* padding: 50px 256px; */
+    margin-bottom: 20px;
 }
 
 .section h2 {
@@ -59,7 +60,7 @@ body {
 }
 
 .title-section img {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .grid-section {
