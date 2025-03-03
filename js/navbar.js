@@ -50,14 +50,132 @@ const toggleScrollButton = document.getElementById('burgerIcon');
 
 let isScrollDisabled = false;
 
-toggleScrollButton.addEventListener('click', () => {
-    isScrollDisabled = !isScrollDisabled;
-    if (isScrollDisabled) {
-        document.body.style.overflow = 'hidden';
-    } else {
-        document.body.style.overflow = 'auto';
+function CongDangnhap(){
+    alert("123")
+    let cdn = document.getElementById("CongDangnhap")
+    cdn.classList.add("mo")
+}
+function DongDangnhap(){
+    let cdn = document.getElementById("CongDangnhap")
+    cdn.classList.remove("mo")
+}
+
+function switchToSignup() {
+    // Ẩn form đăng nhập
+    document.getElementById('Dangnhap').classList.remove('active');
+    document.getElementById('txt_dn').classList.add('ut');
+    // Hiển thị form đăng ký
+    document.getElementById('Dangky').classList.add('active');
+    document.getElementById('txt_dk').classList.add('rt');
+}
+
+function switchToLogin() {
+    // Ẩn form đăng ký
+    document.getElementById('Dangky').classList.remove('active');
+    document.getElementById('txt_dn').classList.remove('ut');
+    // Hiển thị form đăng nhập
+    document.getElementById('Dangnhap').classList.add('active');
+    document.getElementById('txt_dk').classList.remove('rt');
+}
+var email = "kiet@gmail.com"
+var password = "123"
+var account_email = [email];
+var account_pass = [password];
+let drt = document.getElementById("User");
+function TaiKhoan(user_name,nrd_name){
+    nrd_name.style.marginLeft = "30px";  
+    nrd_name.style.marginTop = "20px";   
+    nrd_name.style.fontSize = "18px";
+    nrd_name.addEventListener("click", function(){
+        let ul = nrd_name.querySelector("ul");
+    
+        if (ul) {
+            // Nếu ul đã có, xóa nó đi (tắt)
+            nrd_name.removeChild(ul);
+        } else {
+            // Nếu chưa có, tạo ul và li mới (hiện)
+            let li = document.createElement("li");
+            li.innerHTML = "Thoát";
+            
+
+            ul = document.createElement("ul");
+            ul.appendChild(li);
+            ul.style.listStyle = "none";
+            ul.style.position = "absolute";
+            ul.style.zIndex = 55;
+            ul.style.width = "128px"
+            ul.style.textAlign = "right"
+            ul.style.height = "25px"
+            ul.style.backgroundColor = "white"
+            ul.style.boxShadow = "2px 2px 1px black";
+            li.addEventListener("click", function() {
+                user_name.removeChild(nrd_name);
+                user_name.appendChild(drt);
+                document.getElementById("Quantri").classList.add("dong");
+            });
+
+            nrd_name.appendChild(ul);
+        }
+    })
+    user_name.appendChild(nrd_name);
+}
+function Login(){
+    for(var i=0;i<account_email.length;i++){
+        if(account_email[i] === document.getElementById("email1").value && account_pass[i] === document.getElementById("password1").value){
+            document.getElementById("Quantri").classList.remove("dong");
+            DongDangnhap();
+
+            let user_name = document.getElementById("User_name");
+            user_name.removeChild(drt);
+            let nrd_name = document.createElement("div");
+            nrd_name.textContent += account_email[i];
+            console.log(nrd_name)
+            console.log(user_name)
+            TaiKhoan(user_name,nrd_name);
+            break;
+        }
+        else{
+            failLogin()
+        }
     }
-});
+}
+function failLogin(){
+    var error = document.createElement("div")
+    error.textContent = 'Incorrect email or password. Please try again.'
+    error.style.color = "red"
+    error.style.display = "block";
+    error.style.backgroundColor = "black"
+    error.style.zIndex = 999;
+    error.style.position = "absolute";
+    error.style.width = "500px";
+    error.style.height = "100px"
+    error.style.lineHeight = "95px";
+    error.style.marginLeft = "33%"
+    error.style.marginTop = "-420px"
+    error.style.textAlign = "center"
+    document.getElementById("CongDangnhap").appendChild(error);
+    setTimeout(() => {
+        document.getElementById("CongDangnhap").removeChild(error);
+    },2000)
+}
+function CreateLogin(){
+    var email = document.getElementById("email2").value;
+    var passwork = document.getElementById("password2").value;
+    console.log(email);
+    if(email === "" || passwork === ""){
+        failLogin();
+    }
+    else{
+        var check = confirm("Bạn có muốn vào đăng nhập")
+        if(check){
+            switchToLogin()
+        }
+        else{
+            switchToSignup()
+        }
+    }
+    Login(email,passwork)
+}
 
        
 
