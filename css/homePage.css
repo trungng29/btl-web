@@ -111,6 +111,7 @@ body {
     letter-spacing: 0%;
     color: #686868;
     margin-top: 20px;
+    overflow: hidden;
 }
 
 .second-news {
@@ -186,4 +187,145 @@ body {
 
 .big-news-img {
     object-fit: cover;
+}
+
+.the-thao-section {
+    width: 100%;
+    height: 1501px;
+    position: relative;
+}
+
+.the-thao-section .the-thao-red-background {
+    height: 1501px;
+    width: 100%;
+    position: absolute;
+    object-fit: cover;
+    top: 0;
+}
+
+.black-background-container {
+    height: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.the-thao-section .black-background {
+    width: 1260px;
+    height: 1248px;
+    position: absolute;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.the-thao-section-container {
+    width: 960px;
+    height: 1002px;
+    /* background-color: aliceblue;background: #CBCBCB;
+ */
+}
+
+.the-thao-section-header {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 48px;
+    letter-spacing: 0%;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.the-thao-section-sub-header {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 0%;
+    color: #CBCBCB;
+    text-align: center;
+}
+
+.the-thao-section-header-container .the-thao-section-line {
+    width: 230px;
+    height: 6px;
+    /* position: none; */
+    margin: auto;
+}
+
+.the-thao-red-line-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.the-thao-section-body-container {
+    height: 826px;
+    width: 100%;
+    /* background-color: #E8E8E8; */
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 400px 250px 250px;
+    grid-template-rows: 304px auto;
+    gap: 30px;
+}
+
+.the-thao-side-articles {
+    background-color: aquamarine;
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-column-end: 2;
+    grid-row-end: 3;
+}
+
+.the-thao-big-article {
+    background-color: bisque;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-column-end: 4;
+    grid-row-end: 2;
+    position: relative;
+    cursor: pointer;
+}
+
+.the-thao-second-article-1 {
+    background-color:cadetblue;
+    grid-column-start: 2;
+    grid-row-start: 2;
+    grid-column-end: 3;
+    grid-row-end: 3;
+}
+
+.the-thao-second-article-2 {
+    background-color:cadetblue;
+    grid-column-start: 3;
+    grid-row-start: 2;
+    grid-column-end: 4;
+    grid-row-end: 3;
+}
+
+.the-thao-big-article .the-thao-big-news {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.transparent-panel {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.the-thao-big-news-title {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 0%;
+    color: white;
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    right: 20px;
 }
