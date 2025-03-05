@@ -210,6 +210,15 @@ a {
   transition-delay: 0s, 0s, 0.1s;
 }
 
+.bi-person-circle {
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+}
+
+.bi-person-circle:hover {
+    color: #B32A45;
+}
+
 #burgerIcon {
     cursor: pointer;
 }
@@ -275,6 +284,7 @@ a {
     border-radius: 30px;
     display: flex;
     align-items: center;
+    border: 2px solid transparent;
 }
 
 .search-bar:hover input {
