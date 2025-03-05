@@ -1,45 +1,46 @@
+span {
+  padding: 0;
+}
 
-.header {
+p {
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header1 {
   display: flex;
   align-items: center;
   gap: 20px;
   font-size: 24px;
   font-weight: lighter;
   justify-content: flex-start;
-  width: 100%;
-  max-width: 1260px;
-  margin: 0 auto;
 }
 
-.header .menu {
+.header1 .menu1 {
   font-family: Roboto, sans-serif;
   font-weight: 400;
   font-size: 24px;
-  display: flex;
-  justify-content: space-between;
   gap:25px;
 }
 
-.header .menu span {
+.header1 .menu1 span {
   position: relative;
-  padding-bottom: 30px; /* Giữ khoảng cách với gạch chân */
 }
 
-.header .menu .active {
+.header1 .menu1 .active1 {
   width: 135px;
   height: 46px;
-  top: -2px;
-  margin-right: 5px;
   font-family: Roboto;
   font-weight: 700;
   font-size: 32px;
-  line-height: 46.4px;
   letter-spacing: 0%;
-
-
+  border-bottom: 5px solid #B32A45;
 }
 
-.header .menu .active::after {  /*gạch chân đỏ*/
+/* .header1 .menu1 .active1::after {  
   content: "";
   position: absolute;
   left: 0;
@@ -50,14 +51,20 @@
   letter-spacing: 0%;
 
   background-color: rgba(179, 42, 69, 1);
+} */
+
+.menu1 p {
+  display: inline-block;
+  margin-left: 20px;
 }
 
 
-.content {
+.content1 {
   display: flex;
   flex-direction: column;
-  margin-top: 30px;
+  margin-top: 20px;
   align-items: center;
+  padding: 0;
 }
 .articles {
   display: flex;
@@ -65,20 +72,19 @@
   gap: 15px;
   justify-content: space-between;
   width: 100%;
-  max-width: 1260px;
 }
-.article {
+.article1 {
   display: flex;
   flex-direction: row;
   gap: 15px;
   align-items: center;
-  width: 620px;
+  width: 650px;
   height: 200px;
   top: 2976px;
   left: 126px;
 
 }
-.article img {
+.article1 img {
   height: 100%;
   width: 245px;
 }
@@ -86,29 +92,29 @@
   flex: 1;
   padding-bottom: 20px;
   height: 200px;
+  padding: 10px;
+  padding-top: 0px;
 }
-.article h3 {
+.article1 h3 {
   font-family: Roboto;
   font-weight: 700;
   font-size: 24px;
   letter-spacing: 0;
-  line-height: 34.8px;
   margin-bottom: 10px;
   color:  rgba(0, 0, 0, 1);
 ;
 }
-.article p {
+.article1 p {
   font-family: Open Sans;
   font-weight: 400;
-  font-size: 20px;
-  line-height: 29px;
+  font-size: 18px;
   color: rgba(77, 77, 77, 1);
 }
 .divider {
   width: 100%;
-  max-width: 1260px;
-  border-top: 1px solid #9F9F9F;
-  margin: 20px 0;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  border: 1px solid #9f9f9f77;
 }
 
 * {
@@ -116,9 +122,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-.container {
+.container1 {
   display: flex;
-  flex-wrap: wrap; /* Cho phép xuống hàng */
+  flex-wrap: wrap; 
   justify-content: space-between;
   gap: 30px;
   margin-top: 20px ;
@@ -126,15 +132,16 @@
 
 .card1 {
   position: relative;
-  width: 400px;
-  height: 227px;
+  width: 420px;
+
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  border: 2px solid transparent;
+  border-radius: 10px;
 }
 
 /* Ảnh bài viết */
 .card1-image {
-  width: 400px;
+  width: 100%;
   height: 227px;
   background-image: url('../img/vang.png'); /* Đường dẫn ảnh */
   background-size: cover;
@@ -156,11 +163,17 @@
   background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
   color: white;
   text-align: left;
-  padding: 10px;
+  padding-left: 20px;
+  padding-right: 30px;
+  padding-bottom: 10px;
   font-size: 24px;
   font-weight: 700;
   transition: opacity 0.3s ease-in-out;
+  transform: box-shadow 0.3s ease-in-out;
+}
 
+.card1:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 /* Khi hover, tiêu đề biến mất */
@@ -174,7 +187,7 @@
   top:0;
   bottom: 0;
   left: 0;
-  width: 400px;
+  width: 100%;
   height: 227px;
   padding: 15px;
   background: #8B1E2D; /* Màu đỏ */
@@ -183,6 +196,7 @@
   transform: translateY(100%);
   transition: transform 0.6s ease-in-out, opacity 0.6s ease;
   opacity: 0;
+  padding: 20px 20px;
 }
 
 /* Khi hover, ô màu đỏ hiện lên */
@@ -196,19 +210,14 @@
   margin-bottom: 10px ;
   font-family: Roboto;
   font-weight: 700;
-  line-height: 34.8px;
   letter-spacing: 0%;
   color: rgba(255, 255, 255, 1);
-
 }
 
 .card1-description {
   font-size: 20px;
   font-family: Open Sans;
   font-weight: 400;
-  line-height: 29px;
   letter-spacing: 0%;
-  color: rgba(255, 255, 255, 1);
-
-
+  color: #E8E8E8;
 }
