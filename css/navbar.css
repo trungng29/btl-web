@@ -79,7 +79,7 @@ a {
     align-items: center;
 }
 
-.navbar-tren-container > img {
+.navbar-tren-container > a img {
     height: 60px;
     margin-left: 100px;
 }
@@ -112,7 +112,7 @@ a {
     justify-content: space-between;
 }
 
-.navbar-duoi-container > img {
+.navbar-duoi-container > a img {
     height: 50px;
 }
 
