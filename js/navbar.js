@@ -120,6 +120,7 @@ function TaiKhoan(user_name,nrd_name){
     user_name.appendChild(nrd_name);
 }
 function Login(){
+    var login = false;
     for(var i=0;i<account_email.length;i++){
         if(account_email[i] === document.getElementById("email1").value && account_pass[i] === document.getElementById("password1").value){
             document.getElementById("Quantri").classList.remove("dong");
@@ -132,12 +133,11 @@ function Login(){
             console.log(nrd_name)
             console.log(user_name)
             TaiKhoan(user_name,nrd_name);
+            login = true;
             break;
         }
-        else{
-            failLogin()
-        }
     }
+    if(!login) failLogin();
 }
 function failLogin(){
     var error = document.createElement("div")
@@ -161,12 +161,15 @@ function failLogin(){
 function CreateLogin(){
     var email = document.getElementById("email2").value;
     var passwork = document.getElementById("password2").value;
-    console.log(email);
     if(email === "" || passwork === ""){
+        console.log(email+" "+password)
         failLogin();
     }
     else{
         var check = confirm("Bạn có muốn vào đăng nhập")
+        account_email.push(email);
+        account_pass.push(password);
+        console.log(email+" "+password)
         if(check){
             switchToLogin()
         }
@@ -174,7 +177,6 @@ function CreateLogin(){
             switchToSignup()
         }
     }
-    Login(email,passwork)
 }
 
        
