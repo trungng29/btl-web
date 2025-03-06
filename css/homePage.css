@@ -834,6 +834,19 @@ body {
     padding: 0;
 }
 
+.red-background-2 {
+    position: absolute;
+    top: 1540px;
+    width: 366px;
+    right: 0px;
+    height: 355px;
+    background-color: #9D1F38;
+}
+
+.thoi-su-section {
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
 
 
 

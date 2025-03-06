@@ -1,12 +1,12 @@
-body {
+/* body {
     font-family: 'Open Sans', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #ffffff; /* bo */
-}
+    background-color: #ffffff; 
+} */
 
 .page-containerThoisu {
     display: flex;
@@ -197,7 +197,7 @@ body {
 }
 
 .newsItemThoisu:hover .newsTitleThoisu {
-    transition-property: transform; color;
+    transition-property: transform, color;
     transition-duration: 0.5s;     
     transform: translateX(10px) skewX(-3deg);
 } 
