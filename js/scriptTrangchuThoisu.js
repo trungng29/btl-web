@@ -1,55 +1,55 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const scrollableContent = document.querySelector('.scrollableContentThoisu');
-    const scrollbarButton = document.querySelector('.scrollbarButtonThoisu');
-    const customScrollbar = document.querySelector('.customScrollbarThoisu');
-    const newsItems = document.querySelectorAll('.newsItemThoisu');
-    const mainImage = document.querySelector('.mainImageThoisu');
-    const articleTitle = document.querySelector('.articleTitleThoisu');
-    const articleParagraph = document.querySelector('.articleParagraphThoisu');
+    const scrollableContentTs = document.querySelector('.scrollableContentThoisu');
+    const scrollbarButtonTs = document.querySelector('.scrollbarButtonThoisu');
+    const customScrollbarTs = document.querySelector('.customScrollbarThoisu');
+    const newsItemsTs = document.querySelectorAll('.newsItemThoisu'); // newsItemsTs
+    const mainImageTs = document.querySelector('.mainImageThoisu');
+    const articleTitleTs = document.querySelector('.articleTitleThoisu');
+    const articleParagraphTs = document.querySelector('.articleParagraphThoisu');
     const containerThoisu = document.querySelector('.containerThoisu');
 
 
-    if (!scrollableContent || !scrollbarButton || !customScrollbar || !mainImage || !articleTitle || !articleParagraph || !containerThoisu) {
+    if (!scrollableContentTs || !scrollbarButtonTs || !customScrollbarTs || !mainImageTs || !articleTitleTs || !articleParagraphTs || !containerThoisu) {
         console.error("Scrollbar or content elements not found");
         return;
     }
 
-    let isDragging = false;
-    let startY = 0;
-    let currentY = 0;
-    let contentScrollTop = 0; // sync scroll
+    let isDraggingTs = false;
+    let startYTs = 0;
+    let currentYTs = 0;
+    let contentScrollTopTs = 0; // sync scroll
 
-    scrollbarButton.addEventListener('mousedown', function(e) {
-        isDragging = true;
-        startY = e.clientY - scrollbarButton.offsetTop;
+    scrollbarButtonTs.addEventListener('mousedown', function(e) {
+        isDraggingTs = true;
+        startYTs = e.clientY - scrollbarButtonTs.offsetTop;
         document.body.classList.add('no-select'); // ko select text khi grab
     });
 
     document.addEventListener('mousemove', function(e) {
-        if (!isDragging) return;
+        if (!isDraggingTs) return;
 
-        const scrollbarTrackHeight = customScrollbar.offsetHeight;
-        const scrollButtonHeight = scrollbarButton.offsetHeight;
-        const maxScrollTopButton = scrollbarTrackHeight - scrollButtonHeight;
+        const scrollbarTrackHeightTs = customScrollbarTs.offsetHeight;
+        const scrollButtonHeightTs = scrollbarButtonTs.offsetHeight;
+        const maxScrollTopButtonTs = scrollbarTrackHeightTs - scrollButtonHeightTs;
 
-        currentY = e.clientY - startY;
-        if (currentY < 0) {
-            currentY = 0;
+        currentYTs = e.clientY - startYTs;
+        if (currentYTs < 0) {
+            currentYTs = 0;
         }
-        if (currentY > maxScrollTopButton) {
-            currentY = maxScrollTopButton;
+        if (currentYTs > maxScrollTopButtonTs) {
+            currentYTs = maxScrollTopButtonTs;
         }
 
-        scrollbarButton.style.top = currentY + 'px';
+        scrollbarButtonTs.style.top = currentYTs + 'px';
 
         // tinh toan % scroll
-        const scrollPercentage = currentY / maxScrollTopButton;
-        contentScrollTop = scrollPercentage * (scrollableContent.scrollHeight - scrollableContent.offsetHeight);
-        scrollableContent.scrollTop = contentScrollTop;
+        const scrollPercentageTs = currentYTs / maxScrollTopButtonTs;
+        contentScrollTopTs = scrollPercentageTs * (scrollableContentTs.scrollHeight - scrollableContentTs.offsetHeight);
+        scrollableContentTs.scrollTop = contentScrollTopTs;
     });
 
     document.addEventListener('mouseup', function() {
-        isDragging = false;
+        isDraggingTs = false;
         document.body.classList.remove('no-select');
     });
 
@@ -61,92 +61,95 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // hover effect
-    newsItems.forEach(item => {
+    newsItemsTs.forEach(item => { // newsItemsTs
         item.addEventListener('mouseenter', function() {
-            const mainImage = document.querySelector('.mainImageThoisu');
-            const articleTitle = document.querySelector('.articleTitleThoisu');
-            const articleParagraph = document.querySelector('.articleParagraphThoisu');
-            const newsImage = item.querySelector('.newsImageThoisu');
-            const newsTitle = item.querySelector('.newsTitleThoisu');
-            const newsParagraph = item.querySelector('.newsParagraphThoisu'); // Get news paragraph
-    
-            // ... (existing code to update main image and article) ...
-            mainImage.src = item.dataset.img;
-            articleTitle.textContent = item.dataset.title;
-            articleParagraph.textContent = item.dataset.paragraph;
-    
-    
-            // --- Dynamic Text Color based on Image for Title --- (Existing code - keep it)
-            const imgForTitle = new Image(); // Separate Image object for title color analysis
-            imgForTitle.src = newsImage.src;
-    
-            imgForTitle.onload = function() {
-                const canvas = document.createElement('canvas');
-                canvas.width = imgForTitle.width;
-                canvas.height = imgForTitle.height;
-                const ctx = canvas.getContext('2d');
-                ctx.drawImage(imgForTitle, 0, 0);
-    
-                const imageData = ctx.getImageData(0, 0, imgForTitle.width, imgForTitle.height).data;
-                let totalLuminance = 0;
-                for (let i = 0; i < imageData.length; i += 4) {
-                    const r = imageData[i];
-                    const g = imageData[i + 1];
-                    const b = imageData[i + 2];
-                    const luminance = (0.299 * r + 0.587 * g + 0.114 * b);
-                    totalLuminance += luminance;
+            const mainImageTs = document.querySelector('.mainImageThoisu');
+            const articleTitleTs = document.querySelector('.articleTitleThoisu');
+            const articleParagraphTs = document.querySelector('.articleParagraphThoisu');
+            const newsImageTs = item.querySelector('.newsImageThoisu'); // newsImageTs
+            const newsTitleTs = item.querySelector('.newsTitleThoisu'); // newsTitleTs
+            const newsParagraphTs = item.querySelector('.newsParagraphThoisu'); // newsParagraphTs
+
+            // (existing code to update main image and article)
+            mainImageTs.src = item.dataset.img;
+            articleTitleTs.textContent = item.dataset.title;
+            articleParagraphTs.textContent = item.dataset.paragraph;
+
+
+            // dynamic text color based on canvas (cho newsTitleTs)
+            const imgForTitleTs = new Image(); // Separate Image object for title color analysis
+            imgForTitleTs.src = newsImageTs.src; // newsImageTs
+
+            imgForTitleTs.onload = function() {
+                const canvasTs = document.createElement('canvas');
+                canvasTs.width = imgForTitleTs.width;
+                canvasTs.height = imgForTitleTs.height;
+                const ctxTs = canvasTs.getContext('2d');
+                ctxTs.drawImage(imgForTitleTs, 0, 0);
+
+                const imageDataTs = ctxTs.getImageData(0, 0, imgForTitleTs.width, imgForTitleTs.height).data;
+                let totalLuminanceTs = 0;
+                for (let i = 0; i < imageDataTs.length; i += 4) {
+                    const r = imageDataTs[i];
+                    const g = imageDataTs[i + 1];
+                    const b = imageDataTs[i + 2];
+                    const luminanceTs = (0.299 * r + 0.587 * g + 0.114 * b);
+                    totalLuminanceTs += luminanceTs;
                 }
-                const averageLuminance = totalLuminance / (imgForTitle.width * imgForTitle.height);
-    
-                if (averageLuminance < 128) {
-                    newsTitle.style.color = 'white';
+                const averageLuminanceTs = totalLuminanceTs / (imgForTitleTs.width * imgForTitleTs.height);
+
+                if (averageLuminanceTs < 128) {
+                    newsTitleTs.style.color = 'white'; // newsTitleTs
                 } else {
-                    newsTitle.style.color = '#333';
+                    newsTitleTs.style.color = 'black'; // newsTitleTs
                 }
             };
-    
-            // --- Dynamic Text Color based on Image for Paragraph --- (New code for Paragraph)
-            const imgForParagraph = new Image(); // Separate Image object for paragraph color analysis
-            imgForParagraph.src = newsImage.src;
-    
-            imgForParagraph.onload = function() {
-                const canvasPara = document.createElement('canvas'); // Separate canvas for paragraph
-                canvasPara.width = imgForParagraph.width;
-                canvasPara.height = imgForParagraph.height;
-                const ctxPara = canvasPara.getContext('2d'); // Separate context for paragraph canvas
-                ctxPara.drawImage(imgForParagraph, 0, 0);
-    
-                const imageDataPara = ctxPara.getImageData(0, 0, imgForParagraph.width, imgForParagraph.height).data;
-                let totalLuminancePara = 0;
-                for (let i = 0; i < imageDataPara.length; i += 4) {
-                    const r = imageDataPara[i];
-                    const g = imageDataPara[i + 1];
-                    const b = imageDataPara[i + 2];
-                    const luminancePara = (0.299 * r + 0.587 * g + 0.114 * b);
-                    totalLuminancePara += luminancePara;
+
+            // --- dynamic text color based on canvas (cho newsImageTs)
+            const imgForParagraphTs = new Image(); // Separate Image object for paragraph color analysis
+            imgForParagraphTs.src = newsImageTs.src; // newsImageTs
+
+            imgForParagraphTs.onload = function() {
+                const canvasParaTs = document.createElement('canvas'); // Separate canvas for paragraph
+                canvasParaTs.width = imgForParagraphTs.width;
+                canvasParaTs.height = imgForParagraphTs.height;
+                const ctxParaTs = canvasParaTs.getContext('2d'); // Separate context for paragraph canvas
+                ctxParaTs.drawImage(imgForParagraphTs, 0, 0);
+
+                const imageDataParaTs = ctxParaTs.getImageData(0, 0, imgForParagraphTs.width, imgForParagraphTs.height).data;
+                let totalLuminanceParaTs = 0;
+                for (let i = 0; i < imageDataParaTs.length; i += 4) {
+                    const r = imageDataParaTs[i];
+                    const g = imageDataParaTs[i + 1];
+                    const b = imageDataParaTs[i + 2];
+                    const luminanceParaTs = (0.299 * r + 0.587 * g + 0.114 * b);
+                    totalLuminanceParaTs += luminanceParaTs;
                 }
-                const averageLuminancePara = totalLuminancePara / (imgForParagraph.width * imgForParagraph.height);
-    
-                if (averageLuminancePara < 128) {
-                    newsParagraph.style.color = 'white';
+                const averageLuminanceParaTs = totalLuminanceParaTs / (imgForParagraphTs.width * imgForParagraphTs.height);
+
+                if (averageLuminanceParaTs < 128) {
+                    newsParagraphTs.style.color = 'white'; // newsParagraphTs
                 } else {
-                    newsParagraph.style.color = '#666'; // Original paragraph color (#666)
+                    newsParagraphTs.style.color = 'black'; // Original paragraph color
                 }
             };
-    
-    
+
+
         });
     });
 
-    newsItems.forEach(item => {
-        // ... (mouseenter event listener - updated above) ...
-    
+    let mouseleaveTimeoutIDTs; // Var store timeout ID cho mouseleave debounce
+
+    newsItemsTs.forEach(item => { // newsItemsTs
         item.addEventListener('mouseleave', function() {
-            const newsTitle = item.querySelector('.newsTitleThoisu');
-            const newsParagraph = item.querySelector('.newsParagraphThoisu');
-    
-            newsTitle.style.color = ''; // Reset title color to default (from CSS)
-            newsParagraph.style.color = ''; // Reset paragraph color to default (from CSS)
+            const newsTitleTs = item.querySelector('.newsTitleThoisu'); // newsTitleTs
+            const newsParagraphTs = item.querySelector('.newsParagraphThoisu'); // newsParagraphTs
+
+            mouseleaveTimeoutIDTs = setTimeout(() => {
+                newsTitleTs.style.color = ''; // reset // newsTitleTs
+                newsParagraphTs.style.color = ''; // reset // newsParagraphTs
+                mouseleaveTimeoutIDTs = null; // clear timeout ID khi xong
+            }, 100);
         });
     });
 
@@ -155,61 +158,61 @@ document.addEventListener('DOMContentLoaded', function() {
      containerThoisu.addEventListener('wheel', function(e) {
         e.preventDefault(); // ko default scroll
 
-        const scrollSensitivity = 80; // scroll speed
-        const scrollAmount = e.deltaY * (scrollSensitivity/100) ; // so luong scroll
-        const scrollbarTrackHeight = customScrollbar.offsetHeight;
-        const scrollButtonHeight = scrollbarButton.offsetHeight;
-        const maxScrollTopButton = scrollbarTrackHeight - scrollButtonHeight;
-        const contentScrollHeight = scrollableContent.scrollHeight - scrollableContent.offsetHeight;
+        const scrollSensitivityTs = 80; // scroll speed
+        const scrollAmountTs = e.deltaY * (scrollSensitivityTs/100) ; // so luong scroll
+        const scrollbarTrackHeightTs = customScrollbarTs.offsetHeight;
+        const scrollButtonHeightTs = scrollbarButtonTs.offsetHeight;
+        const maxScrollTopButtonTs = scrollbarTrackHeightTs - scrollButtonHeightTs;
+        const contentScrollHeightTs = scrollableContentTs.scrollHeight - scrollableContentTs.offsetHeight;
 
 
         // tinh scrollTop moi cho content
-        contentScrollTop += scrollAmount; // update tracked contentScrollTop
-        if (contentScrollTop < 0) {
-            contentScrollTop = 0;
+        contentScrollTopTs += scrollAmountTs; // update tracked contentScrollTop
+        if (contentScrollTopTs < 0) {
+            contentScrollTopTs = 0;
         }
-        if (contentScrollTop > contentScrollHeight) {
-            contentScrollTop = contentScrollHeight;
+        if (contentScrollTopTs > contentScrollHeightTs) {
+            contentScrollTopTs = contentScrollHeightTs;
         }
-        scrollableContent.scrollTop = contentScrollTop; // ap dung scroll cho content
+        scrollableContentTs.scrollTop = contentScrollTopTs; // ap dung scroll cho content
 
 
         // tinh % scroll cho content (not button)
-        const scrollPercentage = contentScrollHeight === 0 ? 0 : contentScrollTop / contentScrollHeight;
+        const scrollPercentageTs = contentScrollHeightTs === 0 ? 0 : contentScrollTopTs / contentScrollHeightTs;
 
 
         // tinh vi tri top moi cho scroll button
-        let newScrollButtonTop = scrollPercentage * maxScrollTopButton;
-        if (newScrollButtonTop < 0) {
-            newScrollButtonTop = 0;
+        let newScrollButtonTopTs = scrollPercentageTs * maxScrollTopButtonTs;
+        if (newScrollButtonTopTs < 0) {
+            newScrollButtonTopTs = 0;
         }
-        if (newScrollButtonTop > maxScrollTopButton) {
-            newScrollButtonTop = maxScrollTopButton;
+        if (newScrollButtonTopTs > maxScrollTopButtonTs) {
+            newScrollButtonTopTs = maxScrollTopButtonTs;
         }
 
 
-        scrollbarButton.style.top = newScrollButtonTop + 'px'; // di chuyen button
+        scrollbarButtonTs.style.top = newScrollButtonTopTs + 'px'; // di chuyen button
 
     });
 
 
     // setup vi tri scrollbar button on load neu co content de scroll
-    if (scrollableContent.scrollHeight > scrollableContent.offsetHeight) {
-        scrollbarButton.style.top = '0px'; // reset to top on load if scrollable
+    if (scrollableContentTs.scrollHeight > scrollableContentTs.offsetHeight) {
+        scrollbarButtonTs.style.top = '0px'; // reset to top on load if scrollable
     } else {
-        customScrollbar.style.display = 'none'; // hide custom scrollbar neu ko can
+        customScrollbarTs.style.display = 'none'; // hide custom scrollbar neu ko can
     }
 });
 // fill newsParagraphThoisu tu data-paragraph on load
-const newsItemsParagraphs = document.querySelectorAll('.newsItemThoisu');
-newsItemsParagraphs.forEach(newsItem => {
-    const paragraphContent = newsItem.dataset.paragraph;
-    const paragraphElement = newsItem.querySelector('.newsParagraphThoisu');
-    if (paragraphElement && paragraphContent) {
-        paragraphElement.textContent = paragraphContent;
+const newsItemsParagraphsTs = document.querySelectorAll('.newsItemThoisu'); // newsItemsParagraphsTs
+newsItemsParagraphsTs.forEach(newsItem => { // newsItemsParagraphsTs
+    const paragraphContentTs = newsItem.dataset.paragraph;
+    const paragraphElementTs = newsItem.querySelector('.newsParagraphThoisu');
+    if (paragraphElementTs && paragraphContentTs) {
+        paragraphElementTs.textContent = paragraphContentTs;
         // shorten paragraph
-        if (paragraphContent.length > 100) {
-            paragraphElement.textContent = paragraphContent.substring(0, 140) + "..."; //shorten to 140
+        if (paragraphContentTs.length > 100) {
+            paragraphElementTs.textContent = paragraphContentTs.substring(0, 140) + "..."; //shorten to 140
         }
     }
 });
