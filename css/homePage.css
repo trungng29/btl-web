@@ -696,8 +696,58 @@ body {
     margin-right: 10px;
 }
 
+.the-thao-section-article {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
 
+.the-thao-section-article > img {
+    height: 300px;
+    width: 100%;
+    position: absolute;
+}
 
+.the-thao-section-sub {
+    position: absolute;
+    top: 300px;
+    font-family: Open Sans;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 145%;
+    letter-spacing: 0%;
+    height: 180px;
+    color: #4D4D4D;
+    /* padding: 15px; */
+
+}
+
+.the-thao-section-sub p {
+    font-family: Open Sans;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 145%;
+    letter-spacing: 0%;
+    height: 100%;
+    color: #4D4D4D;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.the-thao-section-article-heading {
+    position: absolute;
+    bottom: 192px;
+    color: white;
+    margin: 15px;
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 145%;
+    letter-spacing: 0%;
+}
 
 
 
