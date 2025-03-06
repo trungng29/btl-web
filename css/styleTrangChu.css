@@ -168,6 +168,7 @@ a {
   padding-bottom: 10px;
   font-size: 24px;
   font-weight: 700;
+  line-height: 145%;
   transition: opacity 0.3s ease-in-out;
   transform: box-shadow 0.3s ease-in-out;
 }
