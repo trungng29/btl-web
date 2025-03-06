@@ -221,3 +221,20 @@ a {
   letter-spacing: 0%;
   color: #E8E8E8;
 }
+
+@media (max-width: 1400px) {
+
+  
+
+  .card1 {
+    width: 550px;
+  }
+
+  .container1 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+      margin-top: 20px;
+  }
+}

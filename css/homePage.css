@@ -392,7 +392,7 @@ body {
     margin-top: 70px;
     display: grid;
     grid-template-rows: 60px 215px 110px 110px 110px 130px 265px;
-    grid-template-columns: 405px 274px auto 36px 400px;
+    grid-template-columns: 405px 274px auto 11px 400px;
     gap: 25px;
 }
 
@@ -479,7 +479,6 @@ body {
 }
 
 .giai-tri-item-5 {
-    background-color:rgb(248, 195, 48);
     grid-column-start: 1;
     grid-row-start: 7;
     grid-column-end: 2;
@@ -488,7 +487,6 @@ body {
 }
 
 .giai-tri-item-6 {
-    background-color:rgb(214, 49, 98);
     grid-column-start: 1;
     grid-row-start: 5;
     grid-column-end: 2;
@@ -497,12 +495,12 @@ body {
 }
 
 .giai-tri-the-be-1 {
-    background-color: #B32A45;
+
     transform: box-shadow 0.3s ease-in-out;
 }
 
 .giai-tri-the-be-2 {
-    background-color: #B32A45;
+
     grid-column-start: 2;
     grid-row-start: 3;
     grid-column-end: 4;
@@ -512,12 +510,12 @@ body {
 
 
 .giai-tri-the-be-3 {
-    background-color: #B32A45;
+
     transform: box-shadow 0.3s ease-in-out;
 }
 
 .giai-tri-the-be-4 {
-    background-color: #B32A45;
+
     grid-column-start: 2;
     grid-row-start: 4;
     grid-column-end: 4;
@@ -526,7 +524,7 @@ body {
 }
 
 .giai-tri-the-be-5 {
-    background-color: #B32A45;
+
     grid-column-start: 2;
     grid-row-start: 5;
     grid-column-end: 4;
@@ -542,7 +540,8 @@ body {
 
 .giai-tri-item-1-article {
     height: 100%;
-    padding: 10px 15px;
+    padding: 15px 15px;
+    padding-right: 5px;
 }
 
 .giai-tri-item-1-article h3 {
@@ -610,6 +609,29 @@ body {
     object-fit: cover;
 }
 
+.giai-tri-item-4-article {
+    width: 100%;
+    height: 100%;
+    padding: 20px 15px;
+}
+
+.giai-tri-item-4-article > h3 {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 145%;
+    letter-spacing: 0%;
+}
+
+.giai-tri-item-4-article > p {
+    font-family: Open Sans;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 145%;
+    letter-spacing: 0%;
+    color: #4D4D4D;    
+}
+
 .giai-tri-item-6 {
     position: relative;
 }
@@ -650,9 +672,52 @@ body {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
+.giai-tri-the-be {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F5F5F5;
+}
+
+.giai-tri-the-be > img {
+    width: 170px;
+    height: 100%;
+    object-fit: cover;
+}
+
+.giai-tri-the-be-article > h3 {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 145%;
+    letter-spacing: 0%;
+    margin-left: 20px;
+    margin-bottom: 0px;
+    margin-right: 10px;
+}
+
+
+
+
+
+
 /* MEDIA QUERRIES */
 
 @media (max-width: 1400px) {
+
+    .big-news-heading {
+        margin-top: 20px !important;
+    }
+
+    .tin-tuc-noi-bat {
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+
+    .giai-tri-section {
+        overflow: hidden;
+    }
+
     .tin-tuc-noi-bat {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
@@ -666,6 +731,10 @@ body {
         display: none;
     }
 
+    .big-news-image {
+        margin: auto;
+    }
+
     .big-news-heading {
         text-align: center;
         width: 800px;
@@ -677,6 +746,18 @@ body {
         width: 800px;
         margin: auto;
         margin-bottom: 20px;
+        display: none;
+    }
+
+    .big-news .big-news-title h2 {
+        height: 100px;
+    }
+
+    .container1 {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 30px;
+        margin-top: 20px;
     }
 }
-
