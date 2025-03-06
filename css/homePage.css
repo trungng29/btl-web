@@ -206,8 +206,8 @@ body {
 }
 
 .suc-khoe-section {
-    margin-top: 50px;
-    margin-bottom: 80px;
+    margin-top: 70px;
+    margin-bottom: 70px;
     padding: 0;
 }
 
@@ -829,6 +829,10 @@ body {
     cursor: pointer;
 }
 
+
+.khoa-hoc-cong-nghe {
+    padding: 0;
+}
 
 
 
