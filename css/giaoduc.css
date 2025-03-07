@@ -15,7 +15,7 @@
 .edu-section-heading {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 25px;
     margin-bottom: 20px;
 }
 
@@ -28,11 +28,18 @@
 
 .edu-section-sub-title {
     display: flex;
-    gap: 15px;
+    gap: 25px;
 }
 
 .edu-section-sub-title p {
     font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.edu-section-sub-title p:hover {
+    font-size: 24px;
+    color: #B32A45;
 }
 
 .edu-main-content {
@@ -68,14 +75,15 @@
 
 }
 
-
 .right-container {
     display: grid;
 }
+
 .right-container img{
     width: 305px;
     height: 166px;
 }
+
 .right-container h3{
     width: 305px;
     height: 700px;
@@ -83,20 +91,17 @@
     font-weight: bold;
     font-size: 24px;
     text-align: left;
-    
-
+    margin-top: 10px;
 }
+
 .right-container .edu-item-2 {
     display: flex;
     width: 305px;
     height: 105px;
-    margin-top: 10px;
     align-items: center;
     flex-direction: column;
     text-align: left;
     margin-left: 10px;
-  
-  
 }
 
 .extra-container {
