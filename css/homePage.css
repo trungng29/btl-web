@@ -31,10 +31,6 @@ a {
     text-decoration: none;
 }
 
-body {
-    height: 10000px;
-}
-
 .page-body {
     position: absolute;
     width: 100%;

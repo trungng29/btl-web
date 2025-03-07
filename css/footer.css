@@ -1,0 +1,85 @@
+.footer-page {
+    width: 100%;
+    height: 650px;
+    background-color: #B32A45;
+    margin-top: 100px;
+}
+
+.footer-tren {
+    width: 100%;
+    height: 500px;
+    background-color: #B32A45;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-tren-slogan {
+    width: 60%;
+    
+}
+
+.footer-tren-slogan h3 {
+    color: white;
+    font-family: "Lexend Deca", sans-serif;
+    font-weight: 500;
+    font-size: 60px;
+}
+
+.footer-tren-contacts {
+    width: 30%;
+    /* height: 311.98px; */
+}
+
+.footer-tren-contacts h3 {
+    color: white;
+    font-family: "Lexend Deca", sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.social-links {
+    height: 100%;
+}
+
+.social-links i {
+    color: rgba(255, 255, 255, 0.669);
+    cursor: pointer;
+    transition: color 0.5s ease;
+}
+
+.social-links i:not(:nth-of-type(1)) {
+    margin-left: 20px;
+}
+
+.social-links i:hover {
+    color: white;
+}
+
+
+.footer-duoi {
+    width: 100%;
+    height: 150px;
+    background-color: #1b1b1b;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-duoi > img {
+    height: 100px;
+}
+
+.footer-duoi h3 {
+    color: white;
+    font-family: "Lexend Deca", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.under-text {
+    height: 100px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
