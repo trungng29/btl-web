@@ -91,6 +91,7 @@ a {
     grid-row-start: 3;
     grid-column-end: 3;
     grid-row-end: 4;
+
 }
 
 .big-news-image {
@@ -131,6 +132,24 @@ a {
     overflow: hidden;
 }
 
+.transparent-panel-second-news {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+}
+
+#carouselExampleSlidesOnlySecondNews {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#carouselExampleSlidesOnlySecondNews * {
+    width: 100%;
+    height: 100%;
+}
+
 .second-news {
     position: relative;
 }
@@ -147,12 +166,23 @@ a {
     font-size: 30px;
     color: white;
     letter-spacing: 0%;
-    z-index: 1;
+    z-index: 2;
 
     position: absolute;
     bottom: 20px;
     left: 20px;
     right: 20px;
+}
+
+#carouselExampleSlidesOnlyThirdNews {
+    width: 225px !important;
+    height: 241px !important;
+}
+
+#carouselExampleSlidesOnlyThirdNews img {
+    width: 225px !important;
+    height: 241px !important;
+    object-fit: cover;
 }
 
 .third-news {
@@ -162,9 +192,10 @@ a {
     background-color: #B32A45 !important;
 }
 
-.third-news img {
+/* .third-news img {
     width: 225px;
-}
+    height: 100%;
+} */
 
 .third-news-title {
     /* background-color: aliceblue; */
@@ -845,6 +876,17 @@ a {
 }
 
 
+.third-news-title {
+    min-height: 80px !important; /* Đặt chiều cao tối thiểu để tránh bị co */
+}
+
+.third-news-heading {
+    min-height: 40px !important; /* Đảm bảo không bị co lại khi opacity thay đổi */
+}
+
+.third-news-article {
+    min-height: 60px !important; /* Tránh co giãn khi chữ biến mất */
+}
 
 
 
