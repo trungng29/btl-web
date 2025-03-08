@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 // Nếu không đủ section, tạo mới
                 let newSection = document.createElement("div");
-                newSection.classList.add("section", "con1000", "margin-50");
+                newSection.classList.add("section", "con1000");
     
                 // Phần tiêu đề section
                 let titleSection = document.createElement("div");
