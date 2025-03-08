@@ -26,6 +26,10 @@ body::-webkit-scrollbar {
     display: none; /* Ẩn scroller trên Chrome, Safari */
 }
 
+.glass-panel {
+    z-index: 1;
+}
+
 
 .position-fixed {
     position: fixed;
