@@ -22,7 +22,10 @@ switch (categoryName) {
     case "Giải trí":
         document.querySelector(".background-image-danh-muc").setAttribute("src", "../assets/trangDanhMucBackgroundImages/giaiTriSectionBgImage.png");
         break;
-    
+
+    case "Thể thao":
+        document.querySelector(".background-image-danh-muc").setAttribute("src", "../assets/trangDanhMucBackgroundImages/theThaoSectionBgImage.png");
+        break;
         
     case "Giáo dục":
         document.querySelector(".background-image-danh-muc").setAttribute("src", "../assets/trangDanhMucBackgroundImages/giaoDucSectionBgImage.png");
