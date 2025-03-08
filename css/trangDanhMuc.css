@@ -68,6 +68,10 @@ body {
     margin-bottom: 30px;
 }
 
+.title-section i {
+    margin-left: 10px;
+}
+
 .grid-section {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
