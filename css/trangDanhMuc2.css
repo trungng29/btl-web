@@ -2,6 +2,12 @@ body {
     margin: 0;
 }
 
+.page-container {
+    position: absolute;
+    width: 100%;
+    top: 130px;
+}
+
 .image-title {
     position: relative;
     display: inline-block;
