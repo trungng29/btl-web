@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const burgerIconSubMenuParent = document.querySelectorAll(".cat-set-big-title")
     const theThaoXemThem = document.querySelector(".the-thao-side-article-xem-them")
     const bodyCate = document.querySelectorAll(".body-title-category")
+    const subMenuCate = document.querySelectorAll(".sub-menu-button")
+    const bigMenuCate = document.querySelectorAll(".sub-menu-big li")
 
     function chuyenTrang(name) {
         const categoryName = name.textContent;
@@ -38,6 +40,26 @@ document.addEventListener("DOMContentLoaded", function () {
             chuyenTrang(bodyCate[i])
         })
     }
+
+    for ( let i = 0; i < subMenuCate.length; i++ ) {
+
+        subMenuCate[i].addEventListener("click", function(e) {
+            e.preventDefault();
+            window.localStorage.setItem("category-name", subMenuCate[i].textContent.trim());
+            window.location.href = "../html/trangDanhMuc.html";
+        });
+    }
+
+    for ( let i = 0; i < bigMenuCate.length; i++ ) {
+
+        bigMenuCate[i].addEventListener("click", function(e) {
+            e.preventDefault();
+            window.localStorage.setItem("category-name", bigMenuCate[i].textContent.trim());
+            window.location.href = "../html/trangDanhMuc.html";
+        });
+    }
+    
+    
 
 
 

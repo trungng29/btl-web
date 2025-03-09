@@ -1,10 +1,66 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const categoryName = localStorage.getItem("category-name");
+    
+    let categoryName = localStorage.getItem("category-name");
     const heading = document.querySelector(".title h1");
     const subTitle = document.querySelectorAll(".title-section h2");
     const section = document.querySelectorAll(".section");
+    let subMenuCateHolder = "";
     let cateHolder = "";
 
+    if (   
+        categoryName != "Xã hội" &&
+        categoryName != "Khoa học & Công nghệ" &&
+        categoryName != "Sức khỏe" &&
+        categoryName != "Thể thao" &&
+        categoryName != "Giải trí" &&
+        categoryName != "Giáo dục" 
+    ) {
+        // console.log(categoryName)
+        switch (categoryName) {
+            case "Thời sự":
+            case "Giao thông":
+            case "Môi trường - Khí hậu":
+                categoryName = "Xã hội"
+                break;
+    
+            case "Tin tức công nghệ":
+            case "Tin tức":
+            case "Hoạt động công nghệ":
+            case "Hoạt động":
+            case "Tạp chí":
+                categoryName = "Khoa học & Công nghệ"
+                break;
+    
+            case "Dinh dưỡng":
+            case "Làm đẹp":
+            case "Y tế":
+                categoryName = "Sức khỏe"
+                break;
+
+            case "Bóng đá":
+            case "Bóng rổ":
+                categoryName = "Thể thao"
+                break;
+            
+            case "Âm nhạc":
+            case "Thời trang":
+            case "Điện ảnh - Truyền hình":
+                categoryName = "Giải trí"
+                break;
+
+            case "Thi cử":
+            case "Đào tạo":
+            case "Học bổng - Du học":
+                categoryName = "Giáo dục"
+                break;
+
+            default:
+                break;
+        }
+        console.log(categoryName)
+    }
+   
+    console.log(categoryName)
     heading.textContent = categoryName;
 
     let background = document.querySelector(".background-image-danh-muc").getAttribute("src");
@@ -48,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelector(".background-image-danh-muc").setAttribute("src", "../assets/trangDanhMucBackgroundImages/giaoDucSectionBgImage.png");
             cateHolder = "giaoDuc";
             break;
-
+        
         default:
             break;
     }
@@ -157,5 +213,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     
     alignCategories(cateHolder);
+
+    
 
 });
