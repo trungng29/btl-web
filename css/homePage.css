@@ -888,7 +888,9 @@ a {
     min-height: 60px !important; /* Tránh co giãn khi chữ biến mất */
 }
 
-
+.body-title-category {
+    cursor: pointer;
+}
 
 
 
