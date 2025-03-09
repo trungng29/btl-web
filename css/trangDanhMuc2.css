@@ -31,6 +31,17 @@ body {
     font-weight: 700;
 }
 
+.container-back a:hover {
+    color: #B32A45;
+}
+
+.container-back a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none; /* Nếu muốn bỏ gạch chân */
+}
+
 .container-back {
     display: flex;
     align-items: center;
@@ -44,6 +55,8 @@ body {
     font-size: 24px;
     font-weight: 500;
     font-family: "Roboto", sans-serif;  
+    display: inline-block;
+    margin: 0;
 }
 
 .section-1020 {
@@ -70,6 +83,19 @@ body {
     display: flex;
     background-color: white;
     margin-bottom: 30px;
+}
+
+.title-section:hover {
+    color: #B32A45;
+}
+
+.description a {
+    color: black; 
+    text-decoration: none; 
+}
+
+.description a:hover {
+    color: #B32A45; 
 }
 
 
