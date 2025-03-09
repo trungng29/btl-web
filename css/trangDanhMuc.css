@@ -159,3 +159,21 @@ body {
     width: 100%;
     top: 130px;
 }
+
+.view-more p:hover {
+    color: #B32A45;
+}
+
+/* Màu chữ mặc định */
+.news-title,
+.news-link {
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Đổi màu khi di chuột vào */
+.news-title:hover,
+.news-link:hover {
+    color: #B32A45;
+}
