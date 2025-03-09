@@ -179,4 +179,19 @@ function CreateLogin(){
     }
 }
 
-       
+console.log("handle enter")
+document.querySelector(".search-bar-input").addEventListener("keydown", function(event) {
+    if (event.key === "Enter" && this.value.trim() !== "") {
+        let query = document.getElementsByClassName("search-bar-input")[0].value;
+        window.localStorage.setItem("search-value", query);
+        window.location.href = "../html/trangTimKiemBaiViet.html";
+    }
+});
+
+document.querySelector(".search-bar-big-input-menu").addEventListener("keydown", function(event) {
+    if (event.key === "Enter" && this.value.trim() !== "") {
+        let query = document.getElementsByClassName("search-bar-big-input-menu")[0].value;
+        window.localStorage.setItem("search-value", query);
+        window.location.href = "../html/trangTimKiemBaiViet.html";
+    }
+})
