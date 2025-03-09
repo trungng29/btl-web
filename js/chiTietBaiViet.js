@@ -1,5 +1,16 @@
 "use strict";
 
+const bigCate = document.querySelectorAll(".sub-menu-big a li")
+
+for ( let i = 0; i < bigCate.length; i++ ) {
+    bigCate[i].addEventListener("click", function(e) {
+        e.preventDefault();
+        console.log(bigCate[i].textContent);
+        window.localStorage.setItem("category-name", bigCate[i].textContent.trim());
+        window.location.href = "../html/trangDanhMuc.html";
+    })
+}
+
 // Đối tượng lưu thông tin người dùng
 const userId = {
     name: null,

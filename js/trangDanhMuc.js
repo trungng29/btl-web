@@ -1,5 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
-    
+    const bigCate = document.querySelectorAll(".sub-menu-big a li")
+
+    for ( let i = 0; i < bigCate.length; i++ ) {
+        bigCate[i].addEventListener("click", function(e) {
+            e.preventDefault();
+            console.log(bigCate[i].textContent);
+            window.localStorage.setItem("category-name", bigCate[i].textContent.trim());
+            window.location.href = "../html/trangDanhMuc.html";
+        })
+    }
+
+    console.log(localStorage.getItem("category-name"))
     let categoryName = localStorage.getItem("category-name");
     const heading = document.querySelector(".title h1");
     const subTitle = document.querySelectorAll(".title-section h2");
