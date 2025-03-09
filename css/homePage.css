@@ -122,6 +122,24 @@ a {
     max-height: 160px;
 }
 
+.big-news-title a {
+    text-decoration: none;
+    color: black;
+}
+
+.big-news-title a:hover {
+    color: #B32A45;
+}
+
+.big-news-title p {
+    text-decoration: none;
+    color: black;
+}
+
+.big-news-title p:hover {
+    color: #B32A45;
+}
+
 .big-news-article {
     font-family: Open Sans;
     font-weight: 400;
@@ -967,4 +985,9 @@ a {
         gap: 30px;
         margin-top: 20px;
     }
+}
+
+.a {
+    text-decoration: none !important;
+    color: black;
 }

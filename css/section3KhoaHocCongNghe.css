@@ -45,11 +45,16 @@ p {
     color: black;
 }
 
+.left-title p:hover {
+    color: #B32A45;
+}
+
 .img-description {
     display: flex;
     align-items: center;
     gap: 10px;
 }
+
 
 .left-img {
     width: 145px;
@@ -78,6 +83,10 @@ p {
 .left-description a{
     text-decoration: none;
     color: black;
+}
+
+.left-description p:hover {
+    color: #B32A45;
 }
 
 .container-right {
@@ -162,6 +171,12 @@ p {
     font-size: 36px;
 }
 
+.container-right-image-description a {
+    text-decoration: none;
+    color: white;
+}
+
+
 .container-right-card {
     display: flex;
     justify-content: center;
@@ -189,6 +204,11 @@ p {
     font-size: 24px;
     font-weight: 700;
     margin: 30px 20px 20px 20px;
+}
+
+.container-right-card-content a {
+    text-decoration: none;
+    color: white;
 }
 
 .container-right-card-content p {
