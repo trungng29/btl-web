@@ -97,6 +97,7 @@ function TaiKhoan(user_name,nrd_name){
             // Nếu chưa có, tạo ul và li mới (hiện)
             let li = document.createElement("li");
             li.innerHTML = "Thoát";
+
             ul = document.createElement("ul");
             ul.appendChild(li);
             ul.style.listStyle = "none";
@@ -110,7 +111,9 @@ function TaiKhoan(user_name,nrd_name){
             li.addEventListener("click", function() {
                 user_name.removeChild(nrd_name);
                 user_name.appendChild(drt);
+
                 document?.getElementById("Quantri").classList.add("dong");
+
             });
 
             nrd_name.appendChild(ul);
@@ -119,6 +122,7 @@ function TaiKhoan(user_name,nrd_name){
     user_name.appendChild(nrd_name);
 }
 function Login(){
+
     var login = false;
     for(var i=0;i<account_email.length;i++){
         if(account_email[i] === document.getElementById("email1").value && account_pass[i] === document.getElementById("password1").value){
@@ -126,16 +130,20 @@ function Login(){
                 document.getElementById("Quantri").classList.remove("dong");
             }
             DongDangnhap();
+
+
             let user_name = document.getElementById("User_name");
             user_name.removeChild(drt);
             let nrd_name = document.createElement("div");
             nrd_name.textContent += account_email[i];
+
             TaiKhoan(user_name,nrd_name);
             login = true;
             break;
         }
     }
     if(!login) failLogin();
+
 }
 function failLogin(){
     var error = document.createElement("div")
@@ -159,16 +167,20 @@ function failLogin(){
 function CreateLogin(){
     var email = document.getElementById("email2").value;
     var passwork = document.getElementById("password2").value;
+
     var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if(email === "" || passwork === "" || !emailRegex.test(email)){
         console.log(email+" "+password)
+
         failLogin();
     }
     else{
         var check = confirm("Bạn có muốn vào đăng nhập")
+
         account_email.push(email);
         account_pass.push(password);
         console.log(email+" "+password)
+
         if(check){
             switchToLogin()
         }
@@ -176,6 +188,7 @@ function CreateLogin(){
             switchToSignup()
         }
     }
+
 }
 
        
