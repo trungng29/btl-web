@@ -1,6 +1,6 @@
 # Bài tập lớn – Lập trình web – Nhóm 4 – E22CN02
 
-### Trang web preview: **(http://theptitnewspaper.kesug.com/)
+### Trang web preview: http://theptitnewspaper.kesug.com/
 
 ## Tài liệu và liên kết quan trọng
 
