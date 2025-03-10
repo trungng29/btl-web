@@ -1,0 +1,93 @@
+body{
+    margin: 0;
+}
+.stats{
+    display: flex; justify-content: center;
+    gap: 175px;
+    margin-left: 25px;
+}
+.stat-box{
+    padding: 10px; border-radius: 10px; width: 180px; color: white;
+}
+.articles { background: #3498db; }
+.categories { background: #2ecc71; }
+.users { background: #e74c3c; }
+canvas { margin-top: 20px; }
+
+.minimenu{
+    border:3px outset brown;border: 3px outset brown;padding: 10px;
+}
+.high_property{
+    width: 100%!important;
+}
+.high_property_tab{
+    margin-left: 14%!important;
+}
+.low_menutab{
+    width:50px;
+    height: 705px;
+    background-color: #B32A45;
+}
+.menutab{
+    width: 330px;
+    height: 705px;
+    background-color: #B32A45;
+}
+.hien{
+    display: block!important;
+}
+.an{
+    display: none!important;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+th{
+    background-color: #B32A45;
+    color: white;
+    font-size: 16px;
+}
+td{
+    background:linear-gradient(lightblue, white);
+    
+}
+th, td{
+    border: 1px solid black;
+}
+#ThemPageNew, #XoaPageNew, #ThemCategories, #XoaCategory, #ThemUser, #XoaUser {
+    width: 100%;
+    height: 100%;
+    background-color: hsla(0,0%,0%,0.5);
+    display: none;
+    z-index: 100;
+    top: 0px;
+    position: fixed;
+    margin-left: -60px;
+}
+.form1{
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    gap:30px
+}
+.form1 div, .User{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    text-align: left;
+}
+.form1 input{
+    height: 40px;
+    border-radius: 10px;
+    width: 350px;
+}
+.ND{
+    font-size: 20px;
+}
+.ND_input{
+    width: 730px;
+    border-radius: 10px;
+    height: 60px;
+    font-size: 15px;
+}

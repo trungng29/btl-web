@@ -82,6 +82,7 @@ var password = "123"
 var account_email = [email];
 var account_pass = [password];
 let drt = document.getElementById("User");
+
 function TaiKhoan(user_name,nrd_name){
     nrd_name.style.marginLeft = "30px";  
     nrd_name.style.marginTop = "20px";   
@@ -96,8 +97,6 @@ function TaiKhoan(user_name,nrd_name){
             // Nếu chưa có, tạo ul và li mới (hiện)
             let li = document.createElement("li");
             li.innerHTML = "Thoát";
-            
-
             ul = document.createElement("ul");
             ul.appendChild(li);
             ul.style.listStyle = "none";
@@ -111,7 +110,7 @@ function TaiKhoan(user_name,nrd_name){
             li.addEventListener("click", function() {
                 user_name.removeChild(nrd_name);
                 user_name.appendChild(drt);
-                document.getElementById("Quantri").classList.add("dong");
+                document?.getElementById("Quantri").classList.add("dong");
             });
 
             nrd_name.appendChild(ul);
@@ -123,15 +122,14 @@ function Login(){
     var login = false;
     for(var i=0;i<account_email.length;i++){
         if(account_email[i] === document.getElementById("email1").value && account_pass[i] === document.getElementById("password1").value){
-            document.getElementById("Quantri").classList.remove("dong");
+            if(i==0){
+                document.getElementById("Quantri").classList.remove("dong");
+            }
             DongDangnhap();
-
             let user_name = document.getElementById("User_name");
             user_name.removeChild(drt);
             let nrd_name = document.createElement("div");
             nrd_name.textContent += account_email[i];
-            console.log(nrd_name)
-            console.log(user_name)
             TaiKhoan(user_name,nrd_name);
             login = true;
             break;
@@ -161,7 +159,8 @@ function failLogin(){
 function CreateLogin(){
     var email = document.getElementById("email2").value;
     var passwork = document.getElementById("password2").value;
-    if(email === "" || passwork === ""){
+    var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if(email === "" || passwork === "" || !emailRegex.test(email)){
         console.log(email+" "+password)
         failLogin();
     }
