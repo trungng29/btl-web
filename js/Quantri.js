@@ -3,10 +3,8 @@ function SaveNPStorage(){
     var articles = [];
     var tableNP = document.getElementById("PageNewTable");
     var rowNP = Array.from(tableNP.querySelectorAll("tr"));
-    console.log(rowNP)
     rowNP.forEach(row => {
         var getrow = Array.from(row.children).filter(cell => cell.tagName == "TD")
-        console.log(getrow)
         if (getrow.length < 6) return;
         var article = {
             title: getrow[1].textContent.trim(),
@@ -24,7 +22,6 @@ function SaveCTStorage(){
 
     rowNP.forEach(row => {
         var getrow = Array.from(row.children).filter(cell => cell.tagName == "TD")
-        console.log(getrow)
         if (getrow.length < 2) return;
         var article = {
             title: getrow[1].textContent.trim(),
@@ -40,7 +37,6 @@ function SaveUserStorage(){
 
     rowNP.forEach(row => {
         var getrow = Array.from(row.children).filter(cell => cell.tagName == "TD")
-        console.log(getrow)
         if (getrow.length < 3) return;
         var article = {
             title: getrow[1].textContent.trim(),
@@ -50,18 +46,17 @@ function SaveUserStorage(){
     })
     return articles;
 }
-var NewPage = SaveNPStorage();
-var CatePage = SaveCTStorage();
-var UserPage = SaveUserStorage();
+
 
 let chart;
-localStorage.setItem("articles", JSON.stringify(NewPage));
-
-localStorage.setItem("categories", JSON.stringify(CatePage));
-
-localStorage.setItem("users", JSON.stringify(UserPage));
-
 function loadBoardCast(){
+    var NewPage = SaveNPStorage();
+    var CatePage = SaveCTStorage();
+    var UserPage = SaveUserStorage();
+    localStorage.setItem("articles", JSON.stringify(NewPage));
+    localStorage.setItem("categories", JSON.stringify(CatePage));
+    localStorage.setItem("users", JSON.stringify(UserPage));
+
     let articles = JSON.parse(localStorage.getItem("articles")) || [];
     let categories = JSON.parse(localStorage.getItem("categories")) || [];
     let users = JSON.parse(localStorage.getItem("users")) || [];
@@ -85,41 +80,28 @@ function loadBoardCast(){
     canvas.width = 1098;
     canvas.height = 500;
     let ctx = document.getElementById("articleChart").getContext("2d");
-    if(chart){
-        chart.data.labels = categoryNames; 
-        chart.data.datasets[0].data = categoryCounts;
-        chart.update();
-    } else {
-        chart = new Chart(ctx, {
-            type: "bar",
-            data: {
-                labels: categoryNames,
-                datasets: [{
-                    label: "Số bài viết theo danh mục",
-                    data: categoryCounts,
-                    backgroundColor: ["#3498db", "#2ecc71", "#e74c3c", "#f39c12"]
-                }]
-            },
-            options: {
-                responsive: false, 
-                maintainAspectRatio: false 
-            }
-        });
+
+    if (chart) {
+        chart.destroy(); 
     }
+
+    chart = new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: categoryNames,
+            datasets: [{
+                label: "Số bài viết theo danh mục",
+                data: categoryCounts,
+                backgroundColor: ["#3498db", "#2ecc71", "#e74c3c", "#f39c12"]
+            }]
+        },
+        options: {
+            responsive: false, 
+            maintainAspectRatio: false 
+        }
+    });
 }
 
-window.addEventListener("storage", function(){
-    loadBoardCast();
-});
-
-setInterval(() => {
-    let newArticles = JSON.parse(localStorage.getItem("articles")) || [];
-    let currentTotal = chart ? chart.data.datasets[0].data.reduce((a, b) => a + b, 0) : 0;
-
-    if (newArticles.length !== currentTotal) {
-        loadBoardCast();
-    }
-}, 1000);
 
 function menutab() {
     const low_property = document.querySelector(".low_property");
@@ -241,7 +223,6 @@ function displayMannageUser(){
 
 //Code riêng của quản lý bài báo
 function OpenAddPageNew(){
-    console.log(123)
     const GoiAP = document.getElementById("ThemPageNew");
     GoiAP.classList.add("hien");
 }
@@ -283,6 +264,7 @@ function AddPageNeew(){
 
     AddNew.appendChild(AddNewRow)
     CloseAddPageNew()
+    loadBoardCast()
 }
 
 function OpenDeletePageNew(){
@@ -309,6 +291,7 @@ function DeletePageNew(){
         rowToDelete.remove()
         sttpn = SortId(table, sttpn)
         CloseDeletePageNew()
+        loadBoardCast()
     }
     else{
         if(document.getElementById("DeleteError")) return
@@ -327,7 +310,7 @@ function CloseAddCate(){
     const GoiAP = document.getElementById("ThemCategories");
     GoiAP.classList.remove("hien");
 }
-var sttct = 1;
+var sttct = 6;
 function AddCate(){
     sttct++;
     var AddNew = document.getElementById("Categorybody")
@@ -345,6 +328,7 @@ function AddCate(){
 
     AddNew.appendChild(AddNewRow)
     CloseAddCate()
+    loadBoardCast()
 }
 
 function OpenDeleteCate(){
@@ -371,6 +355,7 @@ function DeleteCate(){
         rowToDelete.remove()
         sttct = SortId(table, sttct)
         CloseDeleteCate()
+        loadBoardCast()
     }
     else{
         if(document.getElementById("DeleteError")) return
@@ -402,15 +387,24 @@ function AddUser(){
     var TenUser = document.createElement("td")
     TenUser.textContent = document.getElementById("Users").value
 
+    var email = document.createElement("td")
+    email.textContent = document.getElementById("email").value
+
+    var password = document.createElement("td")
+    password.textContent = document.getElementById("password").value
+
     var Role = document.createElement("td")
     Role.textContent = document.getElementById("PQ").value
 
     AddNewRow.appendChild(AddSTT)
     AddNewRow.appendChild(TenUser)
+    AddNewRow.appendChild(email)
+    AddNewRow.appendChild(password)
     AddNewRow.appendChild(Role)
 
     AddNew.appendChild(AddNewRow)
     CloseAddUser()
+    loadBoardCast()
 }
 
 function OpenDeleteUser(){
@@ -437,6 +431,7 @@ function DeleteUser(){
         rowToDelete.remove()
         sttu = SortId(table, sttu)
         CloseDeleteUser()
+        loadBoardCast()
     }
     else{
         if(document.getElementById("DeleteError")) return
@@ -455,7 +450,7 @@ function SortId(table, stt){
         }
         return rows.length - 1;
     }
-    return stt;
+    return stt-1;
 }
 function DeleteError(GoiAP){
     var DER = document.createElement("div")
@@ -491,4 +486,20 @@ function removeDeleteError(button) {
     DER.remove();
 }
 
+function SelectDM(){
+    var DMTable = document.getElementById("PageCateTable");
+    var RowDM = Array.from(DMTable.querySelectorAll("tr"))
 
+    var SelectDM = document.getElementById("DM")
+    SelectDM.innerHTML = "";
+    RowDM.forEach(row => {
+        var CreateOp = document.createElement("option");
+        var DMvalue = Array.from(row.children).filter(cell => cell.tagName == "TD")
+        if(DMvalue < 1) return
+        console.log(DMvalue)
+        CreateOp.textContent = DMvalue[1].textContent.trim();
+        console.log(CreateOp)
+        SelectDM.appendChild(CreateOp);
+    })
+   
+}
