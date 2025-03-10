@@ -1,4 +1,3 @@
-# btl-web
 # Bài tập lớn – Lập trình web – Nhóm 4 – E22CN02
 
 ## Tài liệu và liên kết quan trọng
