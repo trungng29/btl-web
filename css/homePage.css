@@ -1,3 +1,18 @@
+.transparent-text {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 30px;
+    color: white;
+    letter-spacing: 0%;
+    z-index: 1;
+
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+}
+
+
 .tin-tuc-noi-bat-container {
     height: 831px;
     width: 100%;
@@ -12,6 +27,10 @@
     z-index: -999;
 }
 
+a {
+    text-decoration: none;
+}
+
 body {
     height: 10000px;
 }
@@ -23,16 +42,18 @@ body {
 }
 
 .tin-tuc-noi-bat {
-    margin-top: 55px;
+    margin-top: 65px;
     height: 700px;
     width: 100%;
     /* background-color: aliceblue; */
     z-index: 2;
     position: relative;
     display: grid;
-    grid-template-rows: 93px 339px 241px;
-    grid-template-columns: 800px 500px;
+    grid-template-rows: auto 339px 241px;
+    grid-template-columns: 800px auto;
     gap: 20px;
+    padding: 0;
+    margin-bottom: 70px;
 }
 
 .tin-tuc-noi-bat .heading h2 {
@@ -111,6 +132,7 @@ body {
     letter-spacing: 0%;
     color: #686868;
     margin-top: 20px;
+    overflow: hidden;
 }
 
 .second-news {
@@ -179,11 +201,732 @@ body {
     padding-right: 25px;
 }
 
-.thoi-su-section {
-    
+.big-news-img {
+    object-fit: cover;
+}
+
+.suc-khoe-section {
+    margin-top: 70px;
+    margin-bottom: 70px;
+    padding: 0;
+}
+
+.giai-tri-1-section-heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-column-end: 3;
+    grid-row-end: 2;
+}
+
+.giai-tri-1-section-heading .giai-tri-1-section-title h3 {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: 0%;
+    border-bottom: 5px solid #B32A45;
+}
+
+.giai-tri-1-section-sub-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.giai-tri-1-section-sub-title p {
+    margin-left: 25px;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 24px;
+    letter-spacing: 0%;
+    transition: color 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.giai-tri-1-section-sub-title p:hover {
+    color: #B32A45;
 }
 
 
-.big-news-img {
+.the-thao-section {
+    width: 100%;
+    height: 1501px;
+    position: relative;
+}
+
+.the-thao-section .the-thao-red-background {
+    height: 1501px;
+    width: 100%;
+    position: absolute;
     object-fit: cover;
+    top: 0;
+}
+
+.black-background-container {
+    height: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.the-thao-section .black-background {
+    height: 1248px;
+    position: absolute;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.the-thao-section-container {
+    width: 960px;
+    height: 1002px;
+}
+
+.the-thao-section-header {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 48px;
+    letter-spacing: 0%;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.the-thao-section-sub-header {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 0%;
+    color: #CBCBCB;
+    text-align: center;
+}
+
+.the-thao-section-header-container .the-thao-section-line {
+    width: 230px;
+    height: 6px;
+    /* position: none; */
+    margin: auto;
+}
+
+.the-thao-red-line-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.the-thao-section-body-container {
+    height: 826px;
+    width: 100%;
+    /* background-color: #E8E8E8; */
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 400px 250px 250px;
+    grid-template-rows: 304px auto;
+    gap: 30px;
+}
+
+.the-thao-side-articles {
+    /* background-color: aquamarine; */
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-column-end: 2;
+    grid-row-end: 3;
+    position: relative;
+}
+
+.the-thao-big-article {
+    background-color: bisque;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-column-end: 4;
+    grid-row-end: 2;
+    position: relative;
+    cursor: pointer;
+}
+
+.the-thao-second-article-1 {
+    background-color:cadetblue;
+    grid-column-start: 2;
+    grid-row-start: 2;
+    grid-column-end: 3;
+    grid-row-end: 3;
+}
+
+.the-thao-second-article-2 {
+    background-color:cadetblue;
+    grid-column-start: 3;
+    grid-row-start: 2;
+    grid-column-end: 4;
+    grid-row-end: 3;
+}
+
+.the-thao-big-article .the-thao-big-news {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.transparent-panel {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.the-thao-big-news-title {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 0%;
+    color: white;
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    right: 20px;
+}
+
+.giai-tri-section { 
+    height: auto;
+    /* background-color: rgb(121, 121, 121); */
+    margin-top: 70px;
+    display: grid;
+    grid-template-rows: 60px 215px 110px 110px 110px 130px 265px;
+    grid-template-columns: 405px 274px auto 11px 400px;
+    gap: 25px;
+}
+
+.giai-tri-section .giai-tri-section-heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-column-end: 3;
+    grid-row-end: 2;
+}
+
+.giai-tri-section .giai-tri-section-heading .giai-tri-section-title h3 {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: 0%;
+    border-bottom: 5px solid #B32A45;
+}
+
+.giai-tri-section-sub-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.giai-tri-section-sub-title p {
+    margin-left: 25px;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 24px;
+    letter-spacing: 0%;
+    transition: color 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.giai-tri-section-sub-title p:hover {
+    color: #B32A45;
+}
+
+.giai-tri-item-1 {
+    background-color: #F5F5F5;
+    grid-column-start: 1;
+    grid-row-start: 2;
+    grid-column-end: 3;
+    grid-row-end: 3;
+    transform: box-shadow 0.3s ease-in-out;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.giai-tri-item-2 {
+    grid-column-start: 3;
+    grid-row-start: 1;
+    grid-column-end: 6;
+    grid-row-end: 3;
+    transform: box-shadow 0.3s ease-in-out;
+}
+
+.giai-tri-item-3 {
+    background-color:#F5F5F5;
+    grid-column-start: 4;
+    grid-row-start: 3;
+    grid-column-end: 6;
+    grid-row-end: 6;
+    transform: box-shadow 0.3s ease-in-out;
+}
+
+.giai-tri-item-4 {
+    background-color: #F5F5F5;
+    grid-column-start: 2;
+    grid-row-start: 6;
+    grid-column-end: -1;
+    grid-row-end: -1;
+    transform: box-shadow 0.3s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.giai-tri-item-5 {
+    grid-column-start: 1;
+    grid-row-start: 7;
+    grid-column-end: 2;
+    grid-row-end: 8;
+    transform: box-shadow 0.3s ease-in-out;
+}
+
+.giai-tri-item-6 {
+    grid-column-start: 1;
+    grid-row-start: 5;
+    grid-column-end: 2;
+    grid-row-end: 7;
+    transform: box-shadow 0.3s ease-in-out;
+}
+
+.giai-tri-the-be-1 {
+
+    transform: box-shadow 0.3s ease-in-out;
+}
+
+.giai-tri-the-be-2 {
+
+    grid-column-start: 2;
+    grid-row-start: 3;
+    grid-column-end: 4;
+    grid-row-end: 4;
+    transform: box-shadow 0.3s ease-in-out;
+}
+
+
+.giai-tri-the-be-3 {
+
+    transform: box-shadow 0.3s ease-in-out;
+}
+
+.giai-tri-the-be-4 {
+
+    grid-column-start: 2;
+    grid-row-start: 4;
+    grid-column-end: 4;
+    grid-row-end: 5;
+    transform: box-shadow 0.3s ease-in-out;
+}
+
+.giai-tri-the-be-5 {
+
+    grid-column-start: 2;
+    grid-row-start: 5;
+    grid-column-end: 4;
+    grid-row-end: 6;
+    transform: box-shadow 0.3s ease-in-out;
+}
+
+.giai-tri-item-1 img {
+    width: 310px;
+    height: 215px;
+
+}
+
+.giai-tri-item-1-article {
+    height: 100%;
+    padding: 15px 15px;
+    padding-right: 5px;
+}
+
+.giai-tri-item-1-article h3 {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 0%;
+}
+
+.giai-tri-item-1-article p {
+    font-family: Open Sans;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 0%;
+    color: #4D4D4D;
+}
+
+.giai-tri-item-2 {
+    position: relative;
+}
+
+.giai-tri-item-2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+
+.giai-tri-item-3 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.giai-tri-item-3 img {
+    width: 100%;
+    object-fit: cover;
+    height: 186px;
+}
+
+.giai-tri-item-3-article {
+    width: 100%;
+    height: 100%;
+    padding: 15px 20px;
+}
+.giai-tri-item-3-article h3 {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 0%;
+}
+
+.giai-tri-item-3-article p {
+    font-family: Open Sans;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 0%;    
+    color: #4D4D4D;
+}
+
+.giai-tri-item-4 img {
+    width: 520px;
+    height: 100%;
+    object-fit: cover;
+}
+
+.giai-tri-item-4-article {
+    width: 100%;
+    height: 100%;
+    padding: 20px 15px;
+}
+
+.giai-tri-item-4-article > h3 {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 145%;
+    letter-spacing: 0%;
+}
+
+.giai-tri-item-4-article > p {
+    font-family: Open Sans;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 145%;
+    letter-spacing: 0%;
+    color: #4D4D4D;    
+}
+
+.giai-tri-item-6 {
+    position: relative;
+}
+
+.giai-tri-item-5 {
+    position: relative;
+}
+
+.giai-tri-item-6 img,
+.giai-tri-item-5 img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+}
+
+.transparent-text-1 {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 0%;
+    color: white;
+
+    z-index: 1;
+
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+}
+
+
+.shadow-hover {
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.shadow-hover:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.giai-tri-the-be {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F5F5F5;
+}
+
+.giai-tri-the-be > img {
+    width: 170px;
+    height: 100%;
+    object-fit: cover;
+}
+
+.giai-tri-the-be-article > h3 {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 145%;
+    letter-spacing: 0%;
+    margin-left: 20px;
+    margin-bottom: 0px;
+    margin-right: 10px;
+}
+
+.the-thao-section-article {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.the-thao-section-article > img {
+    height: 300px;
+    width: 100%;
+    position: absolute;
+    object-fit: cover;
+}
+
+.the-thao-section-sub {
+    position: absolute;
+    top: 300px;
+    font-family: Open Sans;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 145%;
+    letter-spacing: 0%;
+    height: 180px;
+    color: #4D4D4D;
+    /* padding: 15px; */
+
+}
+
+.the-thao-section-sub p {
+    font-family: Open Sans;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 145%;
+    letter-spacing: 0%;
+    height: 100%;
+    color: #4D4D4D;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.the-thao-section-article-heading {
+    position: absolute;
+    bottom: 192px;
+    color: white;
+    margin: 15px;
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 145%;
+    letter-spacing: 0%;
+}
+
+.the-thao-side-articles-heading {
+    width: 100%;
+}
+
+.the-thao-side-articles-heading h3 {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 145%;
+    letter-spacing: 0%;
+    padding-left: 15px;
+    border-left: 7px solid #B32A45;
+    color: white;
+}
+
+.the-thao-side-article {
+    width: 400px;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.the-thao-side-article-1 {
+    margin-top: 40px !important;
+}
+
+
+.the-thao-side-article > img {
+    width: 140px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.the-thao-side-article > h3 {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 145%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: white;
+    margin-left: 10px;
+}
+
+.the-thao-side-article-xem-them {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    transition: color 0.3s ease-in-out;
+}
+
+.the-thao-side-article-xem-them > a h3 {
+    color: #801d30 !important;
+    margin: 0;
+    transition: color 0.3s ease-in-out;
+}
+
+.the-thao-side-article-xem-them > a i {
+    color: #801d30 !important;
+    margin-left: 5px;
+    transition: color 0.3s ease-in-out;
+}
+
+.the-thao-side-article-xem-them:hover h3,
+.the-thao-side-article-xem-them:hover i {
+    color: #B32A45 !important;
+    cursor: pointer;
+}
+
+
+.khoa-hoc-cong-nghe {
+    padding: 0;
+}
+
+.red-background-2 {
+    position: absolute;
+    top: 1540px;
+    width: 366px;
+    right: 0px;
+    height: 355px;
+    background-color: #9D1F38;
+}
+
+.thoi-su-section {
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MEDIA QUERRIES */
+
+@media (max-width: 1400px) {
+
+    .big-news-heading {
+        margin-top: 20px !important;
+    }
+
+    .tin-tuc-noi-bat {
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+
+    .giai-tri-section {
+        overflow: hidden;
+    }
+
+    .tin-tuc-noi-bat {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .second-news {
+        display: none;
+    }
+
+    .third-news {
+        display: none;
+    }
+
+    .big-news-image {
+        margin: auto;
+    }
+
+    .big-news-heading {
+        text-align: center;
+        width: 800px;
+        margin: auto;
+    }
+
+    .big-news-article {
+        margin-top: 20px !important;
+        width: 800px;
+        margin: auto;
+        margin-bottom: 20px;
+        display: none;
+    }
+
+    .big-news .big-news-title h2 {
+        height: 100px;
+    }
+
+    .container1 {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 30px;
+        margin-top: 20px;
+    }
 }
