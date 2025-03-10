@@ -165,7 +165,6 @@ function CreateLogin(){
         var check = confirm("Bạn có muốn vào đăng nhập")
         account_email.push(email);
         account_pass.push(password);
-        
         if(check){
             switchToLogin()
         }
@@ -174,5 +173,3 @@ function CreateLogin(){
         }
     }
 }
-
-
