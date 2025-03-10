@@ -910,11 +910,18 @@ a {
     cursor: pointer;
 }
 
+.scale-hover {
+    width: 100%;
+    overflow: hidden;
+}
 
+.scale-hover img {
+    transition: transform 0.5s ease-in-out;
+}
 
-
-
-
+.scale-hover:hover img {
+    transform: scale(1.1);
+}
 
 
 
