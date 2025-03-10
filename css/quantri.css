@@ -91,3 +91,9 @@ th, td{
     height: 60px;
     font-size: 15px;
 }
+
+.quay-ve-button {
+    width: 100px;
+    height: auto;
+    background-color: aliceblue;
+}
