@@ -98,13 +98,7 @@
                                     </div>
                                     <div style="margin-left: 1%;">
                                         <label for="DM">Đẩy lên danh mục nào</label>
-                                        <select id="DM">
-                                            <option>Xã hội</option>
-                                            <option>Khoa học & Công nghệ</option>
-                                            <option>Sức khỏe</option>
-                                            <option>Thể thao</option>
-                                            <option>Giải trí</option>
-                                            <option>Giáo dục</option>
+                                        <select onfocus="SelectDM()" id="DM" >
                                         </select>
                                     </div>
                                 </div>
@@ -146,7 +140,27 @@
                             </tr>
                             <tr>
                                 <td>1</td>
-                                <td>Chăm sóc sức khỏe</td>
+                                <td>Xã hội</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Khoa học & Công nghệ</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Sức khỏe</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Thể thao</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Giải trí</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Giáo dục</td>
                             </tr>
                         </thead>
                         <tbody id="Categorybody">
@@ -195,37 +209,52 @@
                         <tr>
                             <th>STT</th>
                             <th>Tên người dùng</th>
+                            <th>Email người dùng</th>
+                            <th>Mật khẩu</th>
                             <th>Phân quyền</th>
                         </tr>
                         <tr>
                             <td>1</td>
                             <td>Nguyễn Minh Kiệt</td>
+                            <td>kiet@gmail.com</td>
+                            <td>123</td>
                             <td>Admin</td>
                         </tr>
                         <tr>
                             <td>2</td>
                             <td>Nguyễn Tuấn Kiệt</td>
+                            <td>tuankiet@gmail.com</td>
+                            <td>110</td>
                             <td>User</td>
                         </tr>
                         <tbody id="MannageUserbody"></tbody>
                     </table>
                     <div class="CST"  id="ThemUser">
-                        <div class="Them" style="width: 600px;height: 400px;background-color: #B32A45;border: 1px solid white;color: black;margin-top: 40px;margin-left: 6%;border-radius: 20px;">
+                        <div class="Them" style="width: 800px;height: 500px;background-color: #B32A45;border: 1px solid white;color: black;margin-top: 40px;margin-left: 6%;border-radius: 20px;">
                             <button onclick="CloseAddUser()" type="button" class="close closs-css" aria-label="Close" style="background-color:#B32A45;color:black;font-size: 35px; margin-left: 93%;border: none;margin-top: 10px;">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                            <div style="width: 500px;height: 300px;background-color: white;border: 5px inset yellow;border-radius: 20px;margin-left: 10%;">
+                            <div style="width: 640px;height: 380px;background-color: white;border: 5px inset yellow;border-radius: 20px;margin-left: 10%;margin-top:-2%">
                                 <h2 style="    padding: 10px;">Thêm người dùng</h2>
-                                <div style="    display: flex;flex-direction: column;text-align: left;margin-left: 50px;">
+                                <div style="display: flex;flex-direction: column;text-align: left;margin-left: 50px;">
                                     <label style="padding-bottom: 10px;font-size: 20px;" for="Users">Tên người dùng</label>
-                                    <input style=" width: 390px;border-radius: 5px;" id="Users" placeholder="Tên người dùng" type="text">
+                                    <input style="font-size: 20px; width: 250px;border-radius: 5px;" id="Users" placeholder="Tên người dùng" type="text">
                                 </div>
-                                <br>
-                                <div style="    display: flex;flex-direction: column;text-align: left;margin-left: 50px;">
+                                <div style="display: flex;flex-direction: row; gap:20px;text-align: left;margin-left: 8%;font-size: 20px; padding-bottom: 10px;padding-top: 10px;">
+                                    <div style="display: flex;flex-direction: column;">
+                                        <label for="email">Email</label>
+                                        <input style=" width: 250px;border-radius: 5px;" id="email" type="email" placeholder="Email">
+                                    </div>
+                                    <div style="display: flex;flex-direction: column;">
+                                        <label for="password">Mật khẩu</label>
+                                        <input style=" width: 250px;border-radius: 5px;" id="password" type="password" placeholder="Mật khẩu">
+                                    </div>
+                                </div>
+                                <div style="display: flex;flex-direction: column;text-align: left;margin-left: 50px; font-size: 20px;">
                                     <label for="PQ">Phân quyền</label>
                                     <select id="PQ" style="width: 110px;">
                                         <option>Admin</option>
-                                        <option>Người dùng</option>
+                                        <option>User</option>
                                     </select>
                                 </div>
                                 <br>

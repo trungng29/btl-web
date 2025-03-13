@@ -89,12 +89,9 @@ function TaiKhoan(user_name,nrd_name){
     nrd_name.style.fontSize = "18px";
     nrd_name.addEventListener("click", function(){
         let ul = nrd_name.querySelector("ul");
-    
         if (ul) {
-            // Nếu ul đã có, xóa nó đi (tắt)
             nrd_name.removeChild(ul);
         } else {
-            // Nếu chưa có, tạo ul và li mới (hiện)
             let li = document.createElement("li");
             li.innerHTML = "Thoát";
 
@@ -179,8 +176,8 @@ function CreateLogin(){
 
         account_email.push(email);
         account_pass.push(password);
-        console.log(email+" "+password)
 
+        
         if(check){
             switchToLogin()
         }
@@ -188,8 +185,8 @@ function CreateLogin(){
             switchToSignup()
         }
     }
-
 }
+
 
        
 
