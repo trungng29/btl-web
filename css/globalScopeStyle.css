@@ -4,7 +4,11 @@
     box-sizing: border-box;
 }
 
+p, h2, h3 {
+    transition: color 0.3s ease !important;
+}
 
 .cursor-pointer {
     cursor: pointer;
 }
+

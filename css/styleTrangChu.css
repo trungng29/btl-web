@@ -84,6 +84,14 @@ a {
   left: 126px;
 
 }
+
+.article1 a {
+  text-decoration: none;
+  color: black;
+}
+
+
+
 .article1 img {
   height: 100%;
   width: 245px;
@@ -102,8 +110,16 @@ a {
   letter-spacing: 0;
   margin-bottom: 10px;
   color:  rgba(0, 0, 0, 1);
-;
 }
+
+.article-text h3:hover {
+  color: #B32A45;
+}
+
+.article1 p:hover {
+  color: #B32A45;
+}
+
 .article1 p {
   font-family: Open Sans;
   font-weight: 400;
@@ -143,7 +159,7 @@ a {
 .card1-image {
   width: 100%;
   height: 227px;
-  background-image: url('../img/vang.png'); /* Đường dẫn ảnh */
+  background-image: url('../assets/img/vang.png'); 
   background-size: cover;
   background-position: center;
   transition: transform 0.5s ease;

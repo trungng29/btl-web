@@ -16,6 +16,10 @@ p {
     margin: 0;
 }
 
+a {
+    color: black;
+}
+
 
 body {
     scrollbar-width: none; /* Ẩn scroller trên Firefox */
@@ -24,6 +28,10 @@ body {
 
 body::-webkit-scrollbar {
     display: none; /* Ẩn scroller trên Chrome, Safari */
+}
+
+.glass-panel {
+    z-index: 1;
 }
 
 

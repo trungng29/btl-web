@@ -26,23 +26,28 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
 }
 
 .title {
-    width: 505px;
-    height: 141px;
-    top: 180px;
-    left: 504px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .title h1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     color: white;
+    font-family: "Lexend Deca";
+    font-size: 120px;
+    font-weight: 600;
+    z-index: 1;
+    font-family: "Lexend Deca"; 
     font-size: 120px;   
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .section {
@@ -61,6 +66,10 @@ body {
 
 .title-section img {
     margin-bottom: 30px;
+}
+
+.title-section i {
+    margin-left: 10px;
 }
 
 .grid-section {
@@ -149,4 +158,22 @@ body {
     position: absolute;
     width: 100%;
     top: 130px;
+}
+
+.view-more p:hover {
+    color: #B32A45;
+}
+
+/* Màu chữ mặc định */
+.news-title,
+.news-link {
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Đổi màu khi di chuột vào */
+.news-title:hover,
+.news-link:hover {
+    color: #B32A45;
 }
