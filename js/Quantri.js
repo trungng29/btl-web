@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 let articles = [
     {
         id: 1,
@@ -85,79 +84,6 @@ function loadBoardCast(){
     document.getElementById("totalArticles").innerText = article.length;
     document.getElementById("totalCategories").innerText = category.length;
     document.getElementById("totalUsers").innerText = user.length;
-=======
-
-function SaveNPStorage(){
-    var articles = [];
-    var tableNP = document.getElementById("PageNewTable");
-    var rowNP = Array.from(tableNP.querySelectorAll("tr"));
-    console.log(rowNP)
-    rowNP.forEach(row => {
-        var getrow = Array.from(row.children).filter(cell => cell.tagName == "TD")
-        console.log(getrow)
-        if (getrow.length < 6) return;
-        var article = {
-            title: getrow[1].textContent.trim(),
-            category: getrow[4].textContent.trim(),
-            auther: getrow[2].textContent.trim()
-        };
-        articles.push(article);
-    })
-    return articles;
-}
-function SaveCTStorage(){
-    var articles = [];
-    var tableNP = document.getElementById("PageCateTable");
-    var rowNP = Array.from(tableNP.querySelectorAll("tr"))
-
-    rowNP.forEach(row => {
-        var getrow = Array.from(row.children).filter(cell => cell.tagName == "TD")
-        console.log(getrow)
-        if (getrow.length < 2) return;
-        var article = {
-            title: getrow[1].textContent.trim(),
-        };
-        articles.push(article);
-    })
-    return articles;
-}
-function SaveUserStorage(){
-    var articles = [];
-    var tableNP = document.getElementById("PageUserTable");
-    var rowNP = Array.from(tableNP.querySelectorAll("tr"))
-
-    rowNP.forEach(row => {
-        var getrow = Array.from(row.children).filter(cell => cell.tagName == "TD")
-        console.log(getrow)
-        if (getrow.length < 3) return;
-        var article = {
-            title: getrow[1].textContent.trim(),
-            role: getrow[2].textContent.trim()
-        };
-        articles.push(article);
-    })
-    return articles;
-}
-var NewPage = SaveNPStorage();
-var CatePage = SaveCTStorage();
-var UserPage = SaveUserStorage();
-
-let chart;
-localStorage.setItem("articles", JSON.stringify(NewPage));
-
-localStorage.setItem("categories", JSON.stringify(CatePage));
-
-localStorage.setItem("users", JSON.stringify(UserPage));
-
-function loadBoardCast(){
-    let articles = JSON.parse(localStorage.getItem("articles")) || [];
-    let categories = JSON.parse(localStorage.getItem("categories")) || [];
-    let users = JSON.parse(localStorage.getItem("users")) || [];
-
-    document.getElementById("totalArticles").innerText = articles.length;
-    document.getElementById("totalCategories").innerText = categories.length;
-    document.getElementById("totalUsers").innerText = users.length;
->>>>>>> f6e4efcc6fea6071821c9cd88826bd6cdeb28552
 
     let categoryStats = {};
     articles.forEach(article => {
@@ -174,7 +100,6 @@ function loadBoardCast(){
     canvas.width = 1098;
     canvas.height = 500;
     let ctx = document.getElementById("articleChart").getContext("2d");
-<<<<<<< HEAD
 
     if (chart) {
         chart.destroy(); 
@@ -197,43 +122,6 @@ function loadBoardCast(){
     });
 }
 
-=======
-    if(chart){
-        chart.data.labels = categoryNames; 
-        chart.data.datasets[0].data = categoryCounts;
-        chart.update();
-    } else {
-        chart = new Chart(ctx, {
-            type: "bar",
-            data: {
-                labels: categoryNames,
-                datasets: [{
-                    label: "Số bài viết theo danh mục",
-                    data: categoryCounts,
-                    backgroundColor: ["#3498db", "#2ecc71", "#e74c3c", "#f39c12"]
-                }]
-            },
-            options: {
-                responsive: false, 
-                maintainAspectRatio: false 
-            }
-        });
-    }
-}
-
-window.addEventListener("storage", function(){
-    loadBoardCast();
-});
-
-setInterval(() => {
-    let newArticles = JSON.parse(localStorage.getItem("articles")) || [];
-    let currentTotal = chart ? chart.data.datasets[0].data.reduce((a, b) => a + b, 0) : 0;
-
-    if (newArticles.length !== currentTotal) {
-        loadBoardCast();
-    }
-}, 1000);
->>>>>>> f6e4efcc6fea6071821c9cd88826bd6cdeb28552
 
 function menutab() {
     const low_property = document.querySelector(".low_property");
@@ -352,17 +240,10 @@ function displayMannageUser(){
 
 }
 
-<<<<<<< HEAD
 let currentPage = 1;
 let rowsPerPage = 15;
 //Code riêng của quản lý bài báo
 function OpenAddPageNew(){
-=======
-
-//Code riêng của quản lý bài báo
-function OpenAddPageNew(){
-    console.log(123)
->>>>>>> f6e4efcc6fea6071821c9cd88826bd6cdeb28552
     const GoiAP = document.getElementById("ThemPageNew");
     GoiAP.classList.add("hien");
 }
@@ -370,7 +251,6 @@ function CloseAddPageNew(){
     const GoiAP = document.getElementById("ThemPageNew");
     GoiAP.classList.remove("hien");
 }
-<<<<<<< HEAD
 function AddPageNeew(){
     var pp = document.getElementById("Paper").value;
     var at = document.getElementById("Auther").value;
@@ -383,42 +263,6 @@ function AddPageNeew(){
     CloseAddPageNew()
     displayTablePN();
     loadBoardCast()
-=======
-var sttpn = 1;
-function AddPageNeew(){
-    sttpn++;
-    var AddNew = document.getElementById("PageNewbody")
-
-    var AddNewRow = document.createElement("tr");
-
-    var AddSTT = document.createElement("td")
-    AddSTT.textContent = sttpn
-
-    var TenBaiBao = document.createElement("td")
-    TenBaiBao.textContent = document.getElementById("Paper").value
-
-    var TacGia = document.createElement("td")
-    TacGia.textContent = document.getElementById("Auther").value
-
-    var Linkbaibao = document.createElement("td")
-    Linkbaibao.textContent = document.getElementById("link-bb").value
-
-    var DanhMuc = document.createElement("td")
-    DanhMuc.textContent = document.getElementById("DM").value
-
-    var NoiDung = document.createElement("td")
-    NoiDung.textContent = document.getElementById("ND").value
-
-    AddNewRow.appendChild(AddSTT)
-    AddNewRow.appendChild(TenBaiBao)
-    AddNewRow.appendChild(TacGia)
-    AddNewRow.appendChild(Linkbaibao)
-    AddNewRow.appendChild(DanhMuc)
-    AddNewRow.appendChild(NoiDung)
-
-    AddNew.appendChild(AddNewRow)
-    CloseAddPageNew()
->>>>>>> f6e4efcc6fea6071821c9cd88826bd6cdeb28552
 }
 
 function OpenDeletePageNew(){
@@ -431,7 +275,6 @@ function CloseDeletePageNew(){
     GoiAP.classList.remove("hien");
 }
 function DeletePageNew(){
-<<<<<<< HEAD
     const GoiAP = document.getElementById("XoaPageNew");
     let idToDelete = document.getElementById("DertId1").value;
     let index = articles.findIndex(item => item.id == idToDelete);
@@ -442,29 +285,11 @@ function DeletePageNew(){
         CloseDeletePageNew();
         loadBoardCast();
     } 
-=======
-    var table = document.getElementById("PageNewTable");
-    var rows = Array.from(table.querySelectorAll("tr"));
-    var GoiAP = document.getElementById("XoaPageNew");
-
-    var rowToDelete = rows.find(row => {
-        var id = document.getElementById("DertId1").value
-        var fier = row.querySelector("td:first-child");
-        return fier && fier.textContent.trim() == id
-    })  
-
-    if(rowToDelete){
-        rowToDelete.remove()
-        sttpn = SortId(table, sttpn)
-        CloseDeletePageNew()
-    }
->>>>>>> f6e4efcc6fea6071821c9cd88826bd6cdeb28552
     else{
         if(document.getElementById("DeleteError")) return
         DeleteError(GoiAP)
     }
 }
-<<<<<<< HEAD
 var pgphu= [...articles]
 function searchPageNew() {
     var nd = document.getElementById("selectsearch1").value.trim().toLowerCase();
@@ -553,11 +378,6 @@ displayTablePN();
 //Code riêng của quản lý danh mục
 
 
-=======
-//************************** */
-
-//Code riêng của quản lý dang mục
->>>>>>> f6e4efcc6fea6071821c9cd88826bd6cdeb28552
 function OpenAddCate(){
     console.log(123)
     const GoiAP = document.getElementById("ThemCategories");
@@ -567,7 +387,6 @@ function CloseAddCate(){
     const GoiAP = document.getElementById("ThemCategories");
     GoiAP.classList.remove("hien");
 }
-<<<<<<< HEAD
 function AddCate(){
     var level = document.getElementById("level").value;
     var parentid = document.getElementById("parentId").value;
@@ -582,26 +401,6 @@ function AddCate(){
         CloseAddCate()
         loadBoardCast()
     }
-=======
-var sttct = 1;
-function AddCate(){
-    sttct++;
-    var AddNew = document.getElementById("Categorybody")
-
-    var AddNewRow = document.createElement("tr");
-
-    var AddSTT = document.createElement("td")
-    AddSTT.textContent = sttct
-
-    var TenDangMuc = document.createElement("td")
-    TenDangMuc.textContent = document.getElementById("DM-Cate").value
-
-    AddNewRow.appendChild(AddSTT)
-    AddNewRow.appendChild(TenDangMuc)
-
-    AddNew.appendChild(AddNewRow)
-    CloseAddCate()
->>>>>>> f6e4efcc6fea6071821c9cd88826bd6cdeb28552
 }
 
 function OpenDeleteCate(){
@@ -614,7 +413,6 @@ function CloseDeleteCate(){
     GoiAP.classList.remove("hien");
 }
 function DeleteCate(){
-<<<<<<< HEAD
     const GoiAP = document.getElementById("XoaCategory");
     let idToDelete = document.getElementById("DertId2").value;
     let index = categories.findIndex(item => item.id == idToDelete);
@@ -638,29 +436,11 @@ function DeleteCate(){
         CloseDeleteCate();
         loadBoardCast();
     } 
-=======
-    var table = document.getElementById("PageCateTable");
-    var rows = Array.from(table.querySelectorAll("tr"));
-    var GoiAP = document.getElementById("XoaCategory");
-
-    var rowToDelete = rows.find(row => {
-        var id = document.getElementById("DertId2").value
-        var fier = row.querySelector("td:first-child");
-        return fier && fier.textContent.trim() == id
-    })  
-
-    if(rowToDelete){
-        rowToDelete.remove()
-        sttct = SortId(table, sttct)
-        CloseDeleteCate()
-    }
->>>>>>> f6e4efcc6fea6071821c9cd88826bd6cdeb28552
     else{
         if(document.getElementById("DeleteError")) return
         DeleteError(GoiAP)
     }
 }
-<<<<<<< HEAD
 var catephu = categories;
 function searchCate() {
     var nd = document.getElementById("selectsearch2").value.trim().toLowerCase();
@@ -738,8 +518,6 @@ function changePage2(page) {
     displayTableCate();
 }
 displayTableCate();
-=======
->>>>>>> f6e4efcc6fea6071821c9cd88826bd6cdeb28552
 //************************** */
 
 //Code riêng của quản lý người dùng
@@ -752,7 +530,6 @@ function CloseAddUser(){
     const GoiAP = document.getElementById("ThemUser");
     GoiAP.classList.remove("hien");
 }
-<<<<<<< HEAD
 function AddUser(){
     var rser = document.getElementById("Users").value;
     var el = document.getElementById("email").value;
@@ -771,32 +548,6 @@ function AddUser(){
         loadBoardCast()
     }
 }
-=======
-var sttu = 2;
-function AddUser(){
-    sttu++;
-    var AddNew = document.getElementById("MannageUserbody")
-
-    var AddNewRow = document.createElement("tr");
-
-    var AddSTT = document.createElement("td")
-    AddSTT.textContent = sttu
-
-    var TenUser = document.createElement("td")
-    TenUser.textContent = document.getElementById("Users").value
-
-    var Role = document.createElement("td")
-    Role.textContent = document.getElementById("PQ").value
-
-    AddNewRow.appendChild(AddSTT)
-    AddNewRow.appendChild(TenUser)
-    AddNewRow.appendChild(Role)
-
-    AddNew.appendChild(AddNewRow)
-    CloseAddUser()
-}
-
->>>>>>> f6e4efcc6fea6071821c9cd88826bd6cdeb28552
 function OpenDeleteUser(){
     console.log(123)
     const GoiAP = document.getElementById("XoaUser");
@@ -807,7 +558,6 @@ function CloseDeleteUser(){
     GoiAP.classList.remove("hien");
 }
 function DeleteUser(){
-<<<<<<< HEAD
     const GoiAP = document.getElementById("XoaUser");
     let idToDelete = document.getElementById("DertId3").value.trim();
     let index = UsersAccount.findIndex(item => item.id == idToDelete);
@@ -823,29 +573,11 @@ function DeleteUser(){
         CloseDeleteUser();
         loadBoardCast();
     } 
-=======
-    var table = document.getElementById("PageUserTable");
-    var rows = Array.from(table.querySelectorAll("tr"));
-    var GoiAP = document.getElementById("XoaUser");
-
-    var rowToDelete = rows.find(row => {
-        var id = document.getElementById("DertId3").value
-        var fier = row.querySelector("td:first-child");
-        return fier && fier.textContent.trim() == id
-    })  
-
-    if(rowToDelete){
-        rowToDelete.remove()
-        sttu = SortId(table, sttu)
-        CloseDeleteUser()
-    }
->>>>>>> f6e4efcc6fea6071821c9cd88826bd6cdeb28552
     else{
         if(document.getElementById("DeleteError")) return
         DeleteError(GoiAP)
     }
 }
-<<<<<<< HEAD
 var userphu = [...UsersAccount]
 function searchUser() {
     var nd = document.getElementById("selectsearch3").value.trim().toLowerCase();
@@ -926,22 +658,6 @@ function changePage3(page) {
 displayTableUser();
 //************************** */
 
-=======
-//************************** */
-function SortId(table, stt){
-    var rows = Array.from(table.querySelectorAll("tr"));
-    if(rows.length > 1){
-        for(var i=rows.length-1;i>=0;i--){
-            var fier = rows[i].querySelector("td:first-child");
-            if(fier && fier.textContent.trim() != i){
-                fier.textContent = i;
-            }
-        }
-        return rows.length - 1;
-    }
-    return stt;
-}
->>>>>>> f6e4efcc6fea6071821c9cd88826bd6cdeb28552
 function DeleteError(GoiAP){
     var DER = document.createElement("div")
     DER.style.backgroundColor = "#B32A45"
@@ -976,7 +692,6 @@ function removeDeleteError(button) {
     DER.remove();
 }
 
-<<<<<<< HEAD
 function SelectDMC() {
     var ere = categories.filter(item => item.level === 1);
     var DMC = document.getElementById("DMC");
@@ -1007,6 +722,4 @@ function SelectDMP(){
 }
 
 
-=======
->>>>>>> f6e4efcc6fea6071821c9cd88826bd6cdeb28552
 
