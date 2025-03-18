@@ -310,9 +310,7 @@ function CloseAddCate(){
     const GoiAP = document.getElementById("ThemCategories");
     GoiAP.classList.remove("hien");
 }
-var sttct = 6;
 function AddCate(){
-    sttct++;
     var AddNew = document.getElementById("Categorybody")
 
     var AddNewRow = document.createElement("tr");
