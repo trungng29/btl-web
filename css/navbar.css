@@ -145,12 +145,13 @@ a {
 .cat-set-title {
     cursor: pointer;
     font-family: Roboto;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 20px;
     letter-spacing: 0%;
     color: black;
     border: 2px solid transparent;
     transition: color 0.2s ease-in-out; 
+
 }
 
 .cat-set-title:hover {
@@ -378,4 +379,8 @@ a {
 .form.active {
     opacity: 1!important;
     visibility: visible;
+}
+
+.sub-menu-button {
+    font-weight: 500 !important;
 }
