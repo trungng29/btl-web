@@ -87,10 +87,10 @@ function loadBoardCast(){
 
     let categoryStats = {};
     articles.forEach(article => {
-        if (!categoryStats[article.category]) {
-            categoryStats[article.category] = 0;
+        if (!categoryStats[article.mainCategory.name]) {
+            categoryStats[article.mainCategory.name] = 0;
         }
-        categoryStats[article.category]++;
+        categoryStats[article.mainCategory.name]++;
     });
 
     let categoryNames = Object.keys(categoryStats);
