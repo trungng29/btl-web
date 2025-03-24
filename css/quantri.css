@@ -97,3 +97,14 @@ th, td{
     height: auto;
     background-color: aliceblue;
 }
+.searchbar-class{
+    position: absolute;margin-left: -70px;height: 35px;width: 140px;margin-top: 5px;border: none; outline: none;
+}
+
+.form2{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 80%;
+    margin-left: 40px;
+}

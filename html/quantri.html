@@ -31,7 +31,6 @@
                     <h4>Quản lý người dùng</h4>
                 </div>
             </div>
-            <a href="../index.html"><button type="button" class="btn btn-primary" style="margin: 10px;">Quay về</button></a>
         </div>
         <div class="low_property" style="width: 78%;background: linear-gradient(45deg, rgba(200, 200, 200, 0.6), transparent)">
             <div class="low_property_tab" style="text-align: center;margin-left: 5%;background-color: white; width: 1100px;height: 600px;margin-top: 4%;box-shadow: 10px 10px 2px #00000061;">
@@ -48,7 +47,8 @@
                 <div id="PageNew" style="display: none;">
                     <div style="display: flex; margin-left: 50px;padding: 15px;">
                         <h2>Danh sách bài viết</h2>
-                        <button onclick="OpenAddPageNew()" style="background-color: #B32A45;color: white;border-radius: 2px;margin-left: 45%;">Thêm bài viết</button>
+                        <div style="border: 1px solid black; border-radius: 30px;width: 180px;height: 45px;margin-left: 23%;"><input onkeyup="searchPageNew()" id="selectsearch1" class="searchbar-class" placeholder="Tìm kiếm...." type="text"></div>
+                        <button onclick="OpenAddPageNew()" style="background-color: #B32A45;color: white;border-radius: 2px;margin-left: 15px;">Thêm bài viết</button>
                         <button onclick="OpenDeletePageNew()" style="background-color: #B32A45;color: white;border-radius: 2px;margin-left: 15px;">Xóa bài viết</button>
                     </div>
                     <table id="PageNewTable" border="1 solid black">
@@ -58,21 +58,18 @@
                                 <th>Tên bài báo</th>
                                 <th>Tác giả</th>
                                 <th>Link tới bài báo chính</th>
-                                <th>Danh mục</th>
+                                <th>Danh mục chính</th>
+                                <th>Danh mục phụ</th>
                                 <th>Nội dung bài báo</th>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Ngủ đủ giấc</td>
-                                <td>aiosdiasdas</td>
-                                <td>/ssqeweqweq</td>
-                                <td>Chăm sóc sức khỏe</td>
-                                <td>Sức khỏe</td>
+                                <th>Duyệt</th>
                             </tr>
                         </thead>
                         <tbody id="PageNewbody">
                         </tbody>
                     </table>
+                    <div style="margin-top: 10px;">
+                        <div id="pagination1"></div>
+                    </div>
                     <div class="CST" id="ThemPageNew">
                         <div class="Them" style="width: 1000px;height: 600px;background-color: #B32A45;border: 1px solid white;color: black;margin-top: 40px;margin-left: 6%;border-radius: 20px;">
                             <button onclick="CloseAddPageNew()" type="button" class="close closs-css" aria-label="Close" style="background-color:#B32A45;color:black;font-size: 35px; margin-left: 93%;border: none;margin-top: 10px;">
@@ -92,20 +89,19 @@
                                 </div>
                                 <br>
                                 <br>
-                                <div class="form1">
-                                    <div style="margin-left: -15%;">
+                                <div class="form1" >
+                                    <div style="margin-left: -1%;">
                                         <label for="link-bb">Link tới bài báo chính</label>
-                                        <input id="link-bb" type="url" placeholder="Link">
+                                        <input id="link-bb" style="width: 250px!important" type="url" placeholder="Link">
                                     </div>
-                                    <div style="margin-left: 1%;">
-                                        <label for="DM">Đẩy lên danh mục nào</label>
-                                        <select id="DM">
-                                            <option>Xã hội</option>
-                                            <option>Khoa học & Công nghệ</option>
-                                            <option>Sức khỏe</option>
-                                            <option>Thể thao</option>
-                                            <option>Giải trí</option>
-                                            <option>Giáo dục</option>
+                                    <div style="margin-left: 1%; width: 200px;">
+                                        <label for="DMC">Danh mục chính</label>
+                                        <select onfocus="SelectDMC()" id="DMC" >
+                                        </select>
+                                    </div>
+                                    <div style="margin-left: 1%; width: 200px;">
+                                        <label for="DMP">Danh mục phụ</label>
+                                        <select onfocus="SelectDMP()" id="DMP" >
                                         </select>
                                     </div>
                                 </div>
@@ -136,7 +132,8 @@
                 <div id="Categories" style="display: none;">
                     <div style="display: flex; margin-left: 35px;padding: 15px;">
                         <h2>Danh sách danh mục</h2>
-                        <button onclick="OpenAddCate()" style="background-color: #B32A45;color: white;border-radius: 2px;margin-left: 45%;">Thêm danh mục</button>
+                        <div style="border: 1px solid black; border-radius: 30px;width: 180px;height: 45px;margin-left: 23%;"><input onkeyup="searchCate()" id="selectsearch2" class="searchbar-class" placeholder="Tìm kiếm...." type="text"></div>
+                        <button onclick="OpenAddCate()" style="background-color: #B32A45;color: white;border-radius: 2px;     margin-left: 15px;">Thêm danh mục</button>
                         <button onclick="OpenDeleteCate()" style="background-color: #B32A45;color: white;border-radius: 2px;margin-left: 15px;">Xóa danh mục</button>
                     </div>
                     <table id="PageCateTable" border="1 solid black">
@@ -144,30 +141,42 @@
                             <tr>
                                 <th>STT</th>
                                 <th>Tên danh mục</th>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Chăm sóc sức khỏe</td>
+                                <th>Cấp độ Danh mục</th>
+                                <th>Con của danh mục nào</th>
+                                <th>Duyệt</th>
                             </tr>
                         </thead>
                         <tbody id="Categorybody">
                         </tbody>
                     </table>
+                    <div style="margin-top: 10px;">
+                        <div id="pagination2"></div>
+                    </div>
                     <div class="CST" id="ThemCategories">
-                        <div class="Them" style="width: 500px;height: 300px;background-color: #B32A45;border: 1px solid white;color: black;margin-top: 40px;margin-left: 6%;border-radius: 20px;">
+                        <div class="Them" style="width: 500px;height: 500px;background-color: #B32A45;border: 1px solid white;color: black;margin-top: 40px;margin-left: 6%;border-radius: 20px;">
                             <button onclick="CloseAddCate()" type="button" class="close closs-css" aria-label="Close" style="background-color:#B32A45;color:black;font-size: 35px; margin-left: 89%;border: none;margin-top: 10px;">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                            <div style="width: 400px;height: 212px;background-color: white;border: 5px inset yellow;border-radius: 20px;margin-left: 10%;margin-top: -5px;">
+                            <div style="width: 400px;height: 400px;background-color: white;border: 5px inset yellow;border-radius: 20px;margin-left: 10%;margin-top: -5px;">
                                 <h2 style="    padding: 10px;">Thêm danh mục</h2>
-                                <div class="form1">
-                                    <div>
+                                <div>
+                                    <div class="form2">
                                         <label for="DM-Cate">Tên danh mục</label>
-                                        <input id="DM-Cate" placeholder="Tên danh mục" type="text">
+                                        <input style="border-radius: 10px;padding: 8px;" id="DM-Cate" placeholder="Tên danh mục" type="text">
+                                    </div>
+                                    <br>
+                                    <div class="form2">
+                                        <label for="level">Danh mục chính/phụ</label>
+                                        <input id="level" type="number"  style="border-radius: 10px;padding: 8px;">
+                                    </div>
+                                    <br>
+                                    <div class="form2">
+                                        <label for="parentId">Con của danh mục nào</label>
+                                        <input id="parentId"  style="border-radius: 10px;padding: 8px;" type="number">
                                     </div>
                                 </div>
                                 <br>
-                                <button onclick="AddCate()" style="background-color: #B32A45;color: white;width: 150px;border-radius: 10px;height: 40px;margin-left: 51%;">Thêm danh mục</button>
+                                <button onclick="AddCate()" style="background-color: #B32A45;color: white;width: 150px;border-radius: 10px;height: 40px;margin-left: 42%;">Thêm danh mục</button>
                             </div>
                         </div>
                     </div>
@@ -189,44 +198,50 @@
                 <div id="MannageUser" style="display: none;">
                     <div style="display: flex; margin-left: 50px;padding: 15px;">
                         <h2>Danh sách người dùng</h2>
-                        <button onclick="OpenAddUser()" style="background-color: #B32A45;color: white;border-radius: 2px;margin-left: 39%;">Thêm người dùng</button>
+                        <div style="border: 1px solid black; border-radius: 30px;width: 180px;height: 45px;margin-left: 19%;"><input onkeyup="searchUser()" id="selectsearch3" class="searchbar-class" placeholder="Tìm kiếm...." type="text"></div>
+                        <button onclick="OpenAddUser()" style="background-color: #B32A45;color: white;border-radius: 2px;margin-left: 15px;">Thêm người dùng</button>
                         <button onclick="OpenDeleteUser()" style="background-color: #B32A45;color: white;border-radius: 2px;margin-left: 15px;">Xóa người dùng</button>
                     </div>
                     <table id="PageUserTable">
                         <tr>
                             <th>STT</th>
                             <th>Tên người dùng</th>
+                            <th>Email người dùng</th>
+                            <th>Mật khẩu</th>
                             <th>Phân quyền</th>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Nguyễn Minh Kiệt</td>
-                            <td>Admin</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Nguyễn Tuấn Kiệt</td>
-                            <td>User</td>
+                            <th>Duyệt</th>
                         </tr>
                         <tbody id="MannageUserbody"></tbody>
                     </table>
+                    <div style="margin-top: 10px;">
+                        <div id="pagination3"></div>
+                    </div>
                     <div class="CST"  id="ThemUser">
-                        <div class="Them" style="width: 600px;height: 400px;background-color: #B32A45;border: 1px solid white;color: black;margin-top: 40px;margin-left: 6%;border-radius: 20px;">
+                        <div class="Them" style="width: 800px;height: 500px;background-color: #B32A45;border: 1px solid white;color: black;margin-top: 40px;margin-left: 6%;border-radius: 20px;">
                             <button onclick="CloseAddUser()" type="button" class="close closs-css" aria-label="Close" style="background-color:#B32A45;color:black;font-size: 35px; margin-left: 93%;border: none;margin-top: 10px;">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                            <div style="width: 500px;height: 300px;background-color: white;border: 5px inset yellow;border-radius: 20px;margin-left: 10%;">
+                            <div style="width: 640px;height: 380px;background-color: white;border: 5px inset yellow;border-radius: 20px;margin-left: 10%;margin-top:-2%">
                                 <h2 style="    padding: 10px;">Thêm người dùng</h2>
-                                <div style="    display: flex;flex-direction: column;text-align: left;margin-left: 50px;">
+                                <div style="display: flex;flex-direction: column;text-align: left;margin-left: 50px;">
                                     <label style="padding-bottom: 10px;font-size: 20px;" for="Users">Tên người dùng</label>
-                                    <input style=" width: 390px;border-radius: 5px;" id="Users" placeholder="Tên người dùng" type="text">
+                                    <input style="font-size: 20px; width: 250px;border-radius: 5px;" id="Users" placeholder="Tên người dùng" type="text">
                                 </div>
-                                <br>
-                                <div style="    display: flex;flex-direction: column;text-align: left;margin-left: 50px;">
+                                <div style="display: flex;flex-direction: row; gap:20px;text-align: left;margin-left: 8%;font-size: 20px; padding-bottom: 10px;padding-top: 10px;">
+                                    <div style="display: flex;flex-direction: column;">
+                                        <label for="email">Email</label>
+                                        <input style=" width: 250px;border-radius: 5px;" id="email" type="email" placeholder="Email">
+                                    </div>
+                                    <div style="display: flex;flex-direction: column;">
+                                        <label for="password">Mật khẩu</label>
+                                        <input style=" width: 250px;border-radius: 5px;" id="password" type="password" placeholder="Mật khẩu">
+                                    </div>
+                                </div>
+                                <div style="display: flex;flex-direction: column;text-align: left;margin-left: 50px; font-size: 20px;">
                                     <label for="PQ">Phân quyền</label>
                                     <select id="PQ" style="width: 110px;">
                                         <option>Admin</option>
-                                        <option>Người dùng</option>
+                                        <option>User</option>
                                     </select>
                                 </div>
                                 <br>

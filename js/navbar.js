@@ -177,6 +177,9 @@ function TaiKhoan(user_name,nrd_name){
     nrd_name.addEventListener("click", function(){
 
         let ul = nrd_name.querySelector("ul");
+<<<<<<< HEAD
+        if (ul) {
+=======
 
     
 
@@ -184,17 +187,24 @@ function TaiKhoan(user_name,nrd_name){
 
             // Nếu ul đã có, xóa nó đi (tắt)
 
+>>>>>>> f6e4efcc6fea6071821c9cd88826bd6cdeb28552
             nrd_name.removeChild(ul);
 
         } else {
+<<<<<<< HEAD
+=======
 
             // Nếu chưa có, tạo ul và li mới (hiện)
 
+>>>>>>> f6e4efcc6fea6071821c9cd88826bd6cdeb28552
             let li = document.createElement("li");
 
             li.innerHTML = "Thoát";
+<<<<<<< HEAD
+=======
 
             
+>>>>>>> f6e4efcc6fea6071821c9cd88826bd6cdeb28552
 
 
 
@@ -224,6 +234,11 @@ function TaiKhoan(user_name,nrd_name){
 
                 user_name.appendChild(drt);
 
+<<<<<<< HEAD
+                document?.getElementById("Quantri").classList.add("dong");
+
+            });
+=======
 
 
                 document?.getElementById("Quantri").classList.add("dong");
@@ -233,6 +248,7 @@ function TaiKhoan(user_name,nrd_name){
            });
 
 
+>>>>>>> f6e4efcc6fea6071821c9cd88826bd6cdeb28552
 
             nrd_name.appendChild(ul);
 
@@ -251,6 +267,14 @@ function Login(){
     for(var i=0;i<account_email.length;i++){
 
         if(account_email[i] === document.getElementById("email1").value && account_pass[i] === document.getElementById("password1").value){
+<<<<<<< HEAD
+            if(i==0){
+                document.getElementById("Quantri").classList.remove("dong");
+            }
+            DongDangnhap();
+
+
+=======
 
             if(i==0){
 
@@ -262,6 +286,7 @@ function Login(){
 
 
 
+>>>>>>> f6e4efcc6fea6071821c9cd88826bd6cdeb28552
             let user_name = document.getElementById("User_name");
 
             user_name.removeChild(drt);
@@ -270,8 +295,11 @@ function Login(){
 
             nrd_name.textContent += account_email[i];
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> f6e4efcc6fea6071821c9cd88826bd6cdeb28552
             TaiKhoan(user_name,nrd_name);
 
             login = true;
@@ -330,6 +358,12 @@ function CreateLogin(){
 
     var passwork = document.getElementById("password2").value;
 
+<<<<<<< HEAD
+    var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if(email === "" || passwork === "" || !emailRegex.test(email)){
+        console.log(email+" "+password)
+
+=======
 
 
     var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -340,6 +374,7 @@ function CreateLogin(){
 
 
 
+>>>>>>> f6e4efcc6fea6071821c9cd88826bd6cdeb28552
         failLogin();
 
     }
@@ -352,8 +387,12 @@ function CreateLogin(){
 
         account_pass.push(password);
 
+<<<<<<< HEAD
+        
+=======
         console.log(email+" "+password)
 
+>>>>>>> f6e4efcc6fea6071821c9cd88826bd6cdeb28552
         if(check){
 
             switchToLogin()
@@ -370,6 +409,8 @@ function CreateLogin(){
 
 }
 
+<<<<<<< HEAD
+=======
 console.log("handle enter")
 document.querySelector(".search-bar-input").addEventListener("keydown", function(event) {
     if (event.key === "Enter" && this.value.trim() !== "") {
@@ -387,6 +428,7 @@ document.querySelector(".search-bar-big-input-menu").addEventListener("keydown",
     }
 })
 
+>>>>>>> f6e4efcc6fea6071821c9cd88826bd6cdeb28552
 
        
 
