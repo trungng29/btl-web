@@ -18,11 +18,8 @@
 <body>
     <div class="sidebar">
         <div class="logo_content">
-            <div class="logo-container">
-                <img src="../assets/logoWhite.png" />
-            </div>
-
-            <i class="bi bi-list fs-3" id="btn"></i>
+            <img src="../assets/adminImages/navbarLogo.pn" />
+            <i class='bx bx-menu' id="btn"></i>
         </div>
         <ul class="nav_list">
             <li>
@@ -82,9 +79,13 @@
         <div id="postManagement" class="post_management" style="display: none;">
             <h2>Danh sách bài viết</h2>
             <div class="actions">
-                <button class="add_post">Thêm bài viết</button>
-                <button class="delete_post">Xóa bài viết</button>
-                <button class="delete_post">Chỉnh sửa bài viết</button>
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" class="search-box-input" placeholder="Tìm kiếm...">
+                        <button class="search-box-btn"><i class="bi bi-search"></i></button>
+                    </div>
+                    <button class="add-post-btn">Thêm bài viết</button>
+                </div>
             </div>
             <table>
                 <thead>
@@ -107,10 +108,11 @@
                         <td>/ssqeweqweq</td>
                         <td>Chăm sóc sức khỏe</td>
                         <td>Sức khỏe</td>
-                        <td>Đã duyệt</td>
+                        <td class="status">Đã duyệt</td>
                         <td class-="actions-button">
-                            <button type="button" class="delete-post">Xóa</button>
-                            <button type="button" class="btn btn-primary">Chỉnh sửa</button>
+                            <button class="btn-edit">Chỉnh sửa</button>
+                            <button class="btn-delete">Xóa</button>
+                            <button class="btn-approve">Duyệt bài</button> <!-- Chỉ hiển thị nếu bài đang chờ duyệt -->
                         </td>
                     </tr>
                     <tr>
@@ -120,13 +122,40 @@
                         <td>/ssqeweqweq</td>
                         <td>Chăm sóc sức khỏe</td>
                         <td>Sức khỏe</td>
-                        <td>Đang chờ duyệt</td>
+                        <td class="status">Đang chờ duyệt</td>
                         <td>
-
-
-
-
+                            <button class="btn-edit">Chỉnh sửa</button>
+                            <button class="btn-delete">Xóa</button>
+                            <button class="btn-approve">Duyệt bài</button> <!-- Chỉ hiển thị nếu bài đang chờ duyệt -->
+                        </td>   
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Ngủ đủ giấc</td>
+                        <td>aiosdiasdas</td>
+                        <td>/ssqeweqweq</td>
+                        <td>Chăm sóc sức khỏe</td>
+                        <td>Sức khỏe</td>
+                        <td class="status">Đã duyệt</td>
+                        <td class-="actions-button">
+                            <button class="btn-edit">Chỉnh sửa</button>
+                            <button class="btn-delete">Xóa</button>
+                            <button class="btn-approve">Duyệt bài</button> <!-- Chỉ hiển thị nếu bài đang chờ duyệt -->
                         </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Ngủ đủ giấc</td>
+                        <td>aiosdiasdas</td>
+                        <td>/ssqeweqweq</td>
+                        <td>Chăm sóc sức khỏe</td>
+                        <td>Sức khỏe</td>
+                        <td class="status">Đang chờ duyệt</td>
+                        <td class="Chucnang">
+                            <button class="btn-edit">Chỉnh sửa</button>
+                            <button class="btn-delete">Xóa</button>
+                            <button class="btn-approve">Duyệt bài</button> <!-- Chỉ hiển thị nếu bài đang chờ duyệt -->
+                        </td>   
                     </tr>
                 </tbody>
             </table>
@@ -149,6 +178,16 @@
        
 
 
+        <!-- Modal Xác Nhận -->
+        <div id="approveModal" class="modal">
+            <div class="modal-content">
+                <p>Bạn có chắc chắn muốn duyệt bài này không?</p>
+                <div class="modal-buttons">
+                    <button id="confirmApprove" class="btn-confirm">Có</button>
+                    <button id="cancelApprove" class="btn-cancel">Không</button>
+                </div>
+            </div>
+        </div>
 
 
     </div>
