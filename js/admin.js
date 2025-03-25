@@ -1,15 +1,16 @@
-let btn = document.querySelector("#btn");
-let sidebar = document.querySelector(".sidebar");
-
-
-
-
-btn.onclick = function() {
-    sidebar.classList.toggle("active");
-}
 
 
 document.addEventListener("DOMContentLoaded", function () {
+    let btn = document.querySelector("#btn");
+    let sidebar = document.querySelector(".sidebar");
+
+    btn.onclick = function() {
+        console.time("Toggle Sidebar");
+        sidebar.classList.toggle("active");
+
+            console.timeEnd("Toggle Sidebar");
+    }
+
     let menuItems = document.querySelectorAll(".nav_list li a");
     let sections = {
         "Thống kê dữ liệu": document.getElementById("staticManagement"),
@@ -45,4 +46,8 @@ document.addEventListener("DOMContentLoaded", function () {
             this.parentElement.classList.add("active");
         });
     });
+
+    sidebar.offsetHeight; // Ép trình duyệt render lại trước khi thao tác
 });
+
+
