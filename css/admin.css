@@ -27,6 +27,10 @@ body {
     background: #B32A45;
     padding: 6px 14px;
     transition: all 0.5s ease;
+    z-index: 100;
+
+    padding-top: 50px;
+
 }
 
 
@@ -36,7 +40,9 @@ body {
     width: 240px;
 }
 
-
+.logo_content {
+    height: 50px;
+}
 
 
 .sidebar .logo_content .logo{
@@ -86,7 +92,10 @@ body {
 
 
 
-
+.logo_content {
+    display: flex;
+    justify-content: space-around;
+}
 
 
 
@@ -108,16 +117,9 @@ body {
 
 
 .sidebar #btn{
-    position: absolute;
     color: #fff;
-    top: 6px;
-    left: 50%;
     font-size: 20px;
-    height: 50px;
-    width: 50px;
     text-align: center;
-    line-height: 50px;
-    transform: translateX(-50%);
 }
 
 
@@ -474,7 +476,7 @@ table td {
     justify-content: center;
 }
 
-.modal-content {
+.modal-content-approveModal {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
@@ -519,9 +521,11 @@ table td {
     background-color: #c0392b;
 }
 
+
+
 .search-container {
     display: flex;
-    justify-content: flex-end; /* Đưa về bên phải */
+    justify-content: flex-end;
     align-items: center;
     gap: 10px;
 }
@@ -529,35 +533,176 @@ table td {
 .search-box {
     display: flex;
     align-items: center;
-    height: 40px; /* Cùng chiều cao với nút */
-    border: 1px solid #ccc;
+    height: 40px;
     border-radius: 5px;
+    transition: all 0.3s ease-in-out;
     overflow: hidden;
 }
 
 .search-box-input {
-    border: none;
-    padding: 8px;
+    width: 0;
+    opacity: 0;
+    border: 1px solid #ced4da;
+    padding: 0;
     outline: none;
+    background: transparent;
+    transition: all 0.3s ease-in-out;
+    font-size: 14px;
+    height: 40px;
 }
 
 .search-box-btn {
-    background-color: #d9534f;
+    background-color: #B32A45;
     border: none;
     color: white;
-    padding: 8px 12px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-.add-post-btn {
-    background-color: #d9534f;
+.search-box-btn i {
+    font-size: 18px;
+}
+
+.search-box.open .search-box-input {
+    width: 250px;
+    opacity: 1;
+    padding: 0 10px;
+}
+
+
+.Postadd-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none; /* Thay đổi từ flex thành none */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.Postadd-modal-content {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 900px;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    position: relative;
+}
+.Postadd-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #B32A45;
+}
+.Postadd-modal-header {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.Postadd-modal-header h2 {
+    color: #B32A45;
+    margin: 0;
+    font-size: 40px;
+}
+.Postadd-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.Postadd-form-group label {
+    font-weight: 600;
+    color: #333;
+}
+.Postadd-form-group input, 
+.Postadd-form-group select, 
+.Postadd-form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.Postadd-form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+.Postadd-modal-footer {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.btn-add-post {
+    background-color: #B32A45;
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 12px 30px;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+.btn-add-post:hover {
+    background-color: #921F36;
 }
 
-.search-box.open{
-    width: 400px;
+.logo-container img {
+    width: 100%;
+    height: 100%;
+    display: none;
+    transition: all 0.5s ease;
+}
+
+.sidebar.active .logo_content img,
+.sidebar.active .logo-container {
+    display: block;
+    width: auto;
+}
+
+.logo-container {
+    /* background-color: white; */
+    /* border-radius: 10px; */
+    display: none;
+    transition: all 0.5s ease;
+    height: 50px;
+}
+
+.logo-container img {
+    display: block;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.sidebar.active .logo-container img {
+    opacity: 1;
+}
+
+.logo-content {
+    
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.sidebar .logo_content {
+    justify-content: center;
+}
+
+.sidebar {
+    will-change: transform;
 }
