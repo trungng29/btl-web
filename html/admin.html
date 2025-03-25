@@ -82,9 +82,13 @@
         <div id="postManagement" class="post_management" style="display: none;">
             <h2>Danh sách bài viết</h2>
             <div class="actions">
-                <button class="add_post">Thêm bài viết</button>
-                <button class="delete_post">Xóa bài viết</button>
-                <button class="delete_post">Chỉnh sửa bài viết</button>
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" class="search-box-input" placeholder="Tìm kiếm...">
+                        <button class="search-box-btn"><i class="bi bi-search"></i></button>
+                    </div>
+                    <button class="add-post-btn">Thêm bài báo</button>
+                </div>
             </div>
             <table>
                 <thead>
@@ -92,8 +96,9 @@
                         <th>STT</th>
                         <th>Tên bài báo</th>
                         <th>Tác giả</th>
-                        <th>Link tới bài báo chính</th>
-                        <th>Danh mục</th>
+                        <th>Xem chi tiết</th>
+                        <th>Danh mục chính</th>
+                        <th>Danh mục phụ</th>
                         <th>Nội dung bài báo</th>
                         <th>Trạng thái</th>
                         <th>Chức năng</th>
@@ -105,12 +110,14 @@
                         <td>Ngủ đủ giấc</td>
                         <td>aiosdiasdas</td>
                         <td>/ssqeweqweq</td>
-                        <td>Chăm sóc sức khỏe</td>
                         <td>Sức khỏe</td>
-                        <td>Đã duyệt</td>
+                        <td>Dinh dưỡng</td>
+                        <td>Tôi muốn khỏe mạnh</td>
+                        <td class="status">Đang chờ duyệt</td>
                         <td class-="actions-button">
-                            <button type="button" class="delete-post">Xóa</button>
-                            <button type="button" class="btn btn-primary">Chỉnh sửa</button>
+                            <button class="btn-edit">Chỉnh sửa</button>
+                            <button class="btn-delete">Xóa</button>
+                            <button class="btn-approve">Duyệt bài</button> <!-- Chỉ hiển thị nếu bài đang chờ duyệt -->
                         </td>
                     </tr>
                     <tr>
@@ -118,14 +125,44 @@
                         <td>Ngủ đủ giấc</td>
                         <td>aiosdiasdas</td>
                         <td>/ssqeweqweq</td>
-                        <td>Chăm sóc sức khỏe</td>
                         <td>Sức khỏe</td>
-                        <td>Đang chờ duyệt</td>
-                        <td>
-
-
-
-
+                        <td>Dinh dưỡng</td>
+                        <td>Tôi muốn khỏe mạnh</td>
+                        <td class="status">Đã duyệt</td>
+                        <td class-="actions-button">
+                            <button class="btn-edit">Chỉnh sửa</button>
+                            <button class="btn-delete">Xóa</button>
+                            <button class="btn-approve">Duyệt bài</button> <!-- Chỉ hiển thị nếu bài đang chờ duyệt -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Ngủ đủ giấc</td>
+                        <td>aiosdiasdas</td>
+                        <td>/ssqeweqweq</td>
+                        <td>Sức khỏe</td>
+                        <td>Dinh dưỡng</td>
+                        <td>Tôi muốn khỏe mạnh</td>
+                        <td class="status">Đang chờ duyệt</td>
+                        <td class-="actions-button">
+                            <button class="btn-edit">Chỉnh sửa</button>
+                            <button class="btn-delete">Xóa</button>
+                            <button class="btn-approve">Duyệt bài</button> <!-- Chỉ hiển thị nếu bài đang chờ duyệt -->
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td>1</td>
+                        <td>Ngủ đủ giấc</td>
+                        <td>aiosdiasdas</td>
+                        <td>/ssqeweqweq</td>
+                        <td>Sức khỏe</td>
+                        <td>Dinh dưỡng</td>
+                        <td>Tôi muốn khỏe mạnh</td>
+                        <td class="status">Đã duyệt</td>
+                        <td class-="actions-button">
+                            <button class="btn-edit">Chỉnh sửa</button>
+                            <button class="btn-delete">Xóa</button>
+                            <button class="btn-approve">Duyệt bài</button> <!-- Chỉ hiển thị nếu bài đang chờ duyệt -->
                         </td>
                     </tr>
                 </tbody>
@@ -149,6 +186,69 @@
        
 
 
+        <!-- Modal Xác Nhận -->
+        <div id="approveModal" class="modal">
+            <div class="modal-content-approveModal">
+                <p>Bạn có chắc chắn muốn duyệt bài này không?</p>
+                <div class="modal-buttons">
+                    <button id="confirmApprove" class="btn-confirm">Có</button>
+                    <button id="cancelApprove" class="btn-cancel">Không</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="addPostModal" class="Postadd-modal-overlay">
+            <div class="Postadd-modal-content">
+                <button class="Postadd-modal-close">&times;</button>
+                <div class="Postadd-modal-header">
+                    <h2>Thêm bài báo</h2>
+                </div>
+                
+                <div class="Postadd-form-group">
+                    <label>Tên Bài báo</label>
+                    <input type="text" placeholder="Nhập tên bài báo">
+                </div>
+                
+                <div class="Postadd-form-group">
+                    <label>Tác giả</label>
+                    <input type="text" placeholder="Nhập tên tác giả">
+                </div>
+                
+                <div class="Postadd-form-group">
+                    <label>Slug-Liên Kết</label>
+                    <input type="text" placeholder="Nhập link bài báo">
+                </div>
+                
+                <div class="Postadd-form-group">
+                    <label>Danh mục chính</label>
+                    <select id="mainCategory">
+                        <option value="" disabled selected>Chọn danh mục chính</option>
+                        <option value="society">Xã hội</option>
+                        <option value="science">Khoa học & Công nghệ</option>
+                        <option value="health">Sức khỏe</option>
+                        <option value="sports">Thể Thao</option>
+                        <option value="entertainment">Giải trí</option>
+                        <option value="education">Giáo dục</option>
+                    </select>
+                </div>
+                
+                <div class="Postadd-form-group">
+                    <label>Danh mục phụ</label>
+                    <select id="subCategory">
+                        <option value="" disabled selected>Chọn danh mục phụ</option>
+                    </select>
+                </div>
+                
+                <div class="Postadd-form-group" style="grid-column: 1 / -1;">
+                    <label>Nội dung bài báo</label>
+                    <textarea placeholder="Nhập nội dung bài báo"></textarea>
+                </div>
+                
+                <div class="Postadd-modal-footer">
+                    <button class="btn-add-post">Thêm bài báo</button>
+                </div>
+            </div>
+        </div>
 
 
     </div>
