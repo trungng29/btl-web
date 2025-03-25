@@ -27,6 +27,7 @@ body {
     background: #B32A45;
     padding: 6px 14px;
     transition: all 0.5s ease;
+    z-index: 100;
 }
 
 
