@@ -409,14 +409,175 @@
 
 
         <div id="userManagement" class="user_management" style="display: none;">
-            <h2>Quản lý người dùng</h2>
+            <div class="section-card">
+                <h2 class="section-title">Quản lý người dùng</h2>
+                <div class="section-actions">
+                    
+                    <div class="search-wrapper">
+                        <button class="btn-search btn-red">
+                            <i class="bi bi-search"></i>
+                            <input type="text" class="search-input" placeholder="Tìm kiếm người dùng...">
+                        </button>
+                    </div>
+                    <button class="btn-primary btn-add-user">
+                        <i class="bi bi-plus-lg"></i> Thêm người dùng
+                    </button>
+                </div>
+                <div class="table-responsive">
+                    <table class="dashboard-table">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Họ và tên</th>
+                                <th>Email</th>
+                                <th>Tài khoản</th>
+                                <th>Mật khẩu</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>nguyenvana@example.com</td>
+                                <td>nguyenvana</td>
+                                <td>********</td>
+                                <td>
+                                    <div class="user-actions">
+                                        <button class="btn-action btn-delete">
+                                            <i class="bi bi-trash"></i> Xóa
+                                        </button>
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="userToggle1" class="toggle-input" checked>
+                                            <label for="userToggle1" class="toggle-label"></label>
+                                        </div> 
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Trần Thị B</td>
+                                <td>tranthib@example.com</td>
+                                <td>tranthib</td>
+                                <td>********</td>
+                                <td>
+                                    <div class="user-actions">
+                                        <button class="btn-action btn-delete">
+                                            <i class="bi bi-trash"></i> Xóa
+                                        </button>
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="userToggle2" class="toggle-input" checked>
+                                            <label for="userToggle2" class="toggle-label"></label> 
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
+        <div id="modal-container" style="display: none;">
+            <div class="modal-overlay">
+                <div class="modal-content">
+                    <button class="modal-close-btn">&times;</button>
+                    <h2 class="modal-title">Thêm người dùng</h2>
+                    <form id="addUserForm" class="modal-form">
+                        <div>
+                            <label>Tên người dùng</label>
+                            <input type="text" name="tenNguoiDung" required placeholder="Nhập tên người dùng">
+                        </div>
+                        <div>
+                            <label>Email</label>
+                            <input type="email" name="email" required placeholder="Nhập email">
+                        </div>
+                        <div>
+                            <label>Tài khoản</label>
+                            <input type="text" name="taiKhoan" required placeholder="Nhập tài khoản">
+                        </div>
+                        <div>
+                            <label>Mật khẩu</label>
+                            <input type="password" name="matKhau" required placeholder="Nhập mật khẩu">
+                        </div>
+                        <div class="form-submit-wrapper">
+                            <button type="submit" class="modal-submit-btn">Thêm người dùng</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    
 
 
         <div id="commentManagement" class="comment_management" style="display: none;">
-            <h2>Quản lý bình luận</h2>
+            <div class="section-card">
+                <h2 class="section-title">Quản lý bình luận</h2>
+                <div class="table-responsive">
+                    <table class="dashboard-table">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Người bình luận</th>
+                                <th>Bài viết</th>
+                                <th>Nội dung bình luận</th>
+                                <th>Ngày bình luận</th>
+                                <th>Trạng thái</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>Ngủ đủ giấc</td>
+                                <td>Bài viết rất hữu ích. Cảm ơn!</td>
+                                <td>12/03/2025</td>
+                                <td>
+                                    <span class="comment-status pending">Chưa duyệt</span>
+                                </td>
+                                <td>
+                                    <div class="action-group">
+                                        <button class="btn-action btn-delete">
+                                            <i class="bi bi-trash"></i> Xóa
+                                        </button>
+
+                                        <button class="btn-action btn-approve">
+                                            <i class="bi bi-check-circle"></i> Duyệt
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Trần Thị B</td>
+                                <td>Dinh dưỡng hàng ngày</td>
+                                <td>Tôi đã áp dụng và thấy hiệu quả.</td>
+                                <td>14/03/2025</td>
+                                <td>
+                                    <span class="comment-status pending">Chưa duyệt</span>
+                                </td>
+                                <td>
+                                    <div class="action-group">
+                                        <button class="btn-action btn-delete">
+                                            <i class="bi bi-trash"></i> Xóa
+                                        </button>
+                                        
+                                        <button class="btn-action btn-approve">
+                                            <i class="bi bi-check-circle"></i> Duyệt
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-            
+       
+
+
+
 
     </div>
 
