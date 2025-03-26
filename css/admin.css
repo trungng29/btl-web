@@ -346,16 +346,18 @@ body {
 }
 
 
-
-
-.actions {
+.category_management h2 {
+    font-size: 35px;
+    font-weight: 700;
     margin-bottom: 15px;
+    color: #333;
 }
 
 
 
 
-.actions button {
+
+.search-container button {
     background: #B32A45;
     color: white;
     padding: 8px 15px;
@@ -370,7 +372,7 @@ body {
 
 
 
-.actions button:hover {
+.search-container button:hover {
     background: #921F36;
 }
 
@@ -430,7 +432,7 @@ table td {
 }
 
 
-.btn-edit {
+.Post-btn-edit {
     background-color: #3498db;
     color: white;
     border: none;
@@ -439,7 +441,16 @@ table td {
     cursor: pointer;
 }
 
-.btn-delete {
+.Category-btn-edit {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.Post-btn-delete {
     background-color: #e74c3c;
     color: white;
     border: none;
@@ -448,7 +459,16 @@ table td {
     cursor: pointer;
 }
 
-.btn-approve {
+.Category-btn-delete {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.Post-btn-approve {
     background-color: #2ecc71;
     color: white;
     border: none;
@@ -458,7 +478,7 @@ table td {
 }
 
 /* Ẩn nút duyệt bài nếu bị ẩn bằng JavaScript */
-.btn-approve[style*="display: none"] {
+.Post-btn-approve[style*="display: none"] {
     display: none !important;
 }
 
@@ -528,6 +548,7 @@ table td {
     justify-content: flex-end;
     align-items: center;
     gap: 10px;
+    margin-bottom: 15px;
 }
 
 .search-box {
@@ -705,4 +726,127 @@ table td {
 
 .sidebar {
     will-change: transform;
+}
+
+
+#editPostModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+
+/* Add these styles to your existing CSS file */
+#deleteModal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#deleteModal .modal-content-approveModal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.Categoryadd-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.Categoryadd-modal-content {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 900px;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    position: relative;
+}
+.Categoryadd-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #B32A45;
+}
+.Categoryadd-modal-header {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.Categoryadd-modal-header h2 {
+    color: #B32A45;
+    margin: 0;
+    font-size: 40px;
+}
+.Categoryadd-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.Categoryadd-form-group label {
+    font-weight: 600;
+    color: #333;
+}
+.Categoryadd-form-group input, 
+.Categoryadd-form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.Categoryadd-modal-footer {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+#editCategoryModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }

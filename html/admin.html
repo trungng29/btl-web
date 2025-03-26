@@ -80,15 +80,13 @@
 
 
         <div id="postManagement" class="post_management" style="display: none;">
-            <h2>Danh sách bài viết</h2>
-            <div class="actions">
-                <div class="search-container">
-                    <div class="search-box">
-                        <input type="text" class="search-box-input" placeholder="Tìm kiếm...">
-                        <button class="search-box-btn"><i class="bi bi-search"></i></button>
-                    </div>
-                    <button class="add-post-btn">Thêm bài báo</button>
+            <h2>Quản lý bài viết</h2>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" class="search-box-input" placeholder="Tìm kiếm...">
+                    <button class="search-box-btn"><i class="bi bi-search"></i></button>
                 </div>
+                <button class="add-post-btn">Thêm bài báo</button>
             </div>
             <table>
                 <thead>
@@ -108,70 +106,305 @@
                     <tr>
                         <td>1</td>
                         <td>Ngủ đủ giấc</td>
-                        <td>aiosdiasdas</td>
-                        <td>/ssqeweqweq</td>
+                        <td>Quang Trung</td>
+                        <td>//////</td>
                         <td>Sức khỏe</td>
                         <td>Dinh dưỡng</td>
                         <td>Tôi muốn khỏe mạnh</td>
                         <td class="status">Đang chờ duyệt</td>
                         <td class-="actions-button">
-                            <button class="btn-edit">Chỉnh sửa</button>
-                            <button class="btn-delete">Xóa</button>
-                            <button class="btn-approve">Duyệt bài</button> <!-- Chỉ hiển thị nếu bài đang chờ duyệt -->
+                            <button class="Post-btn-edit">Chỉnh sửa</button>
+                            <button class="Post-btn-delete">Xóa</button>
+                            <button class="Post-btn-approve">Duyệt bài</button> <!-- Chỉ hiển thị nếu bài đang chờ duyệt -->
                         </td>
                     </tr>
+                    
                     <tr>
-                        <td>1</td>
-                        <td>Ngủ đủ giấc</td>
-                        <td>aiosdiasdas</td>
-                        <td>/ssqeweqweq</td>
-                        <td>Sức khỏe</td>
-                        <td>Dinh dưỡng</td>
-                        <td>Tôi muốn khỏe mạnh</td>
-                        <td class="status">Đã duyệt</td>
-                        <td class-="actions-button">
-                            <button class="btn-edit">Chỉnh sửa</button>
-                            <button class="btn-delete">Xóa</button>
-                            <button class="btn-approve">Duyệt bài</button> <!-- Chỉ hiển thị nếu bài đang chờ duyệt -->
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Ngủ đủ giấc</td>
-                        <td>aiosdiasdas</td>
-                        <td>/ssqeweqweq</td>
-                        <td>Sức khỏe</td>
-                        <td>Dinh dưỡng</td>
-                        <td>Tôi muốn khỏe mạnh</td>
+                        <td>2</td>
+                        <td>CSGT đón lõng 'ma men'</td>
+                        <td>Quang Nam</td>
+                        <td>.....</td>
+                        <td>Xã hội</td>
+                        <td>Giao thông</td>
+                        <td>Đội CSGT số 6 nhận định,...</td>
                         <td class="status">Đang chờ duyệt</td>
                         <td class-="actions-button">
-                            <button class="btn-edit">Chỉnh sửa</button>
-                            <button class="btn-delete">Xóa</button>
-                            <button class="btn-approve">Duyệt bài</button> <!-- Chỉ hiển thị nếu bài đang chờ duyệt -->
-                        </td>
-                    </tr> 
-                    <tr>
-                        <td>1</td>
-                        <td>Ngủ đủ giấc</td>
-                        <td>aiosdiasdas</td>
-                        <td>/ssqeweqweq</td>
-                        <td>Sức khỏe</td>
-                        <td>Dinh dưỡng</td>
-                        <td>Tôi muốn khỏe mạnh</td>
-                        <td class="status">Đã duyệt</td>
-                        <td class-="actions-button">
-                            <button class="btn-edit">Chỉnh sửa</button>
-                            <button class="btn-delete">Xóa</button>
-                            <button class="btn-approve">Duyệt bài</button> <!-- Chỉ hiển thị nếu bài đang chờ duyệt -->
+                            <button class="Post-btn-edit">Chỉnh sửa</button>
+                            <button class="Post-btn-delete">Xóa</button>
+                            <button class="Post-btn-approve">Duyệt bài</button> <!-- Chỉ hiển thị nếu bài đang chờ duyệt -->
                         </td>
                     </tr>
                 </tbody>
             </table>
+
+            <div id="addPostModal" class="Postadd-modal-overlay">
+                <div class="Postadd-modal-content">
+                    <button class="Postadd-modal-close">&times;</button>
+                    <div class="Postadd-modal-header">
+                        <h2>Thêm bài báo</h2>
+                    </div>
+                    
+                    <div class="Postadd-form-group">
+                        <label>Tên Bài báo</label>
+                        <input type="text" placeholder="Nhập tên bài báo">
+                    </div>
+                    
+                    <div class="Postadd-form-group">
+                        <label>Tác giả</label>
+                        <input type="text" placeholder="Nhập tên tác giả">
+                    </div>
+                    
+                    <div class="Postadd-form-group">
+                        <label>Slug-Liên Kết</label>
+                        <input type="text" placeholder="Nhập link bài báo">
+                    </div>
+                    
+                    <div class="Postadd-form-group">
+                        <label>Danh mục chính</label>
+                        <select id="mainCategory">
+                            <option value="" disabled selected>Chọn danh mục chính</option>
+                            <option value="society">Xã hội</option>
+                            <option value="science">Khoa học & Công nghệ</option>
+                            <option value="health">Sức khỏe</option>
+                            <option value="sports">Thể Thao</option>
+                            <option value="entertainment">Giải trí</option>
+                            <option value="education">Giáo dục</option>
+                        </select>
+                    </div>
+                    
+                    <div class="Postadd-form-group">
+                        <label>Danh mục phụ</label>
+                        <select id="subCategory">
+                            <option value="" disabled selected>Chọn danh mục phụ</option>
+                        </select>
+                    </div>
+                    
+                    <div class="Postadd-form-group" style="grid-column: 1 / -1;">
+                        <label>Nội dung bài báo</label>
+                        <textarea placeholder="Nhập nội dung bài báo"></textarea>
+                    </div>
+                    
+                    <div class="Postadd-modal-footer">
+                        <button class="btn-add-post">Thêm bài báo</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="approveModal" class="modal">
+                <div class="modal-content-approveModal">
+                    <p>Bạn có chắc chắn muốn duyệt bài này không?</p>
+                    <div class="modal-buttons">
+                        <button id="confirmApprove" class="btn-confirm">Có</button>
+                        <button id="cancelApprove" class="btn-cancel">Không</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="editPostModal" class="Postadd-modal-overlay">
+                <div class="Postadd-modal-content">
+                    <button class="Postadd-modal-close">&times;</button>
+                    <div class="Postadd-modal-header">
+                        <h2>Chỉnh sửa bài báo</h2>
+                    </div>
+                    
+                    <div class="Postadd-form-group">
+                        <label>Tên Bài báo</label>
+                        <input type="text" id="editPostTitle" placeholder="Nhập tên bài báo">
+                    </div>
+                    
+                    <div class="Postadd-form-group">
+                        <label>Tác giả</label>
+                        <input type="text" id="editPostAuthor" placeholder="Nhập tên tác giả">
+                    </div>
+                    
+                    <div class="Postadd-form-group">
+                        <label>Slug-Liên Kết</label>
+                        <input type="text" id="editPostSlug" placeholder="Nhập link bài báo">
+                    </div>
+                    
+                    <div class="Postadd-form-group">
+                        <label>Danh mục chính</label>
+                        <select id="editMainCategory">
+                            <option value="" disabled selected>Chọn danh mục chính</option>
+                            <option value="society">Xã hội</option>
+                            <option value="science">Khoa học & Công nghệ</option>
+                            <option value="health">Sức khỏe</option>
+                            <option value="sports">Thể Thao</option>
+                            <option value="entertainment">Giải trí</option>
+                            <option value="education">Giáo dục</option>
+                        </select>
+                    </div>
+                    
+                    <div class="Postadd-form-group">
+                        <label>Danh mục phụ</label>
+                        <select id="editSubCategory">
+                            <option value="" disabled selected>Chọn danh mục phụ</option>
+                        </select>
+                    </div>
+                    
+                    <div class="Postadd-form-group" style="grid-column: 1 / -1;">
+                        <label>Nội dung bài báo</label>
+                        <textarea id="editPostContent" placeholder="Nhập nội dung bài báo"></textarea>
+                    </div>
+                    
+                    <div class="Postadd-modal-footer">
+                        <button id="btnUpdatePost" class="btn-add-post">Cập nhật bài báo</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="deleteModal" class="modal">
+                <div class="modal-content-approveModal">
+                    <p>Bạn có chắc chắn muốn xóa bài báo này không?</p>
+                    <div class="modal-buttons">
+                        <button id="confirmDelete" class="btn-confirm">Có</button>
+                        <button id="cancelDelete" class="btn-cancel">Không</button>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
 
 
+        <!-- Add this inside the category management div in your existing HTML -->
         <div id="categoryManagement" class="category_management" style="display: none;">
-            <h2>Quản lý danh mục</h2>      
+            <h2>Quản lý danh mục</h2>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" class="search-box-input" placeholder="Tìm kiếm...">
+                    <button class="search-box-btn"><i class="bi bi-search"></i></button>
+                </div>
+                <button class="add-category-btn">Thêm danh mục</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên danh mục</th>
+                        <th>Danh mục cha</th>
+                        <th>Số lượng bài báo</th>
+                        <th>Chức năng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Xã hội</td>
+                        <td>Không</td>
+                        <td>?</td>
+                        <td class="actions-button">
+                            <button class="Category-btn-edit">Chỉnh sửa</button>
+                            <button class="Category-btn-delete">Xóa</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Bóng đá</td>
+                        <td>Thể thao</td>
+                        <td>?</td>
+                        <td class="actions-button">
+                            <button class="Category-btn-edit">Chỉnh sửa</button>
+                            <button class="Category-btn-delete">Xóa</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Dinh dưỡng</td>
+                        <td>Sức khỏe</td>
+                        <td>?</td>
+                        <td class="actions-button">
+                            <button class="Category-btn-edit">Chỉnh sửa</button>
+                            <button class="Category-btn-delete">Xóa</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div id="addCategoryModal" class="Categoryadd-modal-overlay">
+                <div class="Categoryadd-modal-content">
+                    <button class="Categoryadd-modal-close">&times;</button>
+                    <div class="Categoryadd-modal-header">
+                        <h2>Thêm danh mục</h2>
+                    </div>
+                    
+                    <div class="Categoryadd-form-group">
+                        <label>Tên danh mục</label>
+                        <input type="text" placeholder="Nhập tên danh mục">
+                    </div>
+                    
+                    <div class="Categoryadd-form-group">
+                        <label>Danh mục cha</label>
+                        <select id="mainCategory">
+                            <option value="" disabled selected>Chọn danh mục cha</option>
+                            <option value="society">Xã hội</option>
+                            <option value="science">Khoa học & Công nghệ</option>
+                            <option value="health">Sức khỏe</option>
+                            <option value="sports">Thể Thao</option>
+                            <option value="entertainment">Giải trí</option>
+                            <option value="education">Giáo dục</option>
+                            <option value="none">Không</option>
+                        </select>
+                    </div>
+                
+                    
+                    <div class="Categoryadd-form-group" >
+                        <label>Số lượng bài báo</label>
+                        <input type="text" placeholder="Nhập số lượng bài báo">
+                    </div>
+                    
+                    <div class="Categoryadd-modal-footer">
+                        <button class="btn-add-post">Thêm bài báo</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="editCategoryModal" class="Categoryadd-modal-overlay">
+                <div class="Categoryadd-modal-content">
+                    <button class="Categoryadd-modal-close">&times;</button>
+                    <div class="Categoryadd-modal-header">
+                        <h2>Chỉnh sửa bài báo</h2>
+                    </div>
+                    
+                    <div class="Categoryadd-form-group">
+                        <label>Tên Danh mục</label>
+                        <input type="text" id="editCategoryName" placeholder="Nhập tên danh mục">
+                    </div>
+                    
+                    <div class="Categoryadd-form-group">
+                        <label>Danh mục cha</label>
+                        <select id="editParentCategory">
+                            <option value="" disabled selected>Chọn danh mục cha</option>
+                            <option value="society">Xã hội</option>
+                            <option value="science">Khoa học & Công nghệ</option>
+                            <option value="health">Sức khỏe</option>
+                            <option value="sports">Thể Thao</option>
+                            <option value="entertainment">Giải trí</option>
+                            <option value="education">Giáo dục</option>
+                            <option value="none">Không</option>
+                        </select>
+                    </div>
+                    
+                    <div class="Categoryadd-form-group" style="grid-column: 1 / -1;">
+                        <label>Số lượng bài báo của danh mục</label>
+                        <input type="text" id="editNumberPost">
+                    </div>
+                    
+                    <div class="Categoryadd-modal-footer">
+                        <button id="btnUpdateCategory" class="btn-add-category">Cập nhật danh mục</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="deleteModal" class="modal">
+                <div class="modal-content-approveModal">
+                    <p>Bạn có chắc chắn muốn xóa bài báo này không?</p>
+                    <div class="modal-buttons">
+                        <button id="confirmDelete" class="btn-confirm">Có</button>
+                        <button id="cancelDelete" class="btn-cancel">Không</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
@@ -183,73 +416,7 @@
         <div id="commentManagement" class="comment_management" style="display: none;">
             <h2>Quản lý bình luận</h2>
         </div>
-       
-
-
-        <!-- Modal Xác Nhận -->
-        <div id="approveModal" class="modal">
-            <div class="modal-content-approveModal">
-                <p>Bạn có chắc chắn muốn duyệt bài này không?</p>
-                <div class="modal-buttons">
-                    <button id="confirmApprove" class="btn-confirm">Có</button>
-                    <button id="cancelApprove" class="btn-cancel">Không</button>
-                </div>
-            </div>
-        </div>
-
-        <div id="addPostModal" class="Postadd-modal-overlay">
-            <div class="Postadd-modal-content">
-                <button class="Postadd-modal-close">&times;</button>
-                <div class="Postadd-modal-header">
-                    <h2>Thêm bài báo</h2>
-                </div>
-                
-                <div class="Postadd-form-group">
-                    <label>Tên Bài báo</label>
-                    <input type="text" placeholder="Nhập tên bài báo">
-                </div>
-                
-                <div class="Postadd-form-group">
-                    <label>Tác giả</label>
-                    <input type="text" placeholder="Nhập tên tác giả">
-                </div>
-                
-                <div class="Postadd-form-group">
-                    <label>Slug-Liên Kết</label>
-                    <input type="text" placeholder="Nhập link bài báo">
-                </div>
-                
-                <div class="Postadd-form-group">
-                    <label>Danh mục chính</label>
-                    <select id="mainCategory">
-                        <option value="" disabled selected>Chọn danh mục chính</option>
-                        <option value="society">Xã hội</option>
-                        <option value="science">Khoa học & Công nghệ</option>
-                        <option value="health">Sức khỏe</option>
-                        <option value="sports">Thể Thao</option>
-                        <option value="entertainment">Giải trí</option>
-                        <option value="education">Giáo dục</option>
-                    </select>
-                </div>
-                
-                <div class="Postadd-form-group">
-                    <label>Danh mục phụ</label>
-                    <select id="subCategory">
-                        <option value="" disabled selected>Chọn danh mục phụ</option>
-                    </select>
-                </div>
-                
-                <div class="Postadd-form-group" style="grid-column: 1 / -1;">
-                    <label>Nội dung bài báo</label>
-                    <textarea placeholder="Nhập nội dung bài báo"></textarea>
-                </div>
-                
-                <div class="Postadd-modal-footer">
-                    <button class="btn-add-post">Thêm bài báo</button>
-                </div>
-            </div>
-        </div>
-
+            
 
     </div>
 
