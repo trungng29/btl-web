@@ -9,7 +9,7 @@ body{
 .stat-box{
     padding: 10px; border-radius: 10px; width: 180px; color: white;
 }
-.articles { background: #3498db; }
+/* .articles { background: #3498db; } */
 .categories { background: #2ecc71; }
 .users { background: #e74c3c; }
 canvas { margin-top: 20px; }
