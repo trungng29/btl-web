@@ -1,0 +1,148 @@
+.login-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 650px;
+    background-color: white;
+    border-radius: 10px !important;
+}
+
+.login-header {
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid #B32A45;
+    position: relative;
+}
+
+.login-header-logo  {
+    margin: 20px 0px;
+    width: 200px;
+}
+
+.login-header-background {
+    position: absolute;
+    top: 0;
+    left: 0; /* Thêm left: 0 */
+    right: 0; /* Thêm right: 0 */
+    bottom: 0; /* Thêm bottom: 0 */
+    opacity: 0.1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1; /* Đặt background xuống dưới nội dung */
+    margin: 0 !important;
+}
+
+.login-close-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 38px;
+    border-radius: 100%;
+}
+
+.login-switch-tab {
+    display: flex;
+    font-size: 25px;
+    text-align: center;
+    line-height: 80px;
+    font-weight: bolder;
+    cursor: pointer;
+    justify-content: space-around;
+}
+
+/* Style cho phần tab switch */
+.login-switch-tab {
+    display: flex;
+    font-size: 25px;
+    text-align: center;
+    line-height: 80px;
+    font-weight: bolder;
+}
+
+#txt_dn, #txt_dk {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    top: 0;
+    width: 50%;
+    border-bottom: 2px solid lightgray;
+}
+
+/* Hiệu ứng khi tab được chọn */
+#txt_dn.active, #txt_dk.active {
+    background-color: #B32A45;
+    color: white;
+    box-shadow: 0 4px 8px rgba(179, 42, 69, 0.2); /* Thêm bóng đổ nhẹ */
+}
+
+/* Hiệu ứng hover */
+#txt_dn:hover, #txt_dk:hover {
+    box-shadow: 0 4px 8px rgba(179, 42, 69, 0.2);
+}
+
+
+
+.form-input {
+    transition: all .5s ease-in-out; /* Thêm hiệu ứng chuyển đổi */
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    height: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 30px;
+    align-items: center;    
+}
+
+.form-input.active {
+    opacity: 1!important;
+    visibility: visible;
+}
+
+.clicked-effect {
+    background-color: #B32A45;
+    color: white;
+    border-bottom: 2px solid transparent !important;
+}
+
+.login-form {
+    width: 80%;
+}
+
+.input-container {
+    justify-content: center;
+}
+
+.input-inside-container {
+    width: 100%;
+}
+
+.btn-login-style {
+    background-color: #B32A45 !important;
+    border: 1px solid transparent !important;
+}
+
+.btn-login-style:hover {
+    background-color: #8b152c !important;
+    border: 1px solid #B32A45 !important;
+}
+
+label, button {
+    font-family: 'Lexend-Deca', sans-serif !important; 
+    font-size: 20px !important;
+    font-weight: 500 !important;
+}
+
+label {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+}

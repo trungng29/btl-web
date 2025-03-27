@@ -28,6 +28,7 @@
         <link rel="stylesheet" href="../css/trangDanhMuc2.css"/>
         <link rel="stylesheet" href="../css/quantri.css">
         <link rel="stylesheet" href="../css/trangTimKiemBaiViet.css"/>
+        <link rel="stylesheet" href="../css/congDangNhap.css">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
 
@@ -210,47 +211,87 @@
                 </div>
             </div>
             <div id="CongDangnhap">
-                <div style="width: 450px;height: 650px;background-color: white;margin-left: 35%;margin-top: 22px;">
-                    <div style="display: flex;border-bottom: 1px solid gray;">
-                        <img src="../assets/navbarLogo.png" style="width: 200px;margin-left: 120px;">
-                        <button onclick="DongDangnhap()" type="button" class="close closs-css" aria-label="Close" style="background-color: white;font-size: 38px;margin-left: 18%;border: none;">
-                            <span aria-hidden="true">&times;</span>
+                <div class="login-container">
+                    <div class="login-header">
+                        <img src="../assets/navbarLogo.png" class="login-header-logo" alt="">
+                        <img src="../assets/backgroundLogin.png" alt="" class="login-header-background">
+                        <button onclick="DongDangnhap()" type="button" class="close closs-css login-close-btn" aria-label="Close">
+                            <i class="bi bi-x-circle fs-3"></i>
                         </button>
                     </div>
-                    <div style="display: flex;font-size: 25px;text-align: center;line-height: 80px;font-weight: bolder;">
-                        <div id="txt_dn" onclick="switchToLogin()" style="border-bottom: 2px solid #B32A45;width: 180px;margin-left: 45px;">Đăng nhập</div>
-                        <div id="txt_dk" onclick="switchToSignup()" style="border-bottom: 2px solid gray;width: 180px;">Đăng ký</div>
+
+                    <div class="login-switch-tab">
+                        <div id="txt_dn" onclick="switchToLogin()" class="clicked-effect">Đăng nhập</div>
+                        <div id="txt_dk" onclick="switchToSignup()">Đăng ký</div>
                     </div>
-                    <br>
-                    <br>
         
-                    <div id="Dangnhap" class="form active">
-                        <form>
-                            <label for="email1" style="font-weight: bolder; margin-left: 45px;" class="User">Email</label>
-                            <br>
-                            <input id="email1" style="border-radius: 7px; height: 40px; width: 353px; margin-left: 45px;" type="email" placeholder="Email">
-                            <br><br>
-                            <label for="password1" style="font-weight: bolder; margin-left: 45px;" class="User">Mật khẩu</label>
-                            <br>
-                            <input id="password1" style="border-radius: 7px; height: 40px; width: 353px; margin-left: 45px;" type="password" placeholder="Mật khẩu">
-                            <br><br><br>
-                            <button type="button" onclick="Login()" style="background-color: red; color: white; border-radius: 7px; height: 40px; width: 359px; margin-left: 45px; font-weight: bolder; font-size: 20px;">Đăng nhập</button>
+                    <div id="Dangnhap" class="form-input active">
+                        
+                        <form class="login-form">
+                            <div class="login-form-input-outside-container">
+                                <div class="row">
+                                    <label for="email1" class="User col-sm-2 col-form-label">Email</label>
+                                </div>
+                                <div class="row mb-3 input-container">
+                                    <div class="col-sm-10 input-inside-container">
+                                        <input type="email" class="form-control" id="email1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="login-form-input-outside-container">
+                                <div class="row">
+                                    <label for="password1" class="User col-sm-2 col-form-label">Password</label>
+                                </div>
+                                <div class="row mb-3 input-container">
+                                    <div class="col-sm-10 input-inside-container">
+                                        <input type="password" class="form-control" id="password1">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary mt-3 btn-login-style">Đăng nhập</button>
+                                
+                            </div>
                         </form>
-                        <p style="margin-left: 45px;">Chưa có tài khoản? <span onclick="switchToSignup()" style="color: blue; cursor: pointer;">Đăng ký</span></p>
+                        
                     </div>
-                    <div id="Dangky" class="form">
-                        <form>
-                            <label for="email2" style="font-weight: bolder; margin-left: 45px;" class="User">Email</label>
-                            <br>
-                            <input id="email2" style="border-radius: 7px; height: 40px; width: 353px; margin-left: 45px;" type="email" placeholder="Email">
-                            <br><br>
-                            <label for="password2" style="font-weight: bolder; margin-left: 45px;" class="User">Mật khẩu</label>
-                            <br>
-                            <input id="password2" style="border-radius: 7px; height: 40px; width: 353px; margin-left: 45px;" type="password" placeholder="Mật khẩu">
-                            <br><br><br>
-                            <button type="button" onclick="CreateLogin()" style="background-color: red; color: white; border-radius: 7px; height: 40px; width: 359px; margin-left: 45px; font-weight: bolder; font-size: 20px;">Đăng ký</button>
+
+                    <div id="Dangky" class="form-input">
+                        
+                        <form class="login-form">
+                            <div class="login-form-input-outside-container">
+                                <div class="row">
+                                    <label for="username1" class="User col-sm-2 col-form-label">Username</label>
+                                </div>
+                                <div class="row mb-3 input-container">
+                                    <div class="col-sm-10 input-inside-container">
+                                        <input type="email" class="form-control" id="username1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="login-form-input-outside-container">
+                                <div class="row">
+                                    <label for="email2" class="User col-sm-2 col-form-label">Email</label>
+                                </div>
+                                <div class="row mb-3 input-container">
+                                    <div class="col-sm-10 input-inside-container">
+                                        <input type="email" class="form-control" id="email2">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="login-form-input-outside-container">
+                                <div class="row">
+                                    <label for="password2" class="User col-sm-2 col-form-label">Password</label>
+                                </div>
+                                <div class="row mb-3 input-container">
+                                    <div class="col-sm-10 input-inside-container">
+                                        <input type="password" class="form-control" id="password2">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary mt-3 btn-login-style">Đăng ký</button>
+                                
+                            </div>
+
                         </form>
-                        <p style="margin-left: 45px;">Đã có tài khoản? <span onclick="switchToLogin()" style="color: blue; cursor: pointer;">Đăng nhập</span></p>
+
                     </div>
                 </div>
             </div>

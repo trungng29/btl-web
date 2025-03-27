@@ -103,57 +103,29 @@ let isScrollDisabled = false;
 
 
 function CongDangnhap(){
-
-    alert("123")
-
     let cdn = document.getElementById("CongDangnhap")
-
     cdn.classList.add("mo")
-
 }
 
 function DongDangnhap(){
-
     let cdn = document.getElementById("CongDangnhap")
-
     cdn.classList.remove("mo")
-
 }
 
-
-
 function switchToSignup() {
-
     // Ẩn form đăng nhập
-
     document.getElementById('Dangnhap').classList.remove('active');
-
-    document.getElementById('txt_dn').classList.add('ut');
-
     // Hiển thị form đăng ký
-
     document.getElementById('Dangky').classList.add('active');
-
-    document.getElementById('txt_dk').classList.add('rt');
-
 }
 
 
 
 function switchToLogin() {
-
     // Ẩn form đăng ký
-
     document.getElementById('Dangky').classList.remove('active');
-
-    document.getElementById('txt_dn').classList.remove('ut');
-
     // Hiển thị form đăng nhập
-
     document.getElementById('Dangnhap').classList.add('active');
-
-    document.getElementById('txt_dk').classList.remove('rt');
-
 }
 
 var email = "kiet@gmail.com"

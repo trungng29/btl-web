@@ -367,15 +367,3 @@ a {
 .ut{
     border-bottom-color: gray!important;
 }
-.form {
-    transition: all .5s ease-in-out; /* Thêm hiệu ứng chuyển đổi */
-    position: absolute;
-    width: 100%;
-    opacity: 0;
-    visibility: hidden;
-}
-
-.form.active {
-    opacity: 1!important;
-    visibility: visible;
-}
