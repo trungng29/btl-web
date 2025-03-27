@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The PTIT News</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&family=Open+Sans:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../css/globalScopeStyle.css">
+        <link rel="stylesheet" href="../css/homePage.css">
+        <link rel="stylesheet" href="../css/navbar.css">
+        <link rel="stylesheet" href="../css/styleTrangChu.css">
+        <link rel="stylesheet" href="../css/section3KhoaHocCongNghe.css">
+        <link rel="stylesheet" href="../css/stylesTrangchuThoisu.css">
+        <link rel="stylesheet" href="../css/giaoduc.css">
+        <link rel="stylesheet" href="../css/footer.css">
+        <link rel="stylesheet" href="../css/chiTietBaiVietStyle.css">
+        <link rel="stylesheet" href="../css/trangDanhMuc.css" />
+        <link rel="stylesheet" href="../css/trangDanhMuc2.css"/>
+        <link rel="stylesheet" href="../css/quantri.css">
+        <link rel="stylesheet" href="../css/trangTimKiemBaiViet.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+
+    <body>
+
+        <div class="header" id="navbar-header">
+            <div class="navbar-tren">
+                <div class="navbar-tren-container">
+                    <a href="./index.html"><img src="../assets/navbarLogo.png" alt=""></a>
+    
+                    <div class="navbar-tren-tien-ich">
+                        <div  class="search-bar">
+                            <input type="text" placeholder="Search..." class="search-bar-input">
+                            <i class="bi bi-search fs-1"></i>
+                        </div>
+                        <div id="User_name">
+                            <i id="User" onclick="CongDangnhap()" class="bi bi-person-circle fs-1 ms-3"></i>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+            <div class="navbar-duoi">
+                <div class="navbar-duoi-container container">
+
+                    <a href="./index.html"><img src="../assets/navbarLogoSmall.png" alt=""></a>
+
+                    <div class="navbar-duoi-line-container">
+                        <img src="../assets/navbarLine.png" alt="" class="navbarDuoiLine">
+                    </div>
+                    <div class="cat-set">
+                        <ul class="cat-set">
+                            <li class="sub-menu-parent">
+                                <a href="../html/trangDanhMuc.html"><p class="cat-set-title xa-hoi-title">Xã hội</p></a>
+                                <div class="drop-down-menu">
+                                    <ul class="sub-menu">
+                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Thời sự</li></a>
+                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Giao thông</li></a>
+                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Môi trường - Khí hậu</li></a>
+                                    </ul>
+                                </div>
+                            </li>
+    
+                            <li class="sub-menu-parent">
+                                <a href="../html/trangDanhMuc.html"><p class="cat-set-title khcn-title">Khoa học & Công nghệ</p></a>
+    
+                                <div class="drop-down-menu">
+                                    <ul class="sub-menu">
+                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Tin tức công nghệ</li></a>
+                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Hoạt động công nghệ</li></a>
+                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Tạp chí</li></a>
+                                    </ul>
+                                </div>
+                            </li>
+    
+                            <li class="sub-menu-parent">
+                                <a href="../html/trangDanhMuc.html"><p class="cat-set-title suc-khoe-title">Sức khỏe</p></a>
+    
+                                <div class="drop-down-menu">
+                                    <ul class="sub-menu">
+                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Dinh dưỡng</li></a>
+                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Làm đẹp</li></a>
+                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Y tế</li></a>
+                                    </ul>
+                                </div>
+                            </li>
+    
+                            <li class="sub-menu-parent">
+                                <a href="../html/trangDanhMuc.html"><p class="cat-set-title the-thao-title">Thể thao</p></a>
+    
+                                <div class="drop-down-menu">
+                                    <ul class="sub-menu">
+                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Bóng đá</li></a>
+                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Bóng rổ</li></a>
+                                    </ul>
+                                </div>
+                            </li>
+    
+                            <li class="sub-menu-parent">
+                                <a href="../html/trangDanhMuc.html"><p class="cat-set-title giai-tri-title">Giải trí</p></a>
+    
+                                <div class="drop-down-menu">
+                                    <ul class="sub-menu">
+                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Âm nhạc</li></a>
+                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Thời trang</li></a>
+                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Điện ảnh - Truyền hình</li></a>
+                                    </ul>
+                                </div>
+                            </li>
+                            
+                            <li class="sub-menu-parent">
+                                <a href="../html/trangDanhMuc.html"><p class="cat-set-title giao-duc-title">Giáo dục</p></a>
+    
+                                <div class="drop-down-menu">
+                                    <ul class="sub-menu">
+                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Thi cử</li></a>
+                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Đào tạo</li></a>
+                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Học bổng - Du học</li></a>
+                                    </ul>
+                                </div>
+                            </li>
+    
+                            <li class="sub-menu-parent-quan-tri">
+                                <a href="./html/quantri.html"><p id="Quantri" class="dong">Quản trị</p></a>
+                            </li>
+                        </ul>
+                    </div>
+    
+                    <i class="bi bi-list fs-2 no-select" id="burgerIcon"></i>
+                </div>
+    
+                <div id="bigMenu" class="big-menu hidden-overlay">
+    
+                    <div class="search-bar-big-container">
+                        <div class="search-bar-big">
+                            <input type="text" placeholder="Search..." class="search-bar-big-input-menu">
+                            <i class="bi bi-search fs-1"></i>
+                        </div>
+                    </div>
+                   
+                    <div class="cat-set-big container">
+                        
+                        <ul class="cat-set-ul">
+                            <li>
+                                <a href=""><p class="cat-set-big-title xa-hoi-title">Xã hội</p></a>
+                                <ul class="sub-menu-big">
+                                    <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Thời sự</li></a>
+                                    <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Giao thông</li></a>
+                                    <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Môi trường - Khí hậu</li></a>
+                                </ul>
+                            </li>
+    
+                            <li>
+                                <a href=""><p class="cat-set-big-title khcn-title">Khoa học & Công nghệ</p></a>
+                                <ul class="sub-menu-big">
+                                    <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Tin tức công nghệ</li></a>
+                                    <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Hoạt động công nghệ</li></a>
+                                    <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Tạp chí</li></a>
+                                </ul>
+                            </li>
+    
+                            <li>
+                                <a href=""><p class="cat-set-big-title suc-khoe-title">Sức khỏe</p></a>
+                                <ul class="sub-menu-big">
+                                    <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Dinh dưỡng</li></a>
+                                    <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Làm đẹp</li></a>
+                                    <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Y tế</li></a>
+                                </ul>
+                            </li>
+    
+                            <li>
+                                <a href=""><p class="cat-set-big-title the-thao-title">Thể thao</p></a>
+                                <ul class="sub-menu-big">
+                                    <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Bóng đá</li></a>
+                                    <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Bóng rổ</li></a>
+                                </ul>
+                            </li>
+    
+                            <li>
+                                <a href=""><p class="cat-set-big-title giai-tri-title">Giải trí</p></a>
+                                <ul class="sub-menu-big">
+                                    <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Âm nhạc</li></a>
+                                    <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Thời trang</li></a>
+                                    <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Điện ảnh - Truyền hình</li></a>
+                                </ul>
+                            </li>
+    
+                            <li>
+                                <a href=""><p class="cat-set-big-title giao-duc-title">Giáo dục</p></a>
+                                <ul class="sub-menu-big">
+                                    <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Thi cử</li></a>
+                                    <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Đào tạo</li></a>
+                                    <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Học bổng - Du học</li></a>
+                                </ul>
+                            </li>
+    
+                        </ul>
+                    </div>
+    
+                </div>
+            </div>
+            <div id="CongDangnhap">
+                <div style="width: 450px;height: 650px;background-color: white;margin-left: 35%;margin-top: 22px;">
+                    <div style="display: flex;border-bottom: 1px solid gray;">
+                        <img src="../assets/navbarLogo.png" style="width: 200px;margin-left: 120px;">
+                        <button onclick="DongDangnhap()" type="button" class="close closs-css" aria-label="Close" style="background-color: white;font-size: 38px;margin-left: 18%;border: none;">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div style="display: flex;font-size: 25px;text-align: center;line-height: 80px;font-weight: bolder;">
+                        <div id="txt_dn" onclick="switchToLogin()" style="border-bottom: 2px solid #B32A45;width: 180px;margin-left: 45px;">Đăng nhập</div>
+                        <div id="txt_dk" onclick="switchToSignup()" style="border-bottom: 2px solid gray;width: 180px;">Đăng ký</div>
+                    </div>
+                    <br>
+                    <br>
+        
+                    <div id="Dangnhap" class="form active">
+                        <form>
+                            <label for="email1" style="font-weight: bolder; margin-left: 45px;" class="User">Email</label>
+                            <br>
+                            <input id="email1" style="border-radius: 7px; height: 40px; width: 353px; margin-left: 45px;" type="email" placeholder="Email">
+                            <br><br>
+                            <label for="password1" style="font-weight: bolder; margin-left: 45px;" class="User">Mật khẩu</label>
+                            <br>
+                            <input id="password1" style="border-radius: 7px; height: 40px; width: 353px; margin-left: 45px;" type="password" placeholder="Mật khẩu">
+                            <br><br><br>
+                            <button type="button" onclick="Login()" style="background-color: red; color: white; border-radius: 7px; height: 40px; width: 359px; margin-left: 45px; font-weight: bolder; font-size: 20px;">Đăng nhập</button>
+                        </form>
+                        <p style="margin-left: 45px;">Chưa có tài khoản? <span onclick="switchToSignup()" style="color: blue; cursor: pointer;">Đăng ký</span></p>
+                    </div>
+                    <div id="Dangky" class="form">
+                        <form>
+                            <label for="email2" style="font-weight: bolder; margin-left: 45px;" class="User">Email</label>
+                            <br>
+                            <input id="email2" style="border-radius: 7px; height: 40px; width: 353px; margin-left: 45px;" type="email" placeholder="Email">
+                            <br><br>
+                            <label for="password2" style="font-weight: bolder; margin-left: 45px;" class="User">Mật khẩu</label>
+                            <br>
+                            <input id="password2" style="border-radius: 7px; height: 40px; width: 353px; margin-left: 45px;" type="password" placeholder="Mật khẩu">
+                            <br><br><br>
+                            <button type="button" onclick="CreateLogin()" style="background-color: red; color: white; border-radius: 7px; height: 40px; width: 359px; margin-left: 45px; font-weight: bolder; font-size: 20px;">Đăng ký</button>
+                        </form>
+                        <p style="margin-left: 45px;">Đã có tài khoản? <span onclick="switchToLogin()" style="color: blue; cursor: pointer;">Đăng nhập</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
