@@ -370,3 +370,317 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+//Xử lí nút chặn người dùng
+// Hàm tạo modal xác nhận
+function createConfirmModal(message, isBlocking) {
+    // Tạo overlay
+    const overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.backgroundColor = 'rgba(0,0,0,0.5)';
+    overlay.style.display = 'flex';
+    overlay.style.justifyContent = 'center';
+    overlay.style.alignItems = 'center';
+    overlay.style.zIndex = '1000';
+
+    // Tạo modal container
+    const modal = document.createElement('div');
+    modal.style.backgroundColor = 'white';
+    modal.style.padding = '20px';
+    modal.style.borderRadius = '10px';
+    modal.style.textAlign = 'center';
+    modal.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+    modal.style.width = '300px';
+
+    // Nội dung modal
+    modal.innerHTML = `
+        <p>${message}</p>
+        <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+            <button id="confirmBtn" style="background-color: #B32A45; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Có</button>
+            <button id="cancelBtn" style="background-color: #cccccc; color: black; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Không</button>
+        </div>
+    `;
+
+    // Thêm modal vào overlay
+    overlay.appendChild(modal);
+
+    // Thêm overlay vào body
+    document.body.appendChild(overlay);
+
+    // Xử lý nút Có
+    const confirmBtn = modal.querySelector('#confirmBtn');
+    confirmBtn.addEventListener('click', () => {
+        document.body.removeChild(overlay);
+        // Nếu đang chặn thì hiện modal chặn
+        if (isBlocking) {
+            createNotificationModal('Đã cho phép người dùng hoạt động');
+            
+        } 
+        // Nếu đang mở khóa thì hiện modal cho phép
+        else {
+            createNotificationModal('Đã chặn người dùng hoạt động');
+        }
+    });
+
+    // Xử lý nút Không
+    const cancelBtn = modal.querySelector('#cancelBtn');
+    cancelBtn.addEventListener('click', () => {
+        document.body.removeChild(overlay);
+        // Quay lại trạng thái ban đầu của toggle
+        const relatedToggle = window.currentToggle;
+        if (relatedToggle) {
+            relatedToggle.checked = !relatedToggle.checked;
+        }
+    });
+}
+
+// Hàm tạo modal thông báo
+function createNotificationModal(message) {
+    // Tạo overlay
+    const overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.backgroundColor = 'rgba(0,0,0,0.5)';
+    overlay.style.display = 'flex';
+    overlay.style.justifyContent = 'center';
+    overlay.style.alignItems = 'center';
+    overlay.style.zIndex = '1000';
+
+    // Tạo modal container
+    const modal = document.createElement('div');
+    modal.style.backgroundColor = 'white';
+    modal.style.padding = '20px';
+    modal.style.borderRadius = '10px';
+    modal.style.textAlign = 'center';
+    modal.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+    modal.style.width = '300px';
+
+    // Nội dung modal
+    modal.innerHTML = `
+        <p>${message}</p>
+        <button id="okBtn" style="background-color: #B32A45; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-top: 20px;">OK</button>
+    `;
+
+    // Thêm modal vào overlay
+    overlay.appendChild(modal);
+
+    // Thêm overlay vào body
+    document.body.appendChild(overlay);
+
+    // Xử lý nút OK
+    const okBtn = modal.querySelector('#okBtn');
+    okBtn.addEventListener('click', () => {
+        document.body.removeChild(overlay);
+    });
+}
+
+// Lấy tất cả các nút toggle input
+const toggleInputs = document.querySelectorAll('.toggle-input');
+
+// Lặp qua từng toggle input và thêm sự kiện
+toggleInputs.forEach(toggleInput => {
+    toggleInput.addEventListener('change', function() {
+        // Lưu toggle hiện tại
+        window.currentToggle = this;
+
+        // Kiểm tra trạng thái toggle để xác định nội dung modal
+        const isBlocking = this.checked;
+        const message = isBlocking 
+            ? 'Bạn có muốn cho phép người dùng này hoạt động ?' 
+            : 'Bạn có muốn chặn người dùng này ?';
+
+        // Hiển thị modal xác nhận
+        createConfirmModal(message, isBlocking);
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+    // Chọn tất cả các nút phê duyệt
+    const approveButtons = document.querySelectorAll('.btn-action.btn-approve');
+    
+    approveButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Tìm dòng cha
+            const row = this.closest('tr');
+            
+            // Tạo modal xác nhận
+            const modal = document.createElement('div');
+            modal.classList.add('approval-modal');
+            modal.innerHTML = `
+                <div class="modal-overlay">
+                    <div class="modal-content">
+                        <h3>Xác nhận phê duyệt</h3>
+                        <p>Bạn có chắc chắn muốn phê duyệt bình luận này không?</p>
+                        <div class="modal-buttons">
+                            <button class="btn-confirm-yes">Có</button>
+                            <button class="btn-confirm-no">Không</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Thêm modal vào body
+            document.body.appendChild(modal);
+            
+            // Xử lý nút Có
+            modal.querySelector('.btn-confirm-yes').addEventListener('click', function() {
+                // Tìm ô trạng thái và ô hành động
+                const statusCell = row.querySelector('.comment-status');
+                const actionCell = row.querySelector('.action-group');
+                
+                // Thay đổi trạng thái sang đã duyệt
+                statusCell.textContent = 'Đã duyệt';
+                statusCell.classList.remove('pending');
+                statusCell.classList.add('approved');
+                statusCell.style.backgroundColor = '#28a745';
+                statusCell.style.color = 'white';
+                statusCell.style.padding = '5px 10px';
+                statusCell.style.borderRadius = '4px';
+                statusCell.style.display = 'inline-block';
+                
+                // Xóa nút phê duyệt
+                const approveButton = actionCell.querySelector('.btn-approve');
+                if (approveButton) {
+                    approveButton.remove();
+                }
+                
+                // Xóa modal
+                document.body.removeChild(modal);
+            });
+            
+            // Xử lý nút Không
+            modal.querySelector('.btn-confirm-no').addEventListener('click', function() {
+                document.body.removeChild(modal);
+            });
+            
+            // Đóng modal khi click ra ngoài
+            modal.querySelector('.modal-overlay').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    document.body.removeChild(modal);
+                }
+            });
+        });
+    });
+});
+// Xử lí nút xóa
+// Tạo modal động
+function createDeleteModal() {
+    const modal = document.createElement('div');
+    modal.id = 'deleteConfirmModal';
+    modal.innerHTML = `
+        <div class="modal-overlay">
+            <div class="modal-content">
+         
+                <p class="modal-message"></p>
+                <div class="modal-buttons">
+                    <button id="confirmDelete" class="btn btn-confirm">Có</button>
+                    <button id="cancelDelete" class="btn btn-cancel">Không</button>
+                </div>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+
+    return modal;
+}
+
+// Hàm xử lý xóa
+function setupDeleteConfirmation() {
+    const modal = createDeleteModal();
+    const modalOverlay = modal.querySelector('.modal-overlay');
+    const modalMessage = modal.querySelector('.modal-message');
+    const confirmBtn = modal.querySelector('#confirmDelete');
+    const cancelBtn = modal.querySelector('#cancelDelete');
+
+    // Biến lưu trữ dòng sẽ xóa
+    let rowToDelete = null;
+
+    // Lắng nghe sự kiện nút xóa ở cả 2 bảng
+    document.querySelectorAll('.user_management .btn-delete, .comment_management .btn-delete').forEach(deleteButton => {
+        deleteButton.addEventListener('click', function() {
+            // Xác định loại xóa và thông điệp
+            const isUserDelete = this.closest('.user_management') !== null;
+            const row = this.closest('tr');
+            rowToDelete = row;
+
+            if (isUserDelete) {
+                modalMessage.textContent = 'Bạn có chắc chắn muốn xóa người dùng này không?';
+            } else {
+                modalMessage.textContent = 'Bạn có chắc chắn muốn xóa bình luận này không?';
+            }
+
+            // Hiển thị modal
+            modalOverlay.style.display = 'flex';
+        });
+    });
+
+    // Xử lý nút Không
+    cancelBtn.addEventListener('click', () => {
+        modalOverlay.style.display = 'none';
+        rowToDelete = null;
+    });
+
+    // Xử lý nút Có
+    confirmBtn.addEventListener('click', () => {
+        if (rowToDelete) {
+            // Xóa dòng khỏi bảng
+            rowToDelete.remove();
+            
+            // Ẩn modal
+            modalOverlay.style.display = 'none';
+            rowToDelete = null;
+        }
+    });
+
+    // Đóng modal khi click ngoài
+    modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+            modalOverlay.style.display = 'none';
+            rowToDelete = null;
+        }
+    });
+}
+
+
+
+
+
+// Chạy setup khi trang tải xong
+document.addEventListener('DOMContentLoaded', setupDeleteConfirmation);
+function showAddUserModal() {
+    // Lấy modal container
+    const modalContainer = document.getElementById('modal-container');
+    modalContainer.style.display = 'block';
+
+    // Lấy các phần tử trong modal
+    const modalOverlay = modalContainer.querySelector('.modal-overlay');
+    const closeButton = modalContainer.querySelector('.modal-close-btn');
+    const form = modalContainer.querySelector('#addUserForm');
+
+    // Xử lý đóng modal khi click nút x
+    closeButton.addEventListener('click', () => {
+        modalContainer.style.display = 'none';
+    });
+
+    // Xử lý đóng modal khi click ngoài
+    modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+            modalContainer.style.display = 'none';
+        }
+    });
+
+    // Xử lý submit form
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // Xử lý logic thêm người dùng ở đây
+        console.log('Form submitted');
+    });
+}
+
+// Gắn sự kiện cho nút Thêm người dùng
+document.querySelector('.btn-add-user').addEventListener('click', showAddUserModal);
