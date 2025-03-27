@@ -13,6 +13,13 @@ import { connect } from "./config/db.js"; // Kết nối đến cơ sở dữ li
 const app = express();
 const port = 3000;
 
+app.use(cors());
+app.use(bodyParser.json()); // Middleware để phân tích dữ liệu JSON trong yêu cầu
+app.use(bodyParser.urlencoded({ extended: true })); // Middleware để phân tích dữ liệu URL-encoded
+app.use(express.static('public')); // Middleware để phục vụ các tệp tĩnh từ thư mục 'public'
+
+app.use("/", mainRoutes); // Sử dụng route chính
+
 // Kết nối đến cơ sở dữ liệu SQL Server
 connect()
   .then((connection) => {
@@ -22,14 +29,6 @@ connect()
     console.log("Database connection failed!");
     console.log(error);
   });
-
-
-app.use(cors());
-app.use(bodyParser.json()); // Middleware để phân tích dữ liệu JSON trong yêu cầu
-app.use(bodyParser.urlencoded({ extended: true })); // Middleware để phân tích dữ liệu URL-encoded
-app.use(express.static('public')); // Middleware để phục vụ các tệp tĩnh từ thư mục 'public'
-
-app.use("/", mainRoutes); // Sử dụng route chính
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
