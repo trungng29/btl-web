@@ -3,13 +3,25 @@ import express from 'express';
 import axios from 'axios';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import sql from 'mssql'; // Thư viện SQL Server
 
 // Khai báo các route
-import { router as mainRoutes } from "./routes/mainRoute.js";
+import { router as mainRoutes } from "./routes/mainRoute.js"; // Route chính
+import { connect } from "./config/db.js"; // Kết nối đến cơ sở dữ liệu
 
 // Khai báo các biến môi trường
 const app = express();
 const port = 3000;
+
+// Kết nối đến cơ sở dữ liệu SQL Server
+connect()
+  .then((connection) => {
+    console.log("Connected to the database.");
+  })
+  .catch((error) => {
+    console.log("Database connection failed!");
+    console.log(error);
+  });
 
 
 app.use(cors());
