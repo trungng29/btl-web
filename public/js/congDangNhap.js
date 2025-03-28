@@ -65,17 +65,63 @@ const userEmailInp1 = document.getElementById("email5");
 const userPwdInp1 = document.getElementById("password5");
 const registerBtn = document.getElementById("registerBtn");
 
-    function checkInputs() {
-        if (
-            userEmailInp.value.trim() !== "" &&
-            userPwdInp.value.trim() !== "" 
-        ) {
-            submitBtn.removeAttribute("disabled");
-        } else {
-            submitBtn.setAttribute("disabled", "true");
-        }
+function checkInputs() {
+    if (userEmailInp.value.trim() !== "" && userPwdInp.value.trim() !== "") {
+        submitBtn.removeAttribute("disabled");
+    } else {
+        submitBtn.setAttribute("disabled", "true");
     }
+
+    if (userNameInp1.value.trim() !== "" && userEmailInp1.value.trim() !== "" && userPwdInp1.value.trim() !== "") {
+        registerBtn.removeAttribute("disabled");
+    }
+    else {
+        registerBtn.setAttribute("disabled", "true");
+    }
+}
 
 [userEmailInp, userPwdInp, userNameInp1, userEmailInp1, userPwdInp1].forEach(input => {
     input.addEventListener("input", checkInputs);
 });
+
+document.getElementById('registerForm').addEventListener('submit', async function(e) {
+    e.preventDefault(); 
+
+    try {
+        // Lấy dữ liệu từ form và chuyển thành object
+        const formData = new FormData(this);
+        const formDataObject = {};
+        formData.forEach((value, key) => {
+            formDataObject[key] = value;
+        });
+        
+        const response = await fetch('/auth/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'  // Thêm header
+            },
+            body: JSON.stringify(formDataObject)  // Chuyển đổi thành JSON
+        });
+
+        if (!response.ok) {
+            throw new Error(`Email đã tồn tại trong hệ thống hoặc có lỗi xảy ra`);
+        }
+
+        const data = await response.json();
+        console.log('Response:', data); // Log để debug
+
+        if (data.success) {
+            alert(data.message);
+            this.reset();
+            document.getElementById('txt_dn')?.click();
+            registerBtn.setAttribute("disabled", "true");
+        } else {
+            alert(data.message || 'Có lỗi xảy ra');
+        }
+    } catch (error) {
+        console.error('Lỗi chi tiết:', error); // Log lỗi chi tiết
+        alert('Lỗi: ' + error.message);
+    }
+});
+
+

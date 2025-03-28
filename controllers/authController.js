@@ -53,7 +53,10 @@ export const authController = {
 
         try {
             await executeQuery(query, values, paramNames, isStoredProcedure);
-            res.render("index.ejs")
+            res.status(200).json({ 
+                success: true, 
+                message: "Đăng ký thành công!" 
+            });
         } catch (error) {
             console.error(error);
             res.status(500).send(error);
@@ -62,5 +65,31 @@ export const authController = {
 
     login: async (req, res) => {
         console.log("Logging in user...");
+
+        const { email, password } = req.body;
+
+        const query = `SELECT * FROM [dbo].[User] WHERE email = @email AND password = @password`;
+        const values = [email, password];
+        const paramNames = ["email", "password"];
+        const isStoredProcedure = false;
+
+        try {
+            const result = await executeQuery(query, values, paramNames, isStoredProcedure);
+            if (result && result.recordset.length > 0) {
+                // res.status(200).json({ success: true, message: "Đăng nhập thành công!" });
+                // Đăng nhập thành công
+                res.render("index.ejs", {
+                    isLoggedIn: true,
+                })
+
+                // Xử lý logic để xem là admin, nhaBao hay docGia
+            } else {
+                // Đăng nhập thất bại
+                res.status(401).json({ success: false, message: "Tên đăng nhập hoặc mật khẩu không đúng!" });
+            }
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ success: false, message: "Có lỗi xảy ra, vui lòng thử lại!" });
+        }
     }
 };

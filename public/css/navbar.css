@@ -317,6 +317,10 @@ a {
     justify-content: center;
 }
 
+.navbar-tren-tien-ich .search-bar {
+    padding-right: 10px;
+}
+
 .search-bar-big-container {
     display: flex;
     width: 100%;
@@ -366,4 +370,13 @@ a {
 }
 .ut{
     border-bottom-color: gray!important;
+}
+
+.bi-box2-heart {
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+}
+
+.bi-box2-heart:hover {
+    color: #B32A45;
 }
