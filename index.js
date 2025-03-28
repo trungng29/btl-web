@@ -4,9 +4,11 @@ import axios from 'axios';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import sql from 'mssql'; // Thư viện SQL Server
+// ECMAScript Modules (ESM) được sử dụng để import các module trong Node.js
 
 // Khai báo các route
 import { router as mainRoutes } from "./routes/mainRoute.js"; // Route chính
+import { router as authRoutes } from "./routes/authRoute.js"; // Route xác thực
 import { connect } from "./config/db.js"; // Kết nối đến cơ sở dữ liệu
 
 // Khai báo các biến môi trường
@@ -18,7 +20,10 @@ app.use(bodyParser.json()); // Middleware để phân tích dữ liệu JSON tro
 app.use(bodyParser.urlencoded({ extended: true })); // Middleware để phân tích dữ liệu URL-encoded
 app.use(express.static('public')); // Middleware để phục vụ các tệp tĩnh từ thư mục 'public'
 
+
+// Define routes
 app.use("/", mainRoutes); // Sử dụng route chính
+app.use("/auth", authRoutes); // Sử dụng route xác thực
 
 // Kết nối đến cơ sở dữ liệu SQL Server
 connect()
