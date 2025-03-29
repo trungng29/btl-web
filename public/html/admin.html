@@ -143,65 +143,59 @@
             <table>
                 <thead>
                     <tr>
-                        <th>STT</th>
-                        <th>Tên bài báo</th>
-                        <th>Tác giả</th>
-                        <th>Xem chi tiết</th>
-                        <th>Danh mục chính</th>
-                        <th>Danh mục phụ</th>
+                        <th>ID bài báo</th>
+                        <th>ID nhà báo</th>
+                        <th>Tên tiêu đề</th>
+                        <th>Tên danh mục</th>
+                        <th>Ảnh bìa</th>
                         <th>Nội dung bài báo</th>
+                        <th>Số lượt xem</th>
+                        <th>Số lượt thích</th>
                         <th>Trạng thái</th>
+                        <th>Nổi bật</th>
+                        <th>Ngày đăng bài</th>
                         <th>Hành động</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>1</td>
+                        <td>BB_1</td>
+                        <td>NB_1</td>
                         <td>Ngủ đủ giấc</td>
-                        <td>Quang Trung</td>
-                        <td>//////</td>
-                        <td>Sức khỏe</td>
-                        <td>Dinh dưỡng</td>
+                        <td>Sức khỏe/Dinh dưỡng</td>
+                        <td>image</td>
                         <td>Tôi muốn khỏe mạnh</td>
-                        <td class="status">Đang chờ duyệt</td>
+                        <td>25</td>
+                        <td>11</td>
+                        <td class="status">Đã duyệt</td>
+                        <td>Không</td>
+                        <td>28/3/2025</td>
                         <td class-="actions-button">
                             <button class="Post-btn-edit"><i class="bi bi-pencil-square"></i> Chỉnh sửa</button>
-                            <button class="Post-btn-delete"><i class="bi bi-trash"></i> Xóa</button>
+                            <button class="Post-btn-delete"><i class="bi bi-trash" ></i> Xóa</button>
                             <button class="Post-btn-approve"><i class="bi bi-check-circle" style="padding-top: 10px;"> </i>Duyệt bài</button> <!-- Chỉ hiển thị nếu bài đang chờ duyệt -->
                         </td>
                     </tr>
                     
                     <tr>
-                        <td>2</td>
-                        <td>CSGT đón lõng 'ma men'</td>
-                        <td>Quang Nam</td>
-                        <td>.....</td>
-                        <td>Xã hội</td>
-                        <td>Giao thông</td>
-                        <td>Đội CSGT số 6 nhận định,...</td>
+                        <td>BB_1</td>
+                        <td>NB_1</td>
+                        <td>Messi vs Ronaldo</td>
+                        <td>Thể thao/Bóng đá</td>
+                        <td>image</td>
+                        <td>Đá bóng đẩy lùi ma túy</td>
+                        <td>25</td>
+                        <td>11</td>
                         <td class="status">Đang chờ duyệt</td>
+                        <td>Có</td>
+                        <td>28/3/2025</td>
                         <td class-="actions-button">
                             <button class="Post-btn-edit"><i class="bi bi-pencil-square"></i> Chỉnh sửa</button>
-                            <button class="Post-btn-delete"><i class="bi bi-trash"></i> Xóa</button>
-                            <button class="Post-btn-approve"><i class="bi bi-check-circle"> </i>Duyệt bài</button> <!-- Chỉ hiển thị nếu bài đang chờ duyệt -->
+                            <button class="Post-btn-delete"><i class="bi bi-trash" ></i> Xóa</button>
+                            <button class="Post-btn-approve"><i class="bi bi-check-circle" style="padding-top: 10px;"> </i>Duyệt bài</button> <!-- Chỉ hiển thị nếu bài đang chờ duyệt -->
                         </td>
                     </tr>
                     
-                    <tr>
-                        <td>2</td>
-                        <td>CSGT đón lõng 'ma men'</td>
-                        <td>Quang Nam</td>
-                        <td>.....</td>
-                        <td>Xã hội</td>
-                        <td>Giao thông</td>
-                        <td>Đội CSGT số 6 nhận định,...</td>
-                        <td class="status">Đã duyệt</td>
-                        <td class-="actions-button">
-                            <button class="Post-btn-edit"><i class="bi bi-pencil-square"></i> Chỉnh sửa</button>
-                            <button class="Post-btn-delete"><i class="bi bi-trash"></i> Xóa</button>
-                            <button class="Post-btn-approve">Duyệt bài</button> <!-- Chỉ hiển thị nếu bài đang chờ duyệt -->
-                        </td>
-                    </tr>
                 </tbody>
             </table>
 
@@ -220,11 +214,6 @@
                     <div class="action-form-group">
                         <label>Tác giả</label>
                         <input type="text" placeholder="Nhập tên tác giả">
-                    </div>
-                    
-                    <div class="action-form-group">
-                        <label>Slug-Liên Kết</label>
-                        <input type="text" placeholder="Nhập link bài báo">
                     </div>
                     
                     <div class="action-form-group">
@@ -281,13 +270,8 @@
                     </div>
                     
                     <div class="action-form-group">
-                        <label>Tác giả</label>
-                        <input type="text" id="editPostAuthor" placeholder="Nhập tên tác giả">
-                    </div>
-                    
-                    <div class="action-form-group">
-                        <label>Slug-Liên Kết</label>
-                        <input type="text" id="editPostSlug" placeholder="Nhập link bài báo">
+                        <label>ID nhà báo</label>
+                        <input type="text" id="editPostAuthorId" placeholder="Nhập ID nhà báo">
                     </div>
                     
                     <div class="action-form-group">
@@ -307,6 +291,14 @@
                         <label>Danh mục phụ</label>
                         <select id="editSubCategory">
                             <option value="" disabled selected>Chọn danh mục phụ</option>
+                        </select>
+                    </div>
+                    
+                    <div class="action-form-group">
+                        <label>Nổi bật</label>
+                        <select id="editIsFeatured">
+                            <option value="false">Không</option>
+                            <option value="true">Có</option>
                         </select>
                     </div>
                     
@@ -351,39 +343,35 @@
             <table>
                 <thead>
                     <tr>
-                        <th>STT</th>
+                        <th>ID danh mục</th>
                         <th>Tên danh mục</th>
-                        <th>Danh mục cha</th>
-                        <th>Số lượng bài báo</th>
+                        <th>ID danh mục cha</th>
                         <th>Hành động</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>1</td>
+                        <td>DM_1</td>
                         <td>Xã hội</td>
                         <td>Không</td>
-                        <td>?</td>
                         <td class="actions-button">
                             <button class="Category-btn-edit"><i class="bi bi-pencil-square"></i> Chỉnh sửa</button>
                             <button class="Category-btn-delete"><i class="bi bi-trash"></i> Xóa</button>
                         </td>
                     </tr>
                     <tr>
-                        <td>2</td>
+                        <td>DM_2</td>
                         <td>Bóng đá</td>
-                        <td>Thể thao</td>
-                        <td>?</td>
+                        <td>DM_3</td>
                         <td class="actions-button">
                             <button class="Category-btn-edit"><i class="bi bi-pencil-square"></i> Chỉnh sửa</button>
                             <button class="Category-btn-delete"><i class="bi bi-trash"></i> Xóa</button>
                         </td>
                     </tr>
                     <tr>
-                        <td>3</td>
-                        <td>Dinh dưỡng</td>
-                        <td>Sức khỏe</td>
-                        <td>?</td>
+                        <td>DM_3</td>
+                        <td>Thể thao</td>
+                        <td>Không</td>
                         <td class="actions-button">
                             <button class="Category-btn-edit"><i class="bi bi-pencil-square"></i> Chỉnh sửa</button>
                             <button class="Category-btn-delete"><i class="bi bi-trash"></i> Xóa</button>
@@ -417,12 +405,6 @@
                             <option value="none">Không</option>
                         </select>
                     </div>
-                
-                    
-                    <div class="action-form-group" >
-                        <label>Số lượng bài báo</label>
-                        <input type="text" placeholder="Nhập số lượng bài báo">
-                    </div>
                     
                     <div class="action-modal-footer">
                         <button class="btn-add">Thêm danh mục</button>
@@ -446,19 +428,11 @@
                         <label>Danh mục cha</label>
                         <select id="editParentCategory">
                             <option value="" disabled selected>Chọn danh mục cha</option>
-                            <option value="society">Xã hội</option>
-                            <option value="science">Khoa học & Công nghệ</option>
-                            <option value="health">Sức khỏe</option>
-                            <option value="sports">Thể Thao</option>
-                            <option value="entertainment">Giải trí</option>
-                            <option value="education">Giáo dục</option>
-                            <option value="none">Không</option>
+                            <option value="DM_1">DM_1</option>
+                            <option value="DM_2">DM_2</option>
+                            <option value="DM_3">DM_3</option>
+                            <option value="Không">Không</option>
                         </select>
-                    </div>
-                    
-                    <div class="action-form-group" style="grid-column: 1 / -1;">
-                        <label>Số lượng bài báo của danh mục</label>
-                        <input type="text" id="editNumberPost">
                     </div>
                     
                     <div class="action-modal-footer">
