@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     mainCategorySelect.addEventListener('change', function() {
         const selectedMainCategory = this.value;
-        subCategorySelect.innerHTML = '<option value="">Chọn danh mục phụ</option>';
+        subCategorySelect.innerHTML = '<option value="" disabled selected>Chọn danh mục phụ</option>';
 
         if (selectedMainCategory && categoriesMap[selectedMainCategory]) {
             categoriesMap[selectedMainCategory].forEach(category => {
@@ -190,6 +190,43 @@ document.addEventListener("DOMContentLoaded", function() {
             addPostModal.style.display = "none";
         }
     });
+
+    // Handle form submission
+    const addPostForm = addPostModal.querySelector('.action-modal-content');
+    addPostForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const title = addPostModal.querySelector('input[type="text"]').value;
+        const mainCategory = mainCategorySelect.options[mainCategorySelect.selectedIndex].text;
+        const subCategory = subCategorySelect.value;
+        const categoryDisplay = `${mainCategory}/${subCategory}`;
+        const content = addPostModal.querySelector('textarea').value;
+        const image = addPostModal.querySelector('input[type="file"]').files[0];
+
+        // Add new row to table
+        const tbody = document.querySelector('table tbody');
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td>BB_${tbody.children.length + 1}</td>
+            <td>NB_${tbody.children.length + 1}</td>
+            <td>${title}</td>
+            <td>${categoryDisplay}</td>
+            <td>${image ? image.name : 'Chưa có ảnh'}</td>
+            <td>${content}</td>
+            <td>0</td>
+            <td>0</td>
+            <td class="status">Đang chờ duyệt</td>
+            <td>false</td>
+            <td>${new Date().toLocaleDateString()}</td>
+            <td class="actions-button">
+                <button class="Post-btn-edit"><i class="bi bi-pencil-square"></i> Chỉnh sửa</button>
+                <button class="Post-btn-delete"><i class="bi bi-trash"></i> Xóa</button>
+                <button class="Post-btn-approve"><i class="bi bi-check-circle"></i> Duyệt bài</button>
+            </td>
+        `;
+        tbody.appendChild(newRow);
+        addPostModal.style.display = "none";
+    });
 });
 
 
@@ -197,10 +234,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const editPostModal = document.getElementById("editPostModal");
     const closeModalBtn = editPostModal.querySelector(".action-modal-close");
     const btnUpdatePost = document.getElementById("btnUpdatePost");
-    const editMainCategory = document.getElementById('editMainCategory');
-    const editSubCategory = document.getElementById('editSubCategory');
+    const editPostTitle = document.getElementById("editPostTitle");
+    const editPostAuthorId = document.getElementById("editPostAuthorId");
+    const editMainCategory = document.getElementById("editMainCategory");
+    const editSubCategory = document.getElementById("editSubCategory");
+    const editPostContent = document.getElementById("editPostContent");
+    const editIsFeatured = document.getElementById("editIsFeatured");
 
-    // Categories Mapping
+    // Mapping cho danh mục chính và phụ
     const categoriesMap = {
         'society': ['Thời sự', 'Giao thông', 'Môi trường-Khí hậu'],
         'science': ['Tin tức công nghệ', 'Hoạt động công nghệ', 'Tạp chí'],
@@ -210,7 +251,7 @@ document.addEventListener("DOMContentLoaded", function() {
         'education': ['Thi cử', 'Đào tạo', 'Học bổng-Du học']
     };
 
-    // Main to Sub Category Mapping Reverse
+    // Mapping ngược từ danh mục phụ sang chính
     const mainCategoryFromSubMap = {
         'Thời sự': 'society',
         'Giao thông': 'society',
@@ -231,7 +272,7 @@ document.addEventListener("DOMContentLoaded", function() {
         'Học bổng-Du học': 'education'
     };
 
-    // Populate Sub Categories
+    // Xử lý khi thay đổi danh mục chính
     editMainCategory.addEventListener('change', function() {
         const selectedMainCategory = this.value;
         editSubCategory.innerHTML = '<option value="" disabled selected>Chọn danh mục phụ</option>';
@@ -246,66 +287,76 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Close modal buttons
-    closeModalBtn.addEventListener("click", function() {
-        editPostModal.style.display = "none";
-    });
-
-    editPostModal.addEventListener("click", function(event) {
-        if (event.target === editPostModal) {
-            editPostModal.style.display = "none";
-        }
-    });
-
-    // Edit buttons for each row
-    const editButtons = document.querySelectorAll(".Post-btn-edit");
-    editButtons.forEach(button => {
+    // Add event listeners to all edit buttons
+    document.querySelectorAll(".Post-btn-edit").forEach(button => {
         button.addEventListener("click", function() {
             const row = this.closest("tr");
-            populateEditModal(row);
+            const cells = row.getElementsByTagName('td');
+            
+            // Populate edit modal with current values
+            editPostTitle.value = cells[2].textContent;
+            editPostAuthorId.value = cells[1].textContent;
+            editPostContent.value = cells[5].textContent;
+            
+            // Xử lý trạng thái nổi bật
+            const isFeaturedValue = cells[9].textContent;
+            editIsFeatured.value = isFeaturedValue === "Có" ? "true" : "false";
+            
+            // Xử lý danh mục
+            const categoryText = cells[3].textContent;
+            const [mainCategory, subCategory] = categoryText.split('/');
+            
+            // Set danh mục chính
+            editMainCategory.value = mainCategoryFromSubMap[subCategory];
+            
+            // Trigger change event để load danh mục phụ
+            const event = new Event('change');
+            editMainCategory.dispatchEvent(event);
+            
+            // Set danh mục phụ sau khi options đã được load
+            setTimeout(() => {
+                editSubCategory.value = subCategory;
+            }, 50);
+            
+            // Thêm class để đánh dấu dòng đang chỉnh sửa
+            row.classList.add('editing-row');
+            
             editPostModal.style.display = "flex";
         });
     });
 
-    // Populate Edit Modal
-    function populateEditModal(row) {
-        const cells = row.getElementsByTagName('td');
-        
-        document.getElementById('editPostTitle').value = cells[1].textContent;
-        document.getElementById('editPostAuthor').value = cells[2].textContent;
-        document.getElementById('editPostSlug').value = cells[3].textContent;
-        
-        const subCategory = cells[5].textContent;
-        const mainCategory = mainCategoryFromSubMap[subCategory];
+    // Close modal when close button is clicked
+    closeModalBtn.addEventListener("click", function() {
+        editPostModal.style.display = "none";
+        const editingRow = document.querySelector("table tbody tr.editing-row");
+        if (editingRow) {
+            editingRow.classList.remove('editing-row');
+        }
+    });
 
-        // Set main category
-        editMainCategory.value = mainCategory;
+    // Close modal when clicking outside
+    editPostModal.addEventListener("click", function(event) {
+        if (event.target === editPostModal) {
+            editPostModal.style.display = "none";
+            const editingRow = document.querySelector("table tbody tr.editing-row");
+            if (editingRow) {
+                editingRow.classList.remove('editing-row');
+            }
+        }
+    });
 
-        // Trigger change event to populate sub-categories
-        const event = new Event('change');
-        editMainCategory.dispatchEvent(event);
-
-        // Set sub-category after a slight delay to ensure options are populated
-        setTimeout(() => {
-            editSubCategory.value = subCategory;
-        }, 50);
-
-        document.getElementById('editPostContent').value = cells[6].textContent;
-    }
-
-    // Update Post Function
-    btnUpdatePost.addEventListener('click', function() {
+    // Handle update
+    btnUpdatePost.addEventListener("click", function() {
         const row = document.querySelector("table tbody tr.editing-row");
-        
         if (row) {
             const cells = row.getElementsByTagName('td');
             
-            cells[1].textContent = document.getElementById('editPostTitle').value;
-            cells[2].textContent = document.getElementById('editPostAuthor').value;
-            cells[3].textContent = document.getElementById('editPostSlug').value;
-            cells[4].textContent = editMainCategory.options[editMainCategory.selectedIndex].text;
-            cells[5].textContent = editSubCategory.value;
-            cells[6].textContent = document.getElementById('editPostContent').value;
+            // Cập nhật các trường thông tin
+            cells[1].textContent = editPostAuthorId.value;
+            cells[2].textContent = editPostTitle.value;
+            cells[3].textContent = `${editMainCategory.options[editMainCategory.selectedIndex].text}/${editSubCategory.value}`;
+            cells[5].textContent = editPostContent.value;
+            cells[9].textContent = editIsFeatured.value === "true" ? "Có" : "Không";
 
             row.classList.remove('editing-row');
             editPostModal.style.display = "none";
@@ -706,16 +757,69 @@ document.addEventListener("DOMContentLoaded", function () {
     const btnUpdateCategory = document.getElementById("btnUpdateCategory");
 
     const editCategoryName = document.getElementById("editCategoryName");
+    const editMainCategory = document.getElementById("editMainCategory");
+    const editSubCategory = document.getElementById("editSubCategory");
     const editParentCategory = document.getElementById("editParentCategory");
-    const editNumberPost = document.getElementById("editNumberPost");
 
-    // Bắt sự kiện click để mở modal chỉnh sửa
-    const editButtons = document.querySelectorAll(".Category-btn-edit");
-    editButtons.forEach(button => {
-        button.addEventListener("click", function () {
+    const categoriesMap = {
+        'society': ['Thời sự', 'Giao thông', 'Môi trường-Khí hậu'],
+        'science': ['Tin tức công nghệ', 'Hoạt động công nghệ', 'Tạp chí'],
+        'health': ['Dinh dưỡng', 'Làm đẹp', 'Y tế'],
+        'sports': ['Bóng đá', 'Bóng rổ'],
+        'entertainment': ['Âm nhạc', 'Thời trang', 'Điện ảnh-Truyền hình'],
+        'education': ['Thi cử', 'Đào tạo', 'Học bổng-Du học']
+    };
+
+    // Main to Sub Category Mapping Reverse
+    const mainCategoryFromSubMap = {
+        'Thời sự': 'society',
+        'Giao thông': 'society',
+        'Môi trường-Khí hậu': 'society',
+        'Tin tức công nghệ': 'science',
+        'Hoạt động công nghệ': 'science',
+        'Tạp chí': 'science',
+        'Dinh dưỡng': 'health',
+        'Làm đẹp': 'health',
+        'Y tế': 'health',
+        'Bóng đá': 'sports',
+        'Bóng rổ': 'sports',
+        'Âm nhạc': 'entertainment',
+        'Thời trang': 'entertainment',
+        'Điện ảnh-Truyền hình': 'entertainment',
+        'Thi cử': 'education',
+        'Đào tạo': 'education',
+        'Học bổng-Du học': 'education'
+    };
+
+    // Xử lý khi thay đổi danh mục chính
+    editMainCategory.addEventListener('change', function() {
+        const selectedMainCategory = this.value;
+        editSubCategory.innerHTML = '<option value="" disabled selected>Chọn danh mục phụ</option>';
+
+        if (selectedMainCategory && categoriesMap[selectedMainCategory]) {
+            categoriesMap[selectedMainCategory].forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category;
+                editSubCategory.appendChild(option);
+            });
+        }
+    });
+
+    // Add event listeners to all category edit buttons
+    document.querySelectorAll(".Category-btn-edit").forEach(button => {
+        button.addEventListener("click", function() {
             const row = this.closest("tr");
-            populateEditModal(row);
-            editCategoryModal.style.display = "flex"; // Hiển thị modal
+            const cells = row.getElementsByTagName('td');
+            
+            // Populate edit modal with current values
+            editCategoryName.value = cells[1].textContent;
+            editParentCategory.value = cells[2].textContent;
+            
+            // Thêm class để đánh dấu dòng đang chỉnh sửa
+            row.classList.add('editing-row');
+            
+            editCategoryModal.style.display = "flex";
         });
     });
 
@@ -731,37 +835,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Hàm điền dữ liệu vào modal chỉnh sửa
-    function populateEditModal(row) {
-        const cells = row.getElementsByTagName('td');
-
-        editCategoryName.value = cells[1].textContent; // Tên danh mục
-        editNumberPost.value = cells[3].textContent; // Số lượng bài báo
-
-        // Lấy giá trị danh mục cha
-        const parentCategoryText = cells[2].textContent.trim(); // Lấy text trong ô "Danh mục cha"
-        
-        // Kiểm tra nếu không có danh mục cha (hiển thị "Không"), chọn option "none"
-        Array.from(editParentCategory.options).forEach(option => {
-            if (option.textContent.trim() === parentCategoryText) {
-                editParentCategory.value = option.value;
-            }
-        });
-    }
-
-    // Cập nhật dữ liệu sau khi nhấn nút "Cập nhật danh mục"
-    btnUpdateCategory.addEventListener('click', function () {
+    // Handle category update
+    btnUpdateCategory.addEventListener("click", function() {
         const row = document.querySelector("table tbody tr.editing-row");
-
         if (row) {
             const cells = row.getElementsByTagName('td');
+            
+            // Cập nhật tên danh mục và ID danh mục cha
+            cells[1].textContent = editCategoryName.value;
+            cells[2].textContent = editParentCategory.value;
 
-            cells[1].textContent = editCategoryName.value; // Cập nhật tên danh mục
-            cells[2].textContent = editParentCategory.options[editParentCategory.selectedIndex].text; // Cập nhật danh mục cha
-            cells[3].textContent = editNumberPost.value; // Cập nhật số lượng bài báo
-
-            row.classList.remove('editing-row'); // Xóa trạng thái chỉnh sửa
-            editCategoryModal.style.display = "none"; // Đóng modal
+            row.classList.remove('editing-row');
+            editCategoryModal.style.display = "none";
         }
     });
 });

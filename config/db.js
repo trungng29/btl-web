@@ -4,8 +4,8 @@ import sql from "mssql";
 const config = {
   server: "localhost",          // Địa chỉ máy chủ SQL Server
   database: "NewsWebsite",      // Tên database
-  user: "admin",               // Tên đăng nhập
-  password: "123",             // Mật khẩu
+  user: "nam",               // Tên đăng nhập
+  password: "123456",             // Mật khẩu
   options: {
     trustedConnection: true,    // Cho phép kết nối tin cậy
     enableArithAbort: true,     // Bật tính năng xử lý lỗi số học
