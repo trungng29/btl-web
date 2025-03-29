@@ -473,10 +473,9 @@
                     <table class="dashboard-table">
                         <thead>
                             <tr>
-                                <th>STT</th>
+                                <th>ID người dùng</th>
                                 <th>Họ và tên</th>
                                 <th>Email</th>
-                                <th>Tài khoản</th>
                                 <th>Mật khẩu</th>
                                 <th>Hành động</th>
                             </tr>
@@ -486,8 +485,7 @@
                                 <td>1</td>
                                 <td>Nguyễn Văn A</td>
                                 <td>nguyenvana@example.com</td>
-                                <td>nguyenvana</td>
-                                <td>********</td>
+                                <td>123</td>
                                 <td>
                                     <div class="user-actions">
                                         <button class="User-btn-delete"><i class="bi bi-trash"></i> Xóa</button>
@@ -502,7 +500,6 @@
                                 <td>2</td>
                                 <td>Trần Thị B</td>
                                 <td>tranthib@example.com</td>
-                                <td>tranthib</td>
                                 <td>********</td>
                                 <td>
                                     <div class="user-actions">
@@ -533,10 +530,7 @@
                                 <label>Email</label>
                                 <input type="email" name="email" required placeholder="Nhập email">
                             </div>
-                            <div>
-                                <label>Tài khoản</label>
-                                <input type="text" name="taiKhoan" required placeholder="Nhập tài khoản">
-                            </div>
+                            
                             <div>
                                 <label>Mật khẩu</label>
                                 <input type="password" name="matKhau" required placeholder="Nhập mật khẩu">
@@ -568,22 +562,28 @@
                     <table class="dashboard-table">
                         <thead>
                             <tr>
-                                <th>STT</th>
-                                <th>Người bình luận</th>
-                                <th>Bài viết</th>
-                                <th>Nội dung bình luận</th>
+                                <th>ID Bình luận </th>
+                                <th>ID Người dùng </th>
+                                <th>ID Bài viết</th>
+                                <th>ID_parent</th>
                                 <th>Ngày bình luận</th>
-                                <!-- <th>Trạng thái</th> -->
+                                <th>Nội dung bình luận </th>
+                                <th>Trạng thái</th>
+                                <th>Số lượt thích</th>
                                 <th>Hành động</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>Ngủ đủ giấc</td>
-                                <td>Bài viết rất hữu ích. Cảm ơn!</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
                                 <td>12/03/2025</td>
+                                <td>ảo ma canada</td>
+                                <td>Đã duyệt</td>
+                                <td>12</td>
+
                                 <!-- <td>
                                     <span class="comment-status pending">Chưa duyệt</span>
                                 </td> -->
@@ -598,11 +598,14 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>1</td>
                                 <td>2</td>
-                                <td>Trần Thị B</td>
-                                <td>Dinh dưỡng hàng ngày</td>
-                                <td>Tôi đã áp dụng và thấy hiệu quả.</td>
-                                <td>14/03/2025</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>12/03/2025</td>
+                                <td>ảo ma canada</td>
+                                <td>Đã duyệt</td>
+                                <td>12</td>
                                 <!-- <td>
                                     <span class="comment-status pending">Chưa duyệt</span>
                                 </td> -->

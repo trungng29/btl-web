@@ -100,15 +100,14 @@ const toggleScrollButton = document.getElementById('burgerIcon');
 
 let isScrollDisabled = false;
 
+let cdn = document.getElementById("CongDangnhap")
 
 
 function CongDangnhap(){
-    let cdn = document.getElementById("CongDangnhap")
     cdn.classList.add("mo")
 }
 
 function DongDangnhap(){
-    let cdn = document.getElementById("CongDangnhap")
     cdn.classList.remove("mo")
 }
 
