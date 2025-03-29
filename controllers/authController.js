@@ -76,11 +76,12 @@ export const authController = {
         try {
             const result = await executeQuery(query, values, paramNames, isStoredProcedure);
             if (result && result.recordset.length > 0) {
-                // res.status(200).json({ success: true, message: "Đăng nhập thành công!" });
                 // Đăng nhập thành công
-                res.render("index.ejs", {
-                    isLoggedIn: true,
-                })
+                // res.status(200).json({ success: true, message: "Đăng nhập thành công!" });
+                
+                res.cookie("email", email, { httpOnly: true, maxAge: 10 * 1000 }); // Set cookie với thời hạn 1 ngày: 24 * 60 * 60 * 1000
+                res.cookie("password", password, { httpOnly: true, maxAge: 10 * 1000 });
+                res.render("index.ejs" , { isLoggedIn: true });
 
                 // Xử lý logic để xem là admin, nhaBao hay docGia
             } else {

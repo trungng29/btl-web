@@ -3,8 +3,6 @@ import { authController } from '../controllers/authController.js'; // Import con
 
 const router = express.Router();
 
-let isLoggedIn = false; // Biến để theo dõi trạng thái đăng nhập
-
 router.post('/login', authController.login); // Đăng nhập
 
 router.post('/register', authController.register); // Đăng ký tài khoản
