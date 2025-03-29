@@ -35,6 +35,28 @@
     </head>
 
     <body>
+        <% if (isLoggedIn) { %>
+            <div class="user-panel" id="userPanel">
+                <div class="user-panel-name-card">
+                    <i class="bi bi-person-circle fs-1"></i>
+                    <p>Nguyen Van A</p>
+                </div>
+
+                <hr>
+
+                <div class="user-panel-page-btn">
+                    <div class="user-panel-page-btn-container">
+                        <a href="#"> Trang cá nhân </a>
+                        <i class="bi bi-arrow-right-circle"></i>
+                    </div>
+
+                    <div class="user-panel-page-btn-container">
+                        <a href="#"> Đăng xuất </a>
+                        <i class="bi bi-arrow-right-circle"></i>
+                    </div>
+                </div>
+            </div>
+        <% } %>
 
         <div class="header" id="navbar-header">
             <div class="navbar-tren">
@@ -50,10 +72,14 @@
                             <div id="like_storage">
                                 <i class="bi bi-box2-heart fs-1 ms-3"></i>
                             </div>
+                            <div id="User_name">
+                                <i id="User" class="bi bi-person-circle fs-1 ms-4"></i>
+                            </div>
+                        <% } else { %>
+                            <div id="User_name">
+                                <i onclick="CongDangnhap()" class="bi bi-person-circle fs-1 ms-4"></i>
+                            </div>
                         <% } %>
-                        <div id="User_name">
-                            <i id="User" onclick="CongDangnhap()" class="bi bi-person-circle fs-1 ms-4"></i>
-                        </div>
                     </div>
     
                 </div>

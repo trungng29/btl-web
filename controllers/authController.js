@@ -12,6 +12,8 @@ async function getLastRecordId() {
         // - paramNames: mảng rỗng vì không có tham số
         // - isStoredProcedure: false vì đây là câu query thường
         const result = await executeQuery(query, [], [], false);
+        // Nếu câu truy vấn SQL mà bạn thực hiện thông qua hàm executeQuery là một câu truy vấn SELECT, 
+        // thì kết quả trả về sẽ là một đối tượng JSON.
         
         // Kiểm tra kết quả trả về
         // Đây là kiểm tra 3 điều kiện:
@@ -80,7 +82,6 @@ export const authController = {
                 // res.status(200).json({ success: true, message: "Đăng nhập thành công!" });
                 
                 res.cookie("email", email, { httpOnly: true, maxAge: 10 * 1000 }); // Set cookie với thời hạn 1 ngày: 24 * 60 * 60 * 1000
-                res.cookie("password", password, { httpOnly: true, maxAge: 10 * 1000 });
                 res.render("index.ejs" , { isLoggedIn: true });
 
                 // Xử lý logic để xem là admin, nhaBao hay docGia

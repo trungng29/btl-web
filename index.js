@@ -1,11 +1,12 @@
 // Khai báo các thư viện cần thiết
-import express from 'express';
-import axios from 'axios';
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import sql from 'mssql'; // Thư viện SQL Server
-import cookieParser from 'cookie-parser'; // Middleware để phân tích cookie
 // ECMAScript Modules (ESM) được sử dụng để import các module trong Node.js
+import express from 'express'; // Thư viện Express để tạo ứng dụng web
+import axios from 'axios'; // Thư viện để thực hiện các yêu cầu HTTP
+import bodyParser from 'body-parser'; // Thư viện để phân tích dữ liệu trong yêu cầu HTTP
+import cors from 'cors'; // Thư viện để xử lý CORS (Cross-Origin Resource Sharing)
+import sql from 'mssql'; // Thư viện để kết nối đến SQL Server
+import cookieParser from 'cookie-parser'; // Middleware để phân tích cookie
+
 
 // Khai báo các route
 import { router as mainRoutes } from "./routes/mainRoute.js"; // Route chính
@@ -16,19 +17,20 @@ import { connect } from "./config/db.js"; // Kết nối đến cơ sở dữ li
 const app = express();
 const port = 3000;
 
-app.use(cookieParser()); // Middleware để phân tích cookie
+app.use(cookieParser()); // Middleware để phân tích cookie 
+// (Middleware này sẽ phân tích cookie trong yêu cầu và thêm chúng vào req.cookies.)
 
 // Middleware kiểm tra người dùng đã đăng nhập hay chưa MỖI KHI CÓ YÊU CẦU ĐẾN SERVER, từ đó render ra các template khác nhau
 app.use((req, res, next) => {
-    // Kiểm tra xem req.cookies có tồn tại không
-    if (req.cookies && req.cookies.email) {
-        // Nếu cookie tồn tại, người dùng đã đăng nhập
-        req.isLoggedIn = true; // Thiết lập biến để sử dụng trong các route
-    } else {
-        // Nếu không có cookie, người dùng chưa đăng nhập
-        req.isLoggedIn = false;
-    }
-    next();
+  // Kiểm tra xem req.cookies có tồn tại không
+  if (req.cookies && req.cookies.email) {
+    // Nếu cookie tồn tại, người dùng đã đăng nhập
+    req.isLoggedIn = true; // Thiết lập biến để sử dụng trong các route
+  } else {
+    // Nếu không có cookie, người dùng chưa đăng nhập
+    req.isLoggedIn = false;
+  }
+  next();
 });
 
 app.use(cors());

@@ -1,10 +1,13 @@
 window.addEventListener("scroll", function(){
 
     var header = document.querySelector(".navbar-duoi");
-
+    var userPanel = document.getElementById("userPanel");
     var bigMenu = document.getElementById("bigMenu");
 
 
+    if (window.scrollY > 5) {
+        userPanel.classList.remove("open-panel")
+    }
 
     if (window.scrollY > 80) {
 
@@ -359,7 +362,9 @@ document.querySelector(".search-bar-big-input-menu").addEventListener("keydown",
 })
 
 
-       
+document.getElementById("User").addEventListener("click", function() {
+    document.getElementById("userPanel").classList.toggle("open-panel")
+})
 
 
 
