@@ -469,3 +469,9 @@ a {
 .user-panel-page-btn-container:last-of-type {
     margin-bottom: 20px;
 }
+
+.no-scroll {
+    overflow: hidden; /* Ngăn chặn cuộn */
+    height: 100%; /* Đảm bảo chiều cao 100% */
+}
+

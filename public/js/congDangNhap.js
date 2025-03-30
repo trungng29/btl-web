@@ -104,19 +104,147 @@ document.getElementById('registerForm').addEventListener('submit', async functio
         });
 
         if (!response.ok) {
-            throw new Error(`Email đã tồn tại trong hệ thống hoặc có lỗi xảy ra`);
+            Swal.fire({
+                title: 'Email đã tồn tại!',
+                text: 'Vui lòng sử dụng email khác.',
+                icon: 'error', // Thay đổi icon thành 'error' để phù hợp với thông báo lỗi
+                confirmButtonText: 'Tiếp tục',
+                timer: 1500,
+                timerProgressBar: true,
+                customClass: {
+                    popup: 'custom-popup',
+                    title: 'custom-title-red',
+                    content: 'custom-content-red', // Lớp tùy chỉnh cho nội dung
+                    confirmButton: 'custom-confirm-button'
+                }
+            }).then((result) => {
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log('Thông báo đã tự động đóng sau 1 giây');
+                }
+            });
         }
 
         const data = await response.json();
         console.log('Response:', data); // Log để debug
 
         if (data.success) {
-            alert(data.message);
+            Swal.fire({
+                title: 'Đăng ký thành công!',
+                text: 'Chào mừng bạn đến với chúng tôi!',
+                icon: 'success',
+                confirmButtonText: 'Tiếp tục',
+                timer: 1500,
+                timerProgressBar: true,
+                customClass: {
+                    popup: 'custom-popup',
+                    title: 'custom-title',
+                    content: 'custom-content',
+                    confirmButton: 'custom-confirm-button'
+                }
+            }).then((result) => {
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log('Thông báo đã tự động đóng sau 1 giây');
+                }
+            });
             this.reset();
             document.getElementById('txt_dn')?.click();
             registerBtn.setAttribute("disabled", "true");
         } else {
-            alert(data.message || 'Có lỗi xảy ra');
+            // alert(data.message || 'Có lỗi xảy ra');
+            Swal.fire({
+                title: 'Có lỗi xảy ra!',
+                text: 'Vui lòng kiểm tra thông tin và thử lại.',
+                icon: 'error',
+                confirmButtonText: 'Tiếp tục',
+                timer: 1500,
+                timerProgressBar: true,
+                customClass: {
+                    popup: 'custom-popup',
+                    title: 'custom-title-red',
+                    content: 'custom-content', // Lớp tùy chỉnh cho nội dung
+                    confirmButton: 'custom-confirm-button'
+                }
+            }).then((result) => {
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log('Thông báo đã tự động đóng sau 1 giây');
+                }
+            });
+        }
+    } catch (error) {
+        console.error('Lỗi chi tiết:', error); // Log lỗi chi tiết
+        alert('Lỗi: ' + error.message);
+    }
+});
+
+document.getElementById('loginForm').addEventListener('submit', async function(e) {
+    e.preventDefault(); 
+
+    try {
+        // Lấy dữ liệu từ form và chuyển thành object
+        const formData = new FormData(this);
+        const formDataObject = {};
+        formData.forEach((value, key) => {
+            formDataObject[key] = value;
+        });
+        
+        const response = await fetch('/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'  // Thêm header
+            },
+            body: JSON.stringify(formDataObject)  // Chuyển đổi thành JSON
+        });
+
+        // Kiểm tra phản hồi
+        if (!response.ok) {
+            Swal.fire({
+                title: 'Đăng nhập thất bại!',
+                text: 'Tên đăng nhập hoặc mật khẩu không đúng.',
+                icon: 'error',
+                confirmButtonText: 'Tiếp tục',
+                timer: 1500,
+                timerProgressBar: true,
+                customClass: {
+                    popup: 'custom-popup',
+                    title: 'custom-title-red',
+                    content: 'custom-content-red', // Lớp tùy chỉnh cho nội dung
+                    confirmButton: 'custom-confirm-button'
+                }
+            }).then((result) => {
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log('Thông báo đã tự động đóng sau 1 giây');
+                }
+            });
+            return; // Dừng hàm nếu có lỗi
+        }
+
+        const data = await response.json();
+        console.log('Response:', data); // Log để debug
+
+        if (data.success) {
+            // res.render("index.ejs" , { isLoggedIn: true });
+            window.location.href = '/';
+            // this.reset(); // Reset form nếu cần
+            // Thực hiện các hành động khác sau khi đăng nhập thành công
+        } else {
+            Swal.fire({
+                title: 'Có lỗi xảy ra!',
+                text: 'Vui lòng kiểm tra thông tin và thử lại.',
+                icon: 'error',
+                confirmButtonText: 'Tiếp tục',
+                timer: 1500,
+                timerProgressBar: true,
+                customClass: {
+                    popup: 'custom-popup',
+                    title: 'custom-title-red',
+                    content: 'custom-content', // Lớp tùy chỉnh cho nội dung
+                    confirmButton: 'custom-confirm-button'
+                }
+            }).then((result) => {
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log('Thông báo đã tự động đóng sau 1 giây');
+                }
+            });
         }
     } catch (error) {
         console.error('Lỗi chi tiết:', error); // Log lỗi chi tiết
@@ -125,3 +253,18 @@ document.getElementById('registerForm').addEventListener('submit', async functio
 });
 
 
+function showLoginForm() {
+    // Hiển thị form đăng nhập
+    document.getElementById('CongDangnhap').style.display = 'block'; // Hoặc cách khác để hiển thị form
+
+    // Ngăn chặn cuộn trang
+    document.body.classList.add('no-scroll');
+}
+
+function hideLoginForm() {
+    // Ẩn form đăng nhập
+    document.getElementById('CongDangnhap').style.display = 'none'; // Hoặc cách khác để ẩn form
+
+    // Cho phép cuộn trang
+    document.body.classList.remove('no-scroll');
+}

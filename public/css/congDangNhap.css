@@ -225,3 +225,38 @@ label {
     padding: 0.75rem 1rem;
     color: #ea868f;
 }
+
+.custom-popup {
+    background-color: #f8f9fa; /* Màu nền nhẹ */
+    border-radius: 10px; /* Bo góc */
+    padding: 20px; /* Khoảng cách bên trong */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+}
+
+.custom-title {
+    color: #28a745; /* Màu xanh lá cho tiêu đề */
+    font-size: 1.5em; /* Kích thước chữ lớn hơn */
+    font-weight: bold; /* Chữ đậm */
+}
+
+.custom-content {
+    color: #333; /* Màu chữ cho nội dung */
+    font-size: 1em; /* Kích thước chữ bình thường */
+}
+
+.custom-confirm-button {
+    background-color: #007bff; /* Màu nền cho nút xác nhận */
+    color: white; /* Màu chữ trắng */
+    border: none; /* Không có viền */
+    border-radius: 5px; /* Bo góc cho nút */
+    padding: 10px 20px; /* Khoảng cách bên trong nút */
+    transition: background-color 0.3s; /* Hiệu ứng chuyển màu */
+}
+
+.custom-confirm-button:hover {
+    background-color: #0056b3; /* Màu nền khi hover */
+}
+
+.custom-title-red {
+    color: #db002c !important; /* Đặt màu chữ thành đỏ */
+}

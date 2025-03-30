@@ -7,7 +7,6 @@ import cors from 'cors'; // Thư viện để xử lý CORS (Cross-Origin Resour
 import sql from 'mssql'; // Thư viện để kết nối đến SQL Server
 import cookieParser from 'cookie-parser'; // Middleware để phân tích cookie
 
-
 // Khai báo các route
 import { router as mainRoutes } from "./routes/mainRoute.js"; // Route chính
 import { router as authRoutes } from "./routes/authRoute.js"; // Route xác thực

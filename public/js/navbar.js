@@ -5,9 +5,7 @@ window.addEventListener("scroll", function(){
     var bigMenu = document.getElementById("bigMenu");
 
 
-    if (window.scrollY > 5) {
-        userPanel.classList.remove("open-panel")
-    }
+    
 
     if (window.scrollY > 80) {
 
@@ -21,6 +19,10 @@ window.addEventListener("scroll", function(){
 
         bigMenu.style.zIndex = "10"; // Đặt lại nếu không sticky
 
+    }
+
+    if (userPanel && window.scrollY > 5) {
+        userPanel.classList.remove("open-panel")
     }
 
 });
@@ -108,10 +110,14 @@ let cdn = document.getElementById("CongDangnhap")
 
 function CongDangnhap(){
     cdn.classList.add("mo")
+    // Ngăn chặn cuộn trang
+    document.body.classList.add('no-scroll');
 }
 
 function DongDangnhap(){
     cdn.classList.remove("mo")
+    // Cho phép cuộn trang
+    document.body.classList.remove('no-scroll');
 }
 
 function switchToSignup() {
