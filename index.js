@@ -6,14 +6,15 @@ import bodyParser from 'body-parser'; // Thư viện để phân tích dữ li�
 import cors from 'cors'; // Thư viện để xử lý CORS (Cross-Origin Resource Sharing)
 import sql from 'mssql'; // Thư viện để kết nối đến SQL Server
 import cookieParser from 'cookie-parser'; // Middleware để phân tích cookie
-
 // Khai báo các route
 import { router as mainRoutes } from "./routes/mainRoute.js"; // Route chính
 import { router as authRoutes } from "./routes/authRoute.js"; // Route xác thực
+import { router as itemRoutes } from "./routes/articleItems.js"; // Route cho tất cả item bao gồm article, category, user
 import { connect } from "./config/db.js"; // Kết nối đến cơ sở dữ liệu
 
 // Khai báo các biến môi trường
 const app = express();
+app.use(express.json());
 const port = 3000;
 
 app.use(cookieParser()); // Middleware để phân tích cookie 
@@ -40,6 +41,7 @@ app.use(express.static('public')); // Middleware để phục vụ các tệp t�
 // Define routes
 app.use("/", mainRoutes); // Sử dụng route chính
 app.use("/auth", authRoutes); // Sử dụng route xác thực
+app.use("/api", itemRoutes);
 
 // Kết nối đến cơ sở dữ liệu SQL Server
 connect()
@@ -54,4 +56,8 @@ connect()
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
+
+
+
+
 

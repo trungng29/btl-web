@@ -1,15 +1,19 @@
 import sql from "mssql";
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 // Config cấu hình kết nối theo sql server của mình
 const config = {
-  server: "localhost",          // Địa chỉ máy chủ SQL Server
-  database: "NewsWebsite",      // Tên database
-  user: "admin",               // Tên đăng nhập
-  password: "123",             // Mật khẩu
+  server: process.env.DB_SERVER,          // Địa chỉ máy chủ SQL Server
+  database: process.env.DB_DATABASE,      // Tên database
+  user: process.env.DB_USER,               // Tên đăng nhập
+  password: process.env.DB_PASSWORD,             // Mật khẩu
   options: {
     trustedConnection: true,    // Cho phép kết nối tin cậy
     enableArithAbort: true,     // Bật tính năng xử lý lỗi số học
     trustServerCertificate: true, // Tin tưởng chứng chỉ SSL của server
+    encrypt: false,  
   },
 };
 
@@ -118,5 +122,9 @@ async function executeTableValuedQuery(
   }
 }
 
+export default config;
 export const connect = () => sql.connect(config);
 export { sql, executeQuery, executeTableValuedQuery };
+
+
+
