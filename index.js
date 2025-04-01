@@ -21,13 +21,11 @@ app.use(cookieParser()); // Middleware này sẽ phân tích cookie trong yêu c
 
 // Middleware kiểm tra người dùng đã đăng nhập hay chưa MỖI KHI CÓ YÊU CẦU ĐẾN SERVER, từ đó render ra các template khác nhau
 app.use((req, res, next) => {
-  // Kiểm tra xem req.cookies có tồn tại không
   if (req.cookies && req.cookies.email) {
-    // Nếu cookie tồn tại, người dùng đã đăng nhập
-    req.isLoggedIn = true; // Thiết lập biến để sử dụng trong các route
-    req.username = req.cookies.username; // Lưu tên người dùng từ cookie vào req.username
+    req.isLoggedIn = true; 
+    req.username = req.cookies.username; 
+    req.role = req.cookies.role;
   } else {
-    // Nếu không có cookie, người dùng chưa đăng nhập
     req.isLoggedIn = false;
   }
   next();
@@ -38,7 +36,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(express.static('public')); 
 
-// Define routes
 app.use("/", mainRoutes); 
 app.use("/auth", authRoutes);
 app.use("/api", itemRoutes);

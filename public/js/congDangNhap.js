@@ -109,7 +109,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
                 text: 'Vui lòng sử dụng email khác.',
                 icon: 'error', // Thay đổi icon thành 'error' để phù hợp với thông báo lỗi
                 confirmButtonText: 'Tiếp tục',
-                timer: 1500,
+                timer: 1200,
                 timerProgressBar: true,
                 customClass: {
                     popup: 'custom-popup',
@@ -133,7 +133,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
                 text: 'Chào mừng bạn đến với chúng tôi!',
                 icon: 'success',
                 confirmButtonText: 'Tiếp tục',
-                timer: 1500,
+                timer: 1200,
                 timerProgressBar: true,
                 customClass: {
                     popup: 'custom-popup',
@@ -156,7 +156,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
                 text: 'Vui lòng kiểm tra thông tin và thử lại.',
                 icon: 'error',
                 confirmButtonText: 'Tiếp tục',
-                timer: 1500,
+                timer: 1200,
                 timerProgressBar: true,
                 customClass: {
                     popup: 'custom-popup',
@@ -202,7 +202,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
                 text: 'Tên đăng nhập hoặc mật khẩu không đúng.',
                 icon: 'error',
                 confirmButtonText: 'Tiếp tục',
-                timer: 1500,
+                timer: 1200,
                 timerProgressBar: true,
                 customClass: {
                     popup: 'custom-popup',
@@ -229,7 +229,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
                 text: 'Vui lòng kiểm tra thông tin và thử lại.',
                 icon: 'error',
                 confirmButtonText: 'Tiếp tục',
-                timer: 1500,
+                timer: 1200,
                 timerProgressBar: true,
                 customClass: {
                     popup: 'custom-popup',
@@ -291,7 +291,7 @@ document.getElementById('logoutBtn').addEventListener('click', async function(e)
                 text: 'Vui lòng kiểm tra thông tin và thử lại.',
                 icon: 'error',
                 confirmButtonText: 'Tiếp tục',
-                timer: 1500,
+                timer: 1200,
                 timerProgressBar: true,
                 customClass: {
                     popup: 'custom-popup',
