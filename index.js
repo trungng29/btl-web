@@ -27,6 +27,7 @@ app.use((req, res, next) => {
   if (req.cookies && req.cookies.email) {
     // Nếu cookie tồn tại, người dùng đã đăng nhập
     req.isLoggedIn = true; // Thiết lập biến để sử dụng trong các route
+    req.username = req.cookies.username; // Lưu tên người dùng từ cookie vào req.username
   } else {
     // Nếu không có cookie, người dùng chưa đăng nhập
     req.isLoggedIn = false;

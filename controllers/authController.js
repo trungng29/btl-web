@@ -7,21 +7,10 @@ async function getLastRecordId() {
                    ORDER BY id_User DESC`;
     
     try {
-        // Gọi executeQuery với các tham số phù hợp:
-        // - query: câu truy vấn SQL
-        // - values: mảng rỗng vì không có tham số
-        // - paramNames: mảng rỗng vì không có tham số
-        // - isStoredProcedure: false vì đây là câu query thường
         const result = await executeQuery(query, [], [], false);
         // Nếu câu truy vấn SQL mà bạn thực hiện thông qua hàm executeQuery là một câu truy vấn SELECT, 
         // thì kết quả trả về sẽ là một đối tượng JSON.
         
-        // Kiểm tra kết quả trả về
-        // Đây là kiểm tra 3 điều kiện:
-        // result: kiểm tra xem có kết quả trả về không
-        // result.recordset: kiểm tra có thuộc tính recordset không
-        // result.recordset.length > 0: kiểm tra có bản ghi nào không
-        // Nếu cả 3 điều kiện đều đúng thì tiếp tục xử lý
         if (result && result.recordset && result.recordset.length > 0) {
             const lastId = result.recordset[0].id_User;
             const lastNumber = parseInt(lastId.substring(1));
@@ -81,11 +70,13 @@ export const authController = {
             const result = await executeQuery(query, values, paramNames, isStoredProcedure);
             if (result && result.recordset.length > 0) {
                 // Đăng nhập thành công
-                
-                
-                res.cookie("email", email, { httpOnly: true, maxAge: 10 * 1000 }); // Set cookie với thời hạn 1 ngày: 24 * 60 * 60 * 1000
-                // res.render("index.ejs" , { isLoggedIn: true });
-                res.status(200).json({ success: true, message: "Đăng nhập thành công!" });
+                // TODO: Lấy tên người dùng và role từ kết quả truy vấn
+                res.cookie("username", result.recordset[0].username, { httpOnly: true, maxAge: 60 * 1000 }); // Set cookie với thời hạn 1 ngày: 24 * 60 * 60 * 1000
+                res.cookie("email", email, { httpOnly: true, maxAge: 60 * 1000 }); // Set cookie với thời hạn 1 ngày: 24 * 60 * 60 * 1000
+                res.cookie("role", result.recordset[0].role, { httpOnly: true, maxAge: 60 * 1000 }); // Set cookie với thời hạn 1 ngày: 24 * 60 * 60 * 1000
+                req.username = req.cookies.username;
+                req.role = req.cookies.role;
+                res.status(200).json({ success: true, message: "Đăng nhập thành công!", user: result.recordset[0] });
                 // Xử lý logic để xem là admin, nhaBao hay docGia
             } else {
                 // Đăng nhập thất bại
@@ -95,5 +86,13 @@ export const authController = {
             console.error(error);
             res.status(500).json({ success: false, message: "Có lỗi xảy ra, vui lòng thử lại!" });
         }
-    }
+    },
+
+    logout: (req, res) => {
+        console.log("Logging out user...");
+        res.clearCookie("username");
+        res.clearCookie("email");
+        res.clearCookie("role");
+        res.status(200).json({ success: true, message: "Đăng xuất thành công!" });
+    },
 };

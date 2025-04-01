@@ -7,4 +7,6 @@ router.post('/login', authController.login); // Đăng nhập
 
 router.post('/register', authController.register); // Đăng ký tài khoản
 
+router.get('/logout', authController.logout); // Đăng xuất tài khoản   
+
 export { router };

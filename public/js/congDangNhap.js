@@ -222,10 +222,69 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
         console.log('Response:', data); // Log để debug
 
         if (data.success) {
-            // res.render("index.ejs" , { isLoggedIn: true });
             window.location.href = '/';
-            // this.reset(); // Reset form nếu cần
-            // Thực hiện các hành động khác sau khi đăng nhập thành công
+        } else {
+            Swal.fire({
+                title: 'Có lỗi xảy ra!',
+                text: 'Vui lòng kiểm tra thông tin và thử lại.',
+                icon: 'error',
+                confirmButtonText: 'Tiếp tục',
+                timer: 1500,
+                timerProgressBar: true,
+                customClass: {
+                    popup: 'custom-popup',
+                    title: 'custom-title-red',
+                    content: 'custom-content', // Lớp tùy chỉnh cho nội dung
+                    confirmButton: 'custom-confirm-button'
+                }
+            }).then((result) => {
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log('Thông báo đã tự động đóng sau 1 giây');
+                }
+            });
+        }
+    } catch (error) {
+        console.error('Lỗi chi tiết:', error); // Log lỗi chi tiết
+        alert('Lỗi: ' + error.message);
+    }
+});
+
+document.getElementById('logoutBtn').addEventListener('click', async function(e) {
+    e.preventDefault(); 
+
+    try {
+        const response = await fetch('/auth/logout', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'  // Thêm header
+            }
+        });
+
+        const data = await response.json();
+        console.log('Response:', data); // Log để debug
+
+        if (data.success) {
+            await Swal.fire({
+                title: 'Bạn đã đăng xuất!',
+                text: 'Tạm biệt. Hẹn gặp bạn sớm!',
+                icon: 'success',
+                confirmButtonText: 'Tiếp tục',
+                timer: 1200,
+                timerProgressBar: true,
+                customClass: {
+                    popup: 'custom-popup',
+                    title: 'custom-title',
+                    content: 'custom-content',
+                    confirmButton: 'custom-confirm-button'
+                }
+            }).then((result) => {
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log('Thông báo đã tự động đóng sau 1 giây');
+                }
+            });
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 500); // 500 milliseconds = 0.5 seconds
         } else {
             Swal.fire({
                 title: 'Có lỗi xảy ra!',
@@ -268,3 +327,4 @@ function hideLoginForm() {
     // Cho phép cuộn trang
     document.body.classList.remove('no-scroll');
 }
+
