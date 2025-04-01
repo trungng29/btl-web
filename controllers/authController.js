@@ -1,4 +1,5 @@
 import { executeQuery } from "../config/db.js";
+import jwt from "jsonwebtoken";
 
 
 async function getLastRecordId() {
@@ -71,9 +72,9 @@ export const authController = {
             if (result && result.recordset.length > 0) {
                 // Đăng nhập thành công
                 // TODO: Lấy tên người dùng và role từ kết quả truy vấn
-                res.cookie("username", result.recordset[0].username, { httpOnly: true, maxAge: 60 * 1000 }); // Set cookie với thời hạn 1 ngày: 24 * 60 * 60 * 1000
-                res.cookie("email", email, { httpOnly: true, maxAge: 60 * 1000 }); // Set cookie với thời hạn 1 ngày: 24 * 60 * 60 * 1000
-                res.cookie("role", result.recordset[0].role, { httpOnly: true, maxAge: 60 * 1000 }); // Set cookie với thời hạn 1 ngày: 24 * 60 * 60 * 1000
+                res.cookie("username", result.recordset[0].username, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 }); // Set cookie với thời hạn 1 ngày: 24 * 60 * 60 * 1000
+                res.cookie("email", email, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 }); // Set cookie với thời hạn 1 ngày: 24 * 60 * 60 * 1000
+                res.cookie("role", result.recordset[0].role, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 }); // Set cookie với thời hạn 1 ngày: 24 * 60 * 60 * 1000
                 req.username = req.cookies.username;
                 req.role = req.cookies.role;
                 res.status(200).json({ success: true, message: "Đăng nhập thành công!", user: result.recordset[0] });
