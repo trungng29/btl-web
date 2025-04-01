@@ -6,6 +6,7 @@ import bodyParser from 'body-parser'; // Thư viện để phân tích dữ li�
 import cors from 'cors'; // Thư viện để xử lý CORS (Cross-Origin Resource Sharing)
 import sql from 'mssql'; // Thư viện để kết nối đến SQL Server
 import cookieParser from 'cookie-parser'; // Middleware để phân tích cookie
+import dotenv from 'dotenv'; // Thư viện để quản lý biến môi trường
 // Khai báo các route
 import { router as mainRoutes } from "./routes/mainRoute.js"; // Route chính
 import { router as authRoutes } from "./routes/authRoute.js"; // Route xác thực
