@@ -136,7 +136,7 @@ export const authController = {
         // Tạo đối tượng Date và format theo tiếng Việt
         const currentDate = new Date();
         const days = ['Chủ nhật', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7'];
-        const formattedDate = `${days[currentDate.getDay()]}, ${currentDate.getDate()}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
+        const formattedDate = `${days[currentDate.getDay()]} - ${currentDate.getDate()}/${currentDate.getMonth() + 1}`;
         
         // Set tất cả vào res.locals
         res.locals = {
