@@ -11,7 +11,7 @@ Step 1: Tạo 1 file .env ( đặt chính xác tên file là .env, không có g�
         > node
         > require('crypto').randomBytes(64).toString('hex')
 
-Step 2: cài đặt các package sau 
-        npm i express axios body-parser cors mssql cookie-parser dotenv jsonwebtoken
+Step 2: cài đặt các package sau ( vào package.json cài hết packages trong dependencies)
+        npm i express axios body-parser cors mssql cookie-parser dotenv jsonwebtoken nodemon node-cache ejs 
 
 Step 3: Dùng các lệnh npm start hoặc node index.js hoặc nodemon index.js để chạy
