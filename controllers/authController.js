@@ -1,4 +1,5 @@
 import { executeQuery } from "../config/db.js";
+import { categoryController } from './categoryController.js';  // Thêm import này
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
@@ -94,8 +95,6 @@ export const authController = {
           httpOnly: true,
           maxAge: 24 * 60 * 60 * 1000, // 24 hours
         });
-
-        // const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
         
         res
           .status(200)
@@ -105,13 +104,6 @@ export const authController = {
             user: result.recordset[0],
           });
 
-        // res.cookie("username", result.recordset[0].username, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 }); // Set cookie với thời hạn 1 ngày: 24 * 60 * 60 * 1000
-        // res.cookie("email", email, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 });
-        // res.cookie("role", result.recordset[0].role, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 });
-        // req.username = req.cookies.username;
-        // req.role = req.cookies.role;
-        // res.status(200).json({ success: true, message: "Đăng nhập thành công!", user: result.recordset[0] });
-        // Xử lý logic để xem là admin, nhaBao hay docGia
       } else {
         res
           .status(401)
@@ -130,52 +122,72 @@ export const authController = {
 
   logout: (req, res) => {
     console.log("Logging out user...");
-    // res.clearCookie("username");
-    // res.clearCookie("email");
-    // res.clearCookie("role");
     res.clearCookie("user");
     res.status(200).json({ success: true, message: "Đăng xuất thành công!" });
   },
 
-  authenticateToken: (req, res, next) => {
-    const token = req.cookies.user;
-    // console.log("Received token:", token);
-
-    if (!token) {
-      console.log("No token found");
-      req.isLoggedIn = false;
-      req.user = null;
-      return next();
-    }
-
+  authenticateToken: async (req, res, next) => {  // Thêm async vì sẽ gọi hàm async
     try {
-      if (!process.env.ACCESS_TOKEN_SECRET) {
-        console.error("ACCESS_TOKEN_SECRET is not defined");
-        throw new Error("ACCESS_TOKEN_SECRET is missing");
-      }
+        // Lấy categories trước
+        const categories = await categoryController.getCategoriesTitle();
+        
+        // Set categoryTree vào res.locals
+        res.locals.categoryTree = categories;
 
-      const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-    //   console.log("Decoded token:", decoded);
+        const token = req.cookies.user;
 
-      // Kiểm tra các trường bắt buộc
-      if (!decoded.username || !decoded.email || !decoded.role) {
-        console.error("Missing required fields in token payload");
-        throw new Error("Invalid token payload");
-      }
+        if (!token) {
+            // Set giá trị mặc định vào cả req và res.locals
+            req.isLoggedIn = false;
+            req.user = null;
+            res.locals.isLoggedIn = false;
+            res.locals.username = '';
+            res.locals.role = '';
+            return next();
+        }
 
-      req.user = decoded;
-      req.username = decoded.username;
-      req.email = decoded.email;
-      req.role = decoded.role;
-      req.isLoggedIn = true;
-      next();
+        try {
+            if (!process.env.ACCESS_TOKEN_SECRET) {
+                console.error("ACCESS_TOKEN_SECRET is not defined");
+                throw new Error("ACCESS_TOKEN_SECRET is missing");
+            }
 
+            const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+
+            if (!decoded.username || !decoded.email || !decoded.role) {
+                console.error("Missing required fields in token payload");
+                throw new Error("Invalid token payload");
+            }
+
+            // Set vào cả req và res.locals
+            req.user = decoded;
+            req.username = decoded.username;
+            req.email = decoded.email;
+            req.role = decoded.role;
+            req.isLoggedIn = true;
+
+            // Thêm vào res.locals để EJS có thể truy cập
+            res.locals.isLoggedIn = true;
+            res.locals.username = decoded.username;
+            res.locals.email = decoded.email;
+            res.locals.role = decoded.role;
+            
+            next();
+
+        } catch (error) {
+            // Set giá trị mặc định khi có lỗi
+            req.isLoggedIn = false;
+            req.user = null;
+            res.locals.isLoggedIn = false;
+            res.locals.username = '';
+            res.locals.role = '';
+            res.clearCookie("userToken");
+            next();
+        }
     } catch (error) {
-      console.error("Token verification error:", error);
-      req.isLoggedIn = false;
-      req.user = null;
-      res.clearCookie("userToken");
-      next();
+        console.error("Error loading categories:", error);
+        res.locals.categoryTree = []; // Set mảng rỗng nếu có lỗi
+        next();
     }
-  },
+},
 };

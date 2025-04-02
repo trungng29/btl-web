@@ -66,6 +66,7 @@
         <% } %>
 
         <div class="header" id="navbar-header">
+
             <div class="navbar-tren">
                 <div class="navbar-tren-container">
                     <a href="/"><img src="../assets/navbarLogo.png" alt=""></a>
@@ -102,79 +103,22 @@
                     </div>
                     <div class="cat-set">
                         <ul class="cat-set">
-                            <li class="sub-menu-parent">
-                                <a href="../html/trangDanhMuc.html"><p class="cat-set-title xa-hoi-title">Xã hội</p></a>
-                                <div class="drop-down-menu">
-                                    <ul class="sub-menu">
-                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Thời sự</li></a>
-                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Giao thông</li></a>
-                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Môi trường - Khí hậu</li></a>
-                                    </ul>
-                                </div>
-                            </li>
+
+                            <% for ( var i = 0; i < categoryTree.length; i++) { %>
+                                <li class="sub-menu-parent">
+                                    <a href="/category/firstcategory"><p class="cat-set-title xa-hoi-title"><%= categoryTree[i].name %></p></a>
+                                    <% if (categoryTree[i].children.length) { %>
+                                        <div class="drop-down-menu">
+                                            <ul class="sub-menu">
+                                                <% for ( var j = 0; j < categoryTree[i].children.length; j++ ) { %>
+                                                    <a href="/category/secondcategory"><li class="sub-menu-button"><%= categoryTree[i].children[j].name %></li></a>
+                                                <% } %>
+                                            </ul>
+                                        </div>
+                                    <% } %>
+                                </li>
+                            <% } %>
     
-                            <li class="sub-menu-parent">
-                                <a href="../html/trangDanhMuc.html"><p class="cat-set-title khcn-title">Khoa học & Công nghệ</p></a>
-    
-                                <div class="drop-down-menu">
-                                    <ul class="sub-menu">
-                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Tin tức công nghệ</li></a>
-                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Hoạt động công nghệ</li></a>
-                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Tạp chí</li></a>
-                                    </ul>
-                                </div>
-                            </li>
-    
-                            <li class="sub-menu-parent">
-                                <a href="../html/trangDanhMuc.html"><p class="cat-set-title suc-khoe-title">Sức khỏe</p></a>
-    
-                                <div class="drop-down-menu">
-                                    <ul class="sub-menu">
-                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Dinh dưỡng</li></a>
-                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Làm đẹp</li></a>
-                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Y tế</li></a>
-                                    </ul>
-                                </div>
-                            </li>
-    
-                            <li class="sub-menu-parent">
-                                <a href="../html/trangDanhMuc.html"><p class="cat-set-title the-thao-title">Thể thao</p></a>
-    
-                                <div class="drop-down-menu">
-                                    <ul class="sub-menu">
-                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Bóng đá</li></a>
-                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Bóng rổ</li></a>
-                                    </ul>
-                                </div>
-                            </li>
-    
-                            <li class="sub-menu-parent">
-                                <a href="../html/trangDanhMuc.html"><p class="cat-set-title giai-tri-title">Giải trí</p></a>
-    
-                                <div class="drop-down-menu">
-                                    <ul class="sub-menu">
-                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Âm nhạc</li></a>
-                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Thời trang</li></a>
-                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Điện ảnh - Truyền hình</li></a>
-                                    </ul>
-                                </div>
-                            </li>
-                            
-                            <li class="sub-menu-parent">
-                                <a href="../html/trangDanhMuc.html"><p class="cat-set-title giao-duc-title">Giáo dục</p></a>
-    
-                                <div class="drop-down-menu">
-                                    <ul class="sub-menu">
-                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Thi cử</li></a>
-                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Đào tạo</li></a>
-                                        <a href="../html/trangDanhMuc.html"><li class="sub-menu-button">Học bổng - Du học</li></a>
-                                    </ul>
-                                </div>
-                            </li>
-    
-                            <li class="sub-menu-parent-quan-tri">
-                                <a href="./html/quantri.html"><p id="Quantri" class="dong">Quản trị</p></a>
-                            </li>
                         </ul>
                     </div>
     
@@ -360,6 +304,7 @@
                     
                 </div>
             </div>
+
         </div>
 
     </body>

@@ -11,6 +11,7 @@ import jwt from "jsonwebtoken";
 import { router as mainRoutes } from "./routes/mainRoute.js"; // Route chính
 import { router as authRoutes } from "./routes/authRoute.js"; // Route xác thực
 import { router as itemRoutes } from "./routes/articleItems.js"; // Route cho tất cả item bao gồm article, category, user
+import { router as categoryRoutes } from "./routes/categoryRoute.js"; // Route cho tất cả item bao gồm article, category, user
 import { authController } from "./controllers/authController.js"; // Import controller cho xác thực
 import { connect } from "./config/db.js"; 
 
@@ -18,22 +19,8 @@ const app = express();
 const port = 3000;
 
 app.use(express.json());
-app.use(cookieParser()); // Middleware này sẽ phân tích cookie trong yêu cầu và thêm chúng vào req.cookies.
-
-// Middleware kiểm tra người dùng đã đăng nhập hay chưa MỖI KHI CÓ YÊU CẦU ĐẾN SERVER, từ đó render ra các template khác nhau
-// app.use((req, res, next) => {
-//   if (req.cookies && req.cookies.email) {
-//     req.isLoggedIn = true; 
-//     req.username = req.cookies.username; 
-//     req.role = req.cookies.role;
-//   } else {
-//     req.isLoggedIn = false;
-//   }
-//   next();
-// });
-
+app.use(cookieParser());
 app.use(authController.authenticateToken);
-   
 app.use(cors());
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true })); 
@@ -42,6 +29,7 @@ app.use(express.static('public'));
 app.use("/", mainRoutes); 
 app.use("/auth", authRoutes);
 app.use("/api", itemRoutes);
+app.use("/category", categoryRoutes);
 
 // Kết nối đến cơ sở dữ liệu SQL Server
 connect()
