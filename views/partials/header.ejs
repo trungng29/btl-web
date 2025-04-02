@@ -95,8 +95,22 @@
 
             <div class="navbar-duoi">
                 <div class="navbar-duoi-container container">
-
-                    <a href="/"><img src="../assets/navbarLogoSmall.png" alt=""></a>
+                    <div class="logo-duoi-container">
+                        <a href="/"><img src="../assets/navbarLogoSmall.png" alt="" class="hidden-class"></a>
+                        <div class="stats-container show-class">
+                            <div class="stats-container-inside">
+                                <div class="weather-stats">
+                                    <p class="weather-stats-city"><%= cityName %></p>
+                                    <p class="weather-stats-temp"><%= weather %></p>
+                                </div>
+                                <div class="day-stats">
+                                    <p> <%= currentDate %> </p>
+                                </div>
+                            </div>
+                            <img src="<%= iconUrl %>" alt="">
+                        </div>
+                    </div>
+                    
 
                     <div class="navbar-duoi-line-container">
                         <img src="../assets/navbarLine.png" alt="" class="navbarDuoiLine">
@@ -121,7 +135,7 @@
     
                         </ul>
                     </div>
-    
+
                     <i class="bi bi-list fs-2 no-select" id="burgerIcon"></i>
                 </div>
     

@@ -1,7 +1,9 @@
 import { executeQuery } from "../config/db.js";
-import { categoryController } from './categoryController.js';  // Thêm import này
+import { categoryController } from './categoryController.js';  
+import WeatherService from '../controllers/weatherDayController.js';
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
+import axios from "axios";
 dotenv.config();
 
 function generateAccessToken(user) {
@@ -126,13 +128,25 @@ export const authController = {
     res.status(200).json({ success: true, message: "Đăng xuất thành công!" });
   },
 
-  authenticateToken: async (req, res, next) => {  // Thêm async vì sẽ gọi hàm async
+  authenticateToken: async (req, res, next) => {  
     try {
-        // Lấy categories trước
         const categories = await categoryController.getCategoriesTitle();
+        const weatherData = await WeatherService.getWeatherData();
         
-        // Set categoryTree vào res.locals
-        res.locals.categoryTree = categories;
+        // Tạo đối tượng Date và format theo tiếng Việt
+        const currentDate = new Date();
+        const days = ['Chủ nhật', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7'];
+        const formattedDate = `${days[currentDate.getDay()]}, ${currentDate.getDate()}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
+        
+        // Set tất cả vào res.locals
+        res.locals = {
+            ...res.locals,
+            categoryTree: categories,
+            weather: weatherData.temp,
+            iconUrl: weatherData.iconUrl,
+            cityName: weatherData.cityName,
+            currentDate: formattedDate  // Thêm ngày tháng đã format
+        };
 
         const token = req.cookies.user;
 
@@ -171,6 +185,7 @@ export const authController = {
             res.locals.username = decoded.username;
             res.locals.email = decoded.email;
             res.locals.role = decoded.role;
+
             
             next();
 

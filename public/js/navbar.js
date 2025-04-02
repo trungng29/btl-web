@@ -1,22 +1,32 @@
+// public/js/navbar.js
 window.addEventListener("scroll", function(){
-
     var header = document.querySelector(".navbar-duoi");
     var userPanel = document.getElementById("userPanel");
     var bigMenu = document.getElementById("bigMenu");
+    var logo = document.querySelector(".logo-duoi-container img")
+    var stats = document.querySelector(".stats-container")
 
     if (window.scrollY > 80) {
         header.classList.add("sticky");
-        bigMenu.style.zIndex = "30"; // Đảm bảo big-menu luôn trên overlay
+        bigMenu.style.zIndex = "30"; 
+        logo.classList.add("show-class")
+        logo.classList.remove("hidden-class")
+        stats.classList.add("hidden-class")
+        stats.classList.remove("show-class")
     } else {
         header.classList.remove("sticky");
-        bigMenu.style.zIndex = "10"; // Đặt lại nếu không sticky
+        bigMenu.style.zIndex = "10"; 
+        logo.classList.remove("show-class")
+        logo.classList.add("hidden-class")
+        stats.classList.remove("hidden-class")
+        stats.classList.add("show-class")
     }
 
     if (userPanel && window.scrollY > 5) {
         userPanel.classList.remove("open-panel")
     }
-
 });
+
 
 document.getElementById("burgerIcon").addEventListener("click", function() {
     document.getElementById("bigMenu").classList.toggle("hidden-overlay")
