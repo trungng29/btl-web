@@ -1,4 +1,4 @@
-Step 1: Tạo 1 file .env ( đặt chính xác tên file là .env, không có gì trước dấu chấm ). FIle có nội dung như sau ( có thể paste vào )
+Step 1: Tạo 1 file .env ( đặt chính xác tên file là .env, không có gì trước dấu chấm ). File có nội dung như sau ( có thể paste vào )
         DB_USER = admin // config tên
         DB_PASSWORD = 123 // config mật khẩu 
         DB_SERVER = localhost
