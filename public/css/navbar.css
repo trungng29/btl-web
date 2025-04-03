@@ -571,7 +571,7 @@ a {
 /* Tạo animation cho logo */
 @keyframes slideFromRight {
     from {
-        transform: translateX(100%);
+        transform: translateX(50%);
     }
     to {
         transform: translateX(0);
