@@ -603,6 +603,11 @@ a {
     align-items: center;
 }
 
+.stats-container img {
+    height: 100% !important;
+    margin-left: 10px;
+}
+
 /* Khi logo ẩn, category sẽ dịch về bên trái */
 .logo-duoi-container a img.hidden-class + .cat-set {
     margin-left: 0;
