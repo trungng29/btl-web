@@ -517,6 +517,10 @@ a {
    
 }
 
+.day-stats p {
+    font-size: medium !important;
+}
+
 .weather-stats p:not(:first-of-type) {
     margin-left: 10px;
 }
