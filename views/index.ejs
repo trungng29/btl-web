@@ -111,10 +111,11 @@
                     
             </div>
 
+
             <div class="thoi-su-section container">
                 <div class="page-containerThoisu">
                     <div class="headerThoisu">
-                        THỜI SỰ - XÃ HỘI
+                        THỜI SỰ - <%= categoryTree[0].name %>
                     </div>
                     <div class="containerThoisu">
                         <div class="leftColumnThoisu">
@@ -270,13 +271,15 @@
                     <div class="container-right">
                         <div class="container-right-heading">
                             <div class="container-right-title">
-                                <h3 class="body-title-category">Khoa học & Công nghệ</h3>    
+                                <h3 class="body-title-category"><%= categoryTree[1].name %></h3>    
                             </div>
-                            <div class="container-right-small-title">
-                                <p class="sub-menu-button">Tin tức</p>
-                                <p class="sub-menu-button">Tạp chí</p>
-                                <p class="sub-menu-button">Hoạt động</p>
-                            </div>
+                            <% if (categoryTree[1].children.length) { %>
+                                <div class="container-right-small-title">
+                                    <% for ( var j = 0; j < categoryTree[1].children.length; j++ ) { %>
+                                        <p class="sub-menu-button"><%= categoryTree[1].children[j].name %></p>
+                                    <% } %>
+                                </div>
+                            <% } %>
                         </div>
             
                         <div class="container-right-image">
@@ -327,13 +330,15 @@
                 
                 <div class="giai-tri-1-section-heading">
                     <div class="giai-tri-1-section-title">
-                        <h3 class="body-title-category">Sức khỏe</h3>
+                        <h3 class="body-title-category"><%= categoryTree[2].name %></h3>
                     </div>
-                    <div class="giai-tri-1-section-sub-title">
-                        <p class="sub-menu-button">Dinh dưỡng</p>
-                        <p class="sub-menu-button">Làm đẹp</p>
-                        <p class="sub-menu-button">Y tế</p>
-                    </div>
+                    <% if (categoryTree[2].children.length) { %>
+                        <div class="giai-tri-1-section-sub-title">
+                            <% for ( var j = 0; j < categoryTree[2].children.length; j++) {%>
+                            <p class="sub-menu-button"><%= categoryTree[2].children[j].name %></p>
+                            <% } %>
+                        </div>
+                    <% } %>
                 </div>
 
                 <div class="content1 container">
@@ -570,13 +575,16 @@
 
                 <div class="giai-tri-section-heading">
                     <div class="giai-tri-section-title">
-                        <h3 class="body-title-category">Giải trí</h3>
+                        <h3 class="body-title-category"><%= categoryTree[4].name %></h3>
                     </div>
-                    <div class="giai-tri-section-sub-title">
-                        <p class="sub-menu-button">Âm nhạc</p>
-                        <p class="sub-menu-button">Thời trang</p>
-                        <p class="sub-menu-button">Điện ảnh - Truyền hình</p>
-                    </div>
+                    <% if (categoryTree[4].children.length) { %>
+                        <div class="giai-tri-section-sub-title">
+                            <% for ( var j = 0; j < categoryTree[4].children.length; j++ ) { %>
+                            <p class="sub-menu-button"><%= categoryTree[4].children[j].name %></p>
+                            <% } %>
+                        </div>
+                    <% } %>
+                    
                 </div>
 
                 <div class="giai-tri-item-1 shadow-hover scale-hover cursor-pointer">
@@ -726,13 +734,15 @@
                 <div class="edu-section">
                     <div class="edu-section-heading">
                         <div class="edu-section-title">
-                            <h3 class="body-title-category">Giáo dục</h3>
+                            <h3 class="body-title-category"><%= categoryTree[5].name %></h3>
                         </div>
-                        <div class="edu-section-sub-title">
-                            <p class="sub-menu-button">Thi cử</p>
-                            <p class="sub-menu-button">Đào tạo</p>
-                            <p class="sub-menu-button">Học bổng - Du học</p>
-                        </div>
+                        <% if (categoryTree[5].children.length) { %>
+                            <div class="edu-section-sub-title">
+                                <% for ( var j = 0; j < categoryTree[5].children.length; j++ ) { %>
+                                    <p class="sub-menu-button"><%= categoryTree[5].children[j].name %></p>
+                                <% } %>
+                            </div>
+                        <% } %> 
                     </div>
             
                     <div class="edu-main-content">
