@@ -667,7 +667,7 @@ a {
     padding-left: 0px;
 }
 
-.giai-tri-item-4-article > h3 {
+.giai-tri-item-4-article h3 {
     font-family: Roboto;
     font-weight: 700;
     font-size: 24px;
@@ -675,13 +675,15 @@ a {
     letter-spacing: 0%;
 }
 
-.giai-tri-item-4-article > p {
+.giai-tri-item-4-article p {
     font-family: Open Sans;
     font-weight: 400;
     font-size: 20px;
     line-height: 145%;
     letter-spacing: 0%;
-    color: #4D4D4D;    
+    color: #4D4D4D;  
+    overflow: hidden;
+    max-height: 150px;  
 }
 
 .giai-tri-item-6 {
@@ -990,6 +992,10 @@ a {
 
 .giai-tri-item-4-article {
     width: 330px;
+}
+
+.giai-tri-item-4 a {
+    display: contents;
 }
 
 /* MEDIA QUERRIES */

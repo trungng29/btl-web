@@ -111,7 +111,6 @@
                     
             </div>
 
-
             <div class="thoi-su-section container">
                 <div class="page-containerThoisu">
                     <div class="headerThoisu">
@@ -197,6 +196,8 @@
             <div class="khoa-hoc-cong-nghe container">
                 <div class="container-1320">
                     <div class="container-left">
+                        <% if (articles) { %>
+                        <% } %>
                         <div class="content-left">
                             <div class="left-title">
                                 <a href="../html/chiTietBaiViet.html"><p>Ông Trương Huy San bị phạt 30 tháng tù</p></a>
@@ -210,6 +211,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="content-left">
                             <div class="left-title">
                                 <a href="../html/chiTietBaiViet.html"><p>Ông Trương Huy San bị phạt 30 tháng tù</p></a>
@@ -223,6 +225,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="content-left">
                             <div class="left-title">
                                 <a href="../html/chiTietBaiViet.html"><p>Ông Trương Huy San bị phạt 30 tháng tù</p></a>
@@ -236,6 +239,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="content-left">
                             <div class="left-title">
                                 <a href="../html/chiTietBaiViet.html"><p>Ông Trương Huy San bị phạt 30 tháng tù</p></a>
@@ -249,6 +253,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="content-left">
                             <div class="left-title">
                                 <a href="../html/chiTietBaiViet.html"><p>Ông Trương Huy San bị phạt 30 tháng tù</p></a>
@@ -635,17 +640,18 @@
                         </a>
                     </div>
                 </div>
-
+                
                 <div class="giai-tri-item-4 shadow-hover scale-hover cursor-pointer">
-                    <div class="giai-tri-item-4-container">
-                        <img src="../assets/trangChuImages/giaiTriImage4.png" alt="">
-                    </div>
-                    <div class="giai-tri-item-4-article">
-                        <h3>'Dune 2' đứng trước cơ hội thắng Hiệu ứng xuất sắc Oscar 2025</h3>
-                        <p>
-                            "Dune: Part Two" là ứng cử viên kỹ xảo nổi bật tại Oscar 2025, đối đầu "Kingdom of the Planet of the Apes".
-                        </p>
-                    </div>
+                    <a href="/article/transportArticle/<%= articles[0].id_article %>">
+                        <div class="giai-tri-item-4-container">
+                            <img src="<%= articles[0].hero_image %>" alt="">
+                        </div>
+                        <div class="giai-tri-item-4-article">
+                            <h3><%= articles[0].heading %></h3>
+                            <p>
+                                <%= articles[0].content %>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="giai-tri-item-5 shadow-hover scale-hover cursor-pointer">
