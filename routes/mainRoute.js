@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
         const categories = await categoryController.getCategoriesTitle();
         const articles = await articleController.getArticles();
 
-        console.log(articles)
+        // console.log(articles)
 
         res.render('index.ejs', { 
             isLoggedIn: req.isLoggedIn, 

@@ -37,7 +37,7 @@ export const articleController = {
 
     transportArticle: async (req, res) => {
         const articleId = req.params.id;
-        const query = `SELECT * FROM [dbo].[Article] WHERE id_article = @id`;
+        const query = `SELECT * FROM [dbo].[Article] WHERE name_alias = @id`;
         const values = [articleId];
         const paramNames = ["id"];
         const isStoredProcedure = false;
