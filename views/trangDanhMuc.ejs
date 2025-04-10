@@ -2,24 +2,144 @@
 
     <div class="page-container">
         <div class="image-title">
-            <img src="../assets/trangDanhMucBackgroundImages/glassPanelTrangChu.png" alt="" class="glass-panel"/>
-            <img src="../assets/trangDanhMucBackgroundImages/glassPanelTrangChu.png" alt="việt nam vô địch" class="background-image-danh-muc"/>
+            <img src="/../assets/trangDanhMucBackgroundImages/glassPanelTrangChu.png" alt="" class="glass-panel"/>
+            <img src="/../assets/trangDanhMucBackgroundImages/<%= categoryData[0].alias_name%>.png" alt="việt nam vô địch" class="background-image-danh-muc"/>
             <div class="title">
-                <h1></h1>
+                <h1><%=categoryData[0].category_name%></h1>
             </div>
         </div>
-       
-        <div class="section con1000 margin-50">
+
+        <% if ( subCategoryData.length ) { %>
+            <% for ( let i = 0; i < subCategoryData.length; i++ ) { %>
+                <div class="section con1000">
+                    <div class="title-section">
+                        <h2>
+                            <%= subCategoryData[i].category_name%><span><i class="bi bi-arrow-bar-right fs-2" ></i></span>
+                        </h2>
+                        <img src="/../assets/trangDanhMucImages/danhMucRedLine.png"/>
+                    </div>
+                    <div class="grid-section">
+                        <div class="grid-section-items">
+                            <a href="../html/chiTietBaiViet.html">
+                                <img src="/../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
+                            </a>
+                            <div class="news-content">
+                                <a href="../html/chiTietBaiViet.html">
+                                    <h3 class="news-title">Tiến Linh giành Quả bóng vàng Việt Nam</h3>
+                                </a>
+                                <p class="date">Thứ Tư, 26/2/2025 19:22 (GMT+7)</p>
+                                <p class="content">
+                                    <a href="../html/chiTietBaiViet.html" class="news-link">
+                                        Vượt qua Nguyễn Hoàng Đức và Phạm Tuấn Hải, tiền đạo Nguyễn Tiến Linh giành giải Quả Bóng Vàng nam Việt Nam 2024.
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="grid-section-items">
+                            <a href="../html/chiTietBaiViet.html">
+                                <img src="/../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
+                            </a>
+                            <div class="news-content">
+                                <a href="../html/chiTietBaiViet.html">
+                                    <h3 class="news-title">Tiến Linh giành Quả bóng vàng Việt Nam</h3>
+                                </a>
+                                <p class="date">Thứ Tư, 26/2/2025 19:22 (GMT+7)</p>
+                                <p class="content">
+                                    <a href="../html/chiTietBaiViet.html" class="news-link">
+                                        Vượt qua Nguyễn Hoàng Đức và Phạm Tuấn Hải, tiền đạo Nguyễn Tiến Linh giành giải Quả Bóng Vàng nam Việt Nam 2024.
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="grid-section-items">
+                            <a href="../html/chiTietBaiViet.html">
+                                <img src="/../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
+                            </a>
+                            <div class="news-content">
+                                <a href="../html/chiTietBaiViet.html">
+                                    <h3 class="news-title">Tiến Linh giành Quả bóng vàng Việt Nam</h3>
+                                </a>
+                                <p class="date">Thứ Tư, 26/2/2025 19:22 (GMT+7)</p>
+                                <p class="content">
+                                    <a href="../html/chiTietBaiViet.html" class="news-link">
+                                        Vượt qua Nguyễn Hoàng Đức và Phạm Tuấn Hải, tiền đạo Nguyễn Tiến Linh giành giải Quả Bóng Vàng nam Việt Nam 2024.
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="grid-section-items">
+                            <a href="../html/chiTietBaiViet.html">
+                                <img src="/../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
+                            </a>
+                            <div class="news-content">
+                                <a href="../html/chiTietBaiViet.html">
+                                    <h3 class="news-title">Tiến Linh giành Quả bóng vàng Việt Nam</h3>
+                                </a>
+                                <p class="date">Thứ Tư, 26/2/2025 19:22 (GMT+7)</p>
+                                <p class="content">
+                                    <a href="../html/chiTietBaiViet.html" class="news-link">
+                                        Vượt qua Nguyễn Hoàng Đức và Phạm Tuấn Hải, tiền đạo Nguyễn Tiến Linh giành giải Quả Bóng Vàng nam Việt Nam 2024.
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="grid-section-items">
+                            <a href="../html/chiTietBaiViet.html">
+                                <img src="/../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
+                            </a>
+                            <div class="news-content">
+                                <a href="../html/chiTietBaiViet.html">
+                                    <h3 class="news-title">Tiến Linh giành Quả bóng vàng Việt Nam</h3>
+                                </a>
+                                <p class="date">Thứ Tư, 26/2/2025 19:22 (GMT+7)</p>
+                                <p class="content">
+                                    <a href="../html/chiTietBaiViet.html" class="news-link">
+                                        Vượt qua Nguyễn Hoàng Đức và Phạm Tuấn Hải, tiền đạo Nguyễn Tiến Linh giành giải Quả Bóng Vàng nam Việt Nam 2024.
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="grid-section-items">
+                            <a href="../html/chiTietBaiViet.html">
+                                <img src="/../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
+                            </a>
+                            <div class="news-content">
+                                <a href="../html/chiTietBaiViet.html">
+                                    <h3 class="news-title">Tiến Linh giành Quả bóng vàng Việt Nam</h3>
+                                </a>
+                                <p class="date">Thứ Tư, 26/2/2025 19:22 (GMT+7)</p>
+                                <p class="content">
+                                    <a href="../html/chiTietBaiViet.html" class="news-link">
+                                        Vượt qua Nguyễn Hoàng Đức và Phạm Tuấn Hải, tiền đạo Nguyễn Tiến Linh giành giải Quả Bóng Vàng nam Việt Nam 2024.
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+            
+            
+                    <div class="view-more">
+                        <a href="../html/trangDanhMuc2.html">
+                            <p>Xem thêm
+                                <span><i class="bi bi-arrow-right"></i></span>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            <% } %>
+        <% } %>
+        <!-- <div class="section con1000 margin-50">
             <div class="title-section">
                 <h2>
                     <span><i class="bi bi-arrow-bar-right fs-2" ></i></span>
                 </h2>
-                <img src="../assets/trangDanhMucImages/danhMucRedLine.png"/>
+                <img src="/../assets/trangDanhMucImages/danhMucRedLine.png"/>
             </div>
             <div class="grid-section">
                 <div class="grid-section-items">
                     <a href="../html/chiTietBaiViet.html">
-                        <img src="../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
+                        <img src="/../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
                     </a>
                     <div class="news-content">
                         <a href="../html/chiTietBaiViet.html">
@@ -35,7 +155,7 @@
                 </div>
                 <div class="grid-section-items">
                     <a href="../html/chiTietBaiViet.html">
-                        <img src="../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
+                        <img src="/../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
                     </a>
                     <div class="news-content">
                         <a href="../html/chiTietBaiViet.html">
@@ -51,7 +171,7 @@
                 </div>
                 <div class="grid-section-items">
                     <a href="../html/chiTietBaiViet.html">
-                        <img src="../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
+                        <img src="/../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
                     </a>
                     <div class="news-content">
                         <a href="../html/chiTietBaiViet.html">
@@ -67,7 +187,7 @@
                 </div>
                 <div class="grid-section-items">
                     <a href="../html/chiTietBaiViet.html">
-                        <img src="../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
+                        <img src="/../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
                     </a>
                     <div class="news-content">
                         <a href="../html/chiTietBaiViet.html">
@@ -83,7 +203,7 @@
                 </div>
                 <div class="grid-section-items">
                     <a href="../html/chiTietBaiViet.html">
-                        <img src="../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
+                        <img src="/../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
                     </a>
                     <div class="news-content">
                         <a href="../html/chiTietBaiViet.html">
@@ -99,7 +219,7 @@
                 </div>
                 <div class="grid-section-items">
                     <a href="../html/chiTietBaiViet.html">
-                        <img src="../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
+                        <img src="/../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
                     </a>
                     <div class="news-content">
                         <a href="../html/chiTietBaiViet.html">
@@ -131,12 +251,12 @@
                 <h2>
                     <span><i class="bi bi-arrow-bar-right fs-2" ></i></span>
                 </h2>
-                <img src="../assets/trangDanhMucImages/danhMucRedLine.png"/>
+                <img src="/../assets/trangDanhMucImages/danhMucRedLine.png"/>
             </div>
             <div class="grid-section">
                 <div class="grid-section-items">
                     <a href="../html/chiTietBaiViet.html">
-                        <img src="../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
+                        <img src="/../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
                     </a>
                     <div class="news-content">
                         <a href="../html/chiTietBaiViet.html">
@@ -152,7 +272,7 @@
                 </div>
                 <div class="grid-section-items">
                     <a href="../html/chiTietBaiViet.html">
-                        <img src="../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
+                        <img src="/../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
                     </a>
                     <div class="news-content">
                         <a href="../html/chiTietBaiViet.html">
@@ -168,7 +288,7 @@
                 </div>
                 <div class="grid-section-items">
                     <a href="../html/chiTietBaiViet.html">
-                        <img src="../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
+                        <img src="/../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
                     </a>
                     <div class="news-content">
                         <a href="../html/chiTietBaiViet.html">
@@ -184,7 +304,7 @@
                 </div>
                 <div class="grid-section-items">
                     <a href="../html/chiTietBaiViet.html">
-                        <img src="../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
+                        <img src="/../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
                     </a>
                     <div class="news-content">
                         <a href="../html/chiTietBaiViet.html">
@@ -200,7 +320,7 @@
                 </div>
                 <div class="grid-section-items">
                     <a href="../html/chiTietBaiViet.html">
-                        <img src="../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
+                        <img src="/../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
                     </a>
                     <div class="news-content">
                         <a href="../html/chiTietBaiViet.html">
@@ -216,7 +336,7 @@
                 </div>
                 <div class="grid-section-items">
                     <a href="../html/chiTietBaiViet.html">
-                        <img src="../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
+                        <img src="/../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
                     </a>
                     <div class="news-content">
                         <a href="../html/chiTietBaiViet.html">
@@ -248,12 +368,12 @@
                 <h2>
                     <span><i class="bi bi-arrow-bar-right fs-2" ></i></span>
                 </h2>
-                <img src="../assets/trangDanhMucImages/danhMucRedLine.png"/>
+                <img src="/../assets/trangDanhMucImages/danhMucRedLine.png"/>
             </div>
             <div class="grid-section">
                 <div class="grid-section-items">
                     <a href="../html/chiTietBaiViet.html">
-                        <img src="../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
+                        <img src="/../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
                     </a>
                     <div class="news-content">
                         <a href="../html/chiTietBaiViet.html">
@@ -270,7 +390,7 @@
                 
                 <div class="grid-section-items">
                     <a href="../html/chiTietBaiViet.html">
-                        <img src="../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
+                        <img src="/../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
                     </a>
                     <div class="news-content">
                         <a href="../html/chiTietBaiViet.html">
@@ -286,7 +406,7 @@
                 </div>
                 <div class="grid-section-items">
                     <a href="../html/chiTietBaiViet.html">
-                        <img src="../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
+                        <img src="/../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
                     </a>
                     <div class="news-content">
                         <a href="../html/chiTietBaiViet.html">
@@ -302,7 +422,7 @@
                 </div>
                 <div class="grid-section-items">
                     <a href="../html/chiTietBaiViet.html">
-                        <img src="../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
+                        <img src="/../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
                     </a>
                     <div class="news-content">
                         <a href="../html/chiTietBaiViet.html">
@@ -318,7 +438,7 @@
                 </div>
                 <div class="grid-section-items">
                     <a href="../html/chiTietBaiViet.html">
-                        <img src="../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
+                        <img src="/../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
                     </a>
                     <div class="news-content">
                         <a href="../html/chiTietBaiViet.html">
@@ -334,7 +454,7 @@
                 </div>
                 <div class="grid-section-items">
                     <a href="../html/chiTietBaiViet.html">
-                        <img src="../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
+                        <img src="/../assets/trangDanhMucImages/tienLinh.png" alt="Tiến Linh giành Quả bóng vàng">
                     </a>
                     <div class="news-content">
                         <a href="../html/chiTietBaiViet.html">
@@ -358,6 +478,6 @@
                     </p>
                 </a>
             </div>
-        </div>
+        </div> -->
 
 <%- include("partials/footer.ejs") %>

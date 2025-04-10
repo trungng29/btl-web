@@ -20,6 +20,7 @@ body {
     display: inline-block;
     height: 350px;
     width: 100%;
+    margin-bottom: 50px;
 }
 
 .image-title img {
@@ -45,9 +46,6 @@ body {
     font-size: 120px;
     font-weight: 600;
     z-index: 1;
-    font-family: "Lexend Deca"; 
-    font-size: 120px;   
-    font-weight: 600;
 }
 
 .section {
@@ -56,6 +54,7 @@ body {
     /* padding: 50px 256px; */
     margin-bottom: 20px;
 }
+
 
 .section h2 {
     font-family: "Roboto", sans-serif;

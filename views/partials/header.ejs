@@ -121,12 +121,12 @@
                             <% if (categoryTree.length > 6 ) { catlen = 6 } else { catlen = categoryTree.length }%>
                             <% for ( var i = 0; i < catlen; i++) { %>
                                 <li class="sub-menu-parent">
-                                    <a href="/category/firstcategory"><p class="cat-set-title xa-hoi-title"><%= categoryTree[i].name %></p></a>
+                                    <a href="/category/firstcategory/<%= categoryTree[i].name_alias%>"><p class="cat-set-title xa-hoi-title"><%= categoryTree[i].name %></p></a>
                                     <% if (categoryTree[i].children.length) { %>
                                         <div class="drop-down-menu">
                                             <ul class="sub-menu">
                                                 <% for ( var j = 0; j < categoryTree[i].children.length; j++ ) { %>
-                                                    <a href="/category/secondcategory"><li class="sub-menu-button"><%= categoryTree[i].children[j].name %></li></a>
+                                                    <a href="/category/secondcategory/<%= categoryTree[i].name_alias%>"><li class="sub-menu-button"><%= categoryTree[i].children[j].name %></li></a>
                                                 <% } %>
                                             </ul>
                                         </div>
