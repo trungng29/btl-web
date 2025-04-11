@@ -97,16 +97,17 @@ body {
     font-weight:700;
     color: black;
     margin: 15px;
+    margin-top: 20px;
 }
 
 .news-content .date {
     font-family: "Open Sans", sans-serif;
     font-size: 16px;
     color: #6C6C6C;
-    margin: 15px;
+    margin-left: 15px;
 }
 
-.news-content .content {
+.news-content .content-danh-muc {
     font-family: "Open Sans", sans-serif;
     font-weight: 400;
     font-size: 20px;
