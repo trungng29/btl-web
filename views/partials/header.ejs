@@ -126,7 +126,7 @@
                                         <div class="drop-down-menu">
                                             <ul class="sub-menu">
                                                 <% for ( var j = 0; j < categoryTree[i].children.length; j++ ) { %>
-                                                    <a href="/category/secondcategory/<%= categoryTree[i].name_alias%>"><li class="sub-menu-button"><%= categoryTree[i].children[j].name %></li></a>
+                                                    <a href="/category/secondcategory/<%= categoryTree[i].children[j].name_alias%>"><li class="sub-menu-button"><%= categoryTree[i].children[j].name %></li></a>
                                                 <% } %>
                                             </ul>
                                         </div>
@@ -154,11 +154,11 @@
                         <ul class="cat-set-ul">
                             <% for ( var i = 0; i < categoryTree.length; i++) { %>
                                 <li>
-                                    <a href="/category/firstcategory"><p class="cat-set-big-title xa-hoi-title"><%= categoryTree[i].name %></p></a>
+                                    <a href="/category/firstcategory/<%= categoryTree[i].name_alias%>"><p class="cat-set-big-title xa-hoi-title"><%= categoryTree[i].name %></p></a>
                                     <% if (categoryTree[i].children.length) { %>
                                         <ul class="sub-menu-big">
                                             <% for ( var j = 0; j < categoryTree[i].children.length; j++ ) { %>
-                                                <a href="/category/secondcategory"><li class="sub-menu-button"><%= categoryTree[i].children[j].name %></li></a>
+                                                <a href="/category/secondcategory/<%= categoryTree[i].children[j].name_alias%>"><li class="sub-menu-button"><%= categoryTree[i].children[j].name %></li></a>
                                             <% } %>
                                         </ul>
                                     <% } %>

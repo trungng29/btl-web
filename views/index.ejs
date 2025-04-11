@@ -276,12 +276,12 @@
                     <div class="container-right">
                         <div class="container-right-heading">
                             <div class="container-right-title">
-                                <h3 class="body-title-category"><%= categoryTree[1].name %></h3>    
+                                <a href="/category/firstcategory/<%= categoryTree[1].name_alias%>"><h3 class="body-title-category"><%= categoryTree[1].name %></h3></a>    
                             </div>
                             <% if (categoryTree[1].children.length) { %>
                                 <div class="container-right-small-title">
                                     <% for ( var j = 0; j < categoryTree[1].children.length; j++ ) { %>
-                                        <p class="sub-menu-button"><%= categoryTree[1].children[j].name %></p>
+                                        <a href="/category/secondcategory/<%= categoryTree[1].children[j].name_alias%>"><p class="sub-menu-button"><%= categoryTree[1].children[j].name %></p></a>
                                     <% } %>
                                 </div>
                             <% } %>
@@ -335,12 +335,12 @@
                 
                 <div class="giai-tri-1-section-heading">
                     <div class="giai-tri-1-section-title">
-                        <h3 class="body-title-category"><%= categoryTree[2].name %></h3>
+                        <a href="/category/firstcategory/<%= categoryTree[2].name_alias%>"><h3 class="body-title-category"><%= categoryTree[2].name %></h3></a>
                     </div>
                     <% if (categoryTree[2].children.length) { %>
                         <div class="giai-tri-1-section-sub-title">
                             <% for ( var j = 0; j < categoryTree[2].children.length; j++) {%>
-                            <p class="sub-menu-button"><%= categoryTree[2].children[j].name %></p>
+                                <a href="/category/secondcategory/<%= categoryTree[2].children[j].name_alias%>"><p class="sub-menu-button"><%= categoryTree[2].children[j].name %></p></a>
                             <% } %>
                         </div>
                     <% } %>
@@ -580,12 +580,12 @@
 
                 <div class="giai-tri-section-heading">
                     <div class="giai-tri-section-title">
-                        <h3 class="body-title-category"><%= categoryTree[4].name %></h3>
+                        <a href="/category/firstcategory/<%= categoryTree[4].name_alias%>"><h3 class="body-title-category"><%= categoryTree[4].name %></h3></a>
                     </div>
                     <% if (categoryTree[4].children.length) { %>
                         <div class="giai-tri-section-sub-title">
                             <% for ( var j = 0; j < categoryTree[4].children.length; j++ ) { %>
-                            <p class="sub-menu-button"><%= categoryTree[4].children[j].name %></p>
+                                <a href="/category/secondcategory/<%= categoryTree[4].children[j].name_alias%>"><p class="sub-menu-button"><%= categoryTree[4].children[j].name %></p></a>
                             <% } %>
                         </div>
                     <% } %>
@@ -740,12 +740,12 @@
                 <div class="edu-section">
                     <div class="edu-section-heading">
                         <div class="edu-section-title">
-                            <h3 class="body-title-category"><%= categoryTree[5].name %></h3>
+                            <a href="/category/firstcategory/<%= categoryTree[5].name_alias%>"><h3 class="body-title-category"><%= categoryTree[5].name %></h3></a>
                         </div>
                         <% if (categoryTree[5].children.length) { %>
                             <div class="edu-section-sub-title">
                                 <% for ( var j = 0; j < categoryTree[5].children.length; j++ ) { %>
-                                    <p class="sub-menu-button"><%= categoryTree[5].children[j].name %></p>
+                                    <a href="/category/secondcategory/<%= categoryTree[5].children[j].name_alias%>"><p class="sub-menu-button"><%= categoryTree[5].children[j].name %></p></a>
                                 <% } %>
                             </div>
                         <% } %> 

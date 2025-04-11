@@ -16,7 +16,6 @@ router.get('/firstcategory/:id', async (req, res) => {
         const values1 = [result.recordset[0].id_category];    
         const paramNames1 = ["id"];
         const result1 = await executeQuery(query1, values1, paramNames1, false);
-        // console.log(result1.recordset)
         res.render('trangDanhMuc.ejs', { categoryData: result.recordset, subCategoryData: result1.recordset });
     } catch (error) {
         console.error(error);
@@ -37,7 +36,6 @@ router.get('/secondcategory/:id', async (req, res) => {
         console.error(error);
         res.status(500).json({ success: false, message: "Có lỗi xảy ra, vui lòng thử lại!" });
     }
-    // res.render('trangDanhMuc2.ejs')
 });
 
 export { router };
