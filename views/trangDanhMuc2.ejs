@@ -34,6 +34,11 @@
                         </div>
                     </div>
                 <% } %>
+            <% } else { %>
+                <div class="no-article-container">
+                    <img src="/../assets/noArticle.png" alt="" class="no-article-img">
+                    <h2 class="no-article-heading">Danh mục hiện chưa có bài viết !</h2>
+                </div>
             <% } %>
     
             <% if ( pageStatus.total > 1 ) { %>
