@@ -90,9 +90,8 @@ router.get('/firstcategory/:id', async (req, res) => {
               categoryId,
               ...value
             })
-          );
+        );
 
-        // res.json ( {paginatedGroupedByCategory: transformedData} )
         res.render('trangDanhMuc.ejs', { categoryData: result.recordset, subCategoryData: result1.recordset, paginatedGroupedByCategory: transformedData });
     } catch (error) {
         console.error(error);
@@ -107,10 +106,41 @@ router.get('/secondcategory/:id', async (req, res) => {
     const isStoredProcedure = false;
     try {
         const result = await executeQuery(query, values, paramNames, isStoredProcedure);
-        res.render('trangDanhMuc2.ejs', { categoryData: result.recordset });
+        const query1 = `SELECT * FROM [dbo].[Article] WHERE id_category = @id`;
+        const values1 = [result.recordset[0].id_category];    
+        const paramNames1 = ["id"];
+
+        const result1 = await executeQuery(query1, values1, paramNames1, false);
+        // console.log(result1.recordset);
+        const page = parseInt(req.query.page);
+        const limit = parseInt(req.query.limit);
+ 
+        const startIndex = (page - 1)*limit;
+        const endIndex = page * limit;
+
+        const pageStatus = {}
+
+        if ( endIndex < result1.recordset.length ) {
+            pageStatus.next = {
+                page: parseInt(page) + 1,
+                limit: parseInt(limit)
+            }
+        }
+
+        if ( startIndex > 0 ) {
+            pageStatus.previous = {
+                page: parseInt(page) - 1,
+                limit: parseInt(limit)
+            }
+        }
+
+        pageStatus.total = Math.ceil(result1.length / limit);
+
+        // res.json( {pageStatus: pageStatus, articles: result1.recordset.slice(startIndex, endIndex), categoryData: result.recordset} )
+
+        res.render('trangDanhMuc2.ejs', { pageStatus: pageStatus, articles: result1.recordset.slice(startIndex, endIndex), categoryData: result.recordset });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ success: false, message: "Có lỗi xảy ra, vui lòng thử lại!" });
     }
 });
 

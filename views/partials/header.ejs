@@ -126,7 +126,7 @@
                                         <div class="drop-down-menu">
                                             <ul class="sub-menu">
                                                 <% for ( var j = 0; j < categoryTree[i].children.length; j++ ) { %>
-                                                    <a href="/category/secondcategory/<%= categoryTree[i].children[j].name_alias%>?page=1&limit=15"><li class="sub-menu-button"><%= categoryTree[i].children[j].name %></li></a>
+                                                    <a href="/category/secondcategory/<%= categoryTree[i].children[j].name_alias%>?page=1&limit=10"><li class="sub-menu-button"><%= categoryTree[i].children[j].name %></li></a>
                                                 <% } %>
                                             </ul>
                                         </div>
@@ -158,7 +158,7 @@
                                     <% if (categoryTree[i].children.length) { %>
                                         <ul class="sub-menu-big">
                                             <% for ( var j = 0; j < categoryTree[i].children.length; j++ ) { %>
-                                                <a href="/category/secondcategory/<%= categoryTree[i].children[j].name_alias%>?page=1&limit=15"><li class="sub-menu-button"><%= categoryTree[i].children[j].name %></li></a>
+                                                <a href="/category/secondcategory/<%= categoryTree[i].children[j].name_alias%>?page=1&limit=10"><li class="sub-menu-button"><%= categoryTree[i].children[j].name %></li></a>
                                             <% } %>
                                         </ul>
                                     <% } %>
