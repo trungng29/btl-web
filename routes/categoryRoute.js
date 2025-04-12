@@ -75,7 +75,7 @@ router.get('/firstcategory/:id', async (req, res) => {
                 };
             }
 
-            categoryPageStatus.total = Math.round(categoryArticles.length / limit);
+            categoryPageStatus.total = Math.ceil(categoryArticles.length / limit);
 
             acc[id_category] = {
                 articles: categoryPaginated,
