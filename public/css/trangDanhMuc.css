@@ -50,11 +50,13 @@ body {
 
 .section {
     width: 1020px;
-    height: 1190px;
     /* padding: 50px 256px; */
     margin-bottom: 20px;
 }
 
+.section:not(:first-of-type) {
+    margin-top: 20px;
+}
 
 .section h2 {
     font-family: "Roboto", sans-serif;
@@ -89,6 +91,15 @@ body {
     width: 320px;
     height: 213px;
     border-radius: 25px 25px 0 0;
+    object-fit: cover !important;
+}
+
+.news-content {
+    height: 287px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: flex-start;
 }
 
 .news-content h3 {
@@ -96,8 +107,10 @@ body {
     font-size: 22px;
     font-weight:700;
     color: black;
-    margin: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
     margin-top: 20px;
+    margin-bottom: 5px;
 }
 
 .news-content .date {
@@ -115,6 +128,11 @@ body {
     color: black;
     margin: 15px;
     font-size: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .view-more {
