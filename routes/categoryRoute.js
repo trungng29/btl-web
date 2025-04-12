@@ -26,7 +26,7 @@ router.get('/firstcategory/:id', async (req, res) => {
     
         const result1 = await executeQuery(query1, values1, paramNames1, false);
 
-        const query2 = `SELECT a.*, c.alias_name, c.category_name, c.id_parent
+        const query2 = `SELECT TOP 9 a.*, c.alias_name, c.category_name, c.id_parent
                         FROM Article a
                         JOIN Category c ON a.id_category = c.id_category
                         WHERE c.id_parent = @id;`;
@@ -34,8 +34,6 @@ router.get('/firstcategory/:id', async (req, res) => {
         const paramNames2 = ["id"];
 
         const result3 = await executeQuery(query2, values2, paramNames2, false);
-
-        // res.json({ success: true, data: result.recordset, subCategoryData: result1.recordset, articlesData: result3.recordset });
 
         res.render('trangDanhMuc.ejs', { categoryData: result.recordset, subCategoryData: result1.recordset, articlesData: result3.recordset });
     } catch (error) {
