@@ -216,3 +216,29 @@ body {
     font-family: 'Lexend Deca', sans-serif !important;
     font-size: 26px !important;
 }
+
+.page-link {
+    color: #B32A45 !important;
+    font-size: 20px !important;
+    font-family: 'Lexend Deca', sans-serif !important;
+}
+
+.active>.page-link {
+    background-color: #B32A45 !important;
+    color: white !important;
+    border-color: #661827 !important;
+}
+
+.disabled a {
+    color: gray !important;
+    font-size: 20px !important;
+    font-family: 'Lexend Deca', sans-serif !important;
+}
+
+.page-link-p {
+    color: #000000 !important;
+    font-size: 20px !important;
+    font-family: 'Lexend Deca', sans-serif !important;
+    padding: 0px 10px !important;
+}
+

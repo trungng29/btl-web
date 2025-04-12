@@ -26,7 +26,7 @@ router.get('/firstcategory/:id', async (req, res) => {
     
         const result1 = await executeQuery(query1, values1, paramNames1, false);
 
-        const query2 = `SELECT TOP 9 a.*, c.alias_name, c.category_name, c.id_parent
+        const query2 = `SELECT a.*, c.alias_name, c.category_name, c.id_parent
                         FROM Article a
                         JOIN Category c ON a.id_category = c.id_category
                         WHERE c.id_parent = @id;`;
@@ -35,10 +35,67 @@ router.get('/firstcategory/:id', async (req, res) => {
 
         const result3 = await executeQuery(query2, values2, paramNames2, false);
 
-        res.render('trangDanhMuc.ejs', { categoryData: result.recordset, subCategoryData: result1.recordset, articlesData: result3.recordset });
+        const page = parseInt(req.query.page);
+        const limit = parseInt(req.query.limit);
+ 
+        const startIndex = (page - 1)*limit;
+        const endIndex = page * limit;
+
+        // Gom nhóm theo id_category
+        const groupedByCategory = result3.recordset.reduce((acc, article) => {
+            const { id_category } = article;
+            if (!acc[id_category]) {
+                acc[id_category] = [];
+            }
+            acc[id_category].push(article);
+            return acc;
+        }, {});
+
+        // Tạo thông tin phân trang cho từng category
+        const paginatedGroupedByCategory = Object.keys(groupedByCategory).reduce((acc, id_category) => {
+            const categoryArticles = groupedByCategory[id_category];
+
+            // Phân trang
+            const categoryPaginated = categoryArticles.slice(startIndex, endIndex);
+
+            // Tính toán trang trước / sau
+            const categoryPageStatus = {};
+
+            if (endIndex < categoryArticles.length) {
+                categoryPageStatus.next = {
+                    page: parseInt(page) + 1,
+                    limit: parseInt(limit),
+                };
+            }
+
+            if (startIndex > 0) {
+                categoryPageStatus.previous = {
+                    page: parseInt(page) - 1,
+                    limit: parseInt(limit),
+                };
+            }
+
+            categoryPageStatus.total = Math.round(categoryArticles.length / limit);
+
+            acc[id_category] = {
+                articles: categoryPaginated,
+                pageStatus: categoryPageStatus,
+            };
+
+            return acc;
+        }, {});
+
+        const transformedData = Object.entries(paginatedGroupedByCategory).map(
+            ([categoryId, value]) => ({
+              categoryId,
+              ...value
+            })
+          );
+
+        // res.json ( {paginatedGroupedByCategory: transformedData} )
+        res.render('trangDanhMuc.ejs', { categoryData: result.recordset, subCategoryData: result1.recordset, paginatedGroupedByCategory: transformedData });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ success: false, message: result.recordset.alias_name });
     }
 });
 

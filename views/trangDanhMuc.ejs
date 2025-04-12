@@ -9,20 +9,20 @@
             </div>
         </div>
 
-        <% if ( subCategoryData.length ) { %>
-            <% for ( let i = 0; i < subCategoryData.length; i++ ) { %>
+        <% if ( subCategoryData.length ) { %> 
+            <% for ( let i = 0; i < subCategoryData.length; i++ ) { %>  
                 <div class="section con1000">
                     <div class="title-section">
                         <h2>
-                            <%= subCategoryData[i].category_name%><span><i class="bi bi-arrow-bar-right fs-2" ></i></span>
+                            <%= subCategoryData[i].category_name%><span><i class="bi bi-arrow-bar-right fs-2" ></i></span>  
                         </h2>
                         <img src="/../assets/trangDanhMucImages/danhMucRedLine.png"/>
                     </div>
                     <% let check = false; %>
 
-                    <% if ( articlesData.length ) { %>
-                        <% for ( let k = 0; k < articlesData.length; k++ ) { %>
-                            <% if ( articlesData[k].category_name == subCategoryData[i].category_name ) { %>
+                    <% if ( paginatedGroupedByCategory.length ) { %>
+                        <% for ( let k = 0; k < paginatedGroupedByCategory.length; k++ ) { %>
+                            <% if ( paginatedGroupedByCategory[k].categoryId == subCategoryData[i].id_category && paginatedGroupedByCategory[k].articles ) { %>
                                 <% check = true; %>
                                 <% break; %>
                             <% } %>
@@ -36,57 +36,70 @@
                             <img src="/../assets/noArticle.png" alt="" class="no-article-img">
                             <h2 class="no-article-heading">Danh mục hiện chưa có bài viết !</h2>
                         </div>
-                    <% } %>
-
-                    <% if ( articlesData.length ) { %>
+                    <% } else {%>
                         <div class="grid-section">
-                            <% for ( let k = 0; k < articlesData.length; k++ ) { %>
-                                <% if ( articlesData[k].category_name == subCategoryData[i].category_name ) { %>
-                                    <div class="grid-section-items">
-                                        <a href="../html/chiTietBaiViet.html">
-                                            <img src="<%= articlesData[k].hero_image %>" alt="">
-                                        </a>
-                                        <div class="news-content">
+                            <% for ( let k = 0; k < paginatedGroupedByCategory.length; k++ ) { %>
+                                <% if ( paginatedGroupedByCategory[k].categoryId == subCategoryData[i].id_category && paginatedGroupedByCategory[k].articles ) { %>
+                                    <% for ( let g = 0; g < paginatedGroupedByCategory[k].articles.length; g++) { %>
+                                        <div class="grid-section-items">
                                             <a href="../html/chiTietBaiViet.html">
-                                                <h3 class="news-title"><%= articlesData[k].heading %></h3>
-                                                <p class="date"><%= articlesData[k].day_created %></p>
+                                                <img src="<%= paginatedGroupedByCategory[k].articles[g].hero_image %>" alt="">
                                             </a>
-                                            
-                                            <p class="content-danh-muc">
-                                                <a href="../html/chiTietBaiViet.html" class="news-link">
-                                                    <%= articlesData[k].content %>
+                                            <div class="news-content">
+                                                <a href="../html/chiTietBaiViet.html">
+                                                    <h3 class="news-title"><%=  paginatedGroupedByCategory[k].articles[g].heading %></h3>
+                                                    <p class="date"><%=  paginatedGroupedByCategory[k].articles[g].day_created %></p>
                                                 </a>
-                                            </p>
+                                                
+                                                <p class="content-danh-muc">
+                                                    <a href="../html/chiTietBaiViet.html" class="news-link">
+                                                        <%=  paginatedGroupedByCategory[k].articles[g].content %>
+                                                    </a>
+                                                </p>
+                                            </div>
                                         </div>
-                                    </div>
+                                    <% } %>
                                 <% } %>
                             <% } %>
                         </div>
+                    <% }%>
 
-                        <% for ( let k = 0; k < articlesData.length; k++ ) { %>
-                            <% if ( articlesData[k].category_name == subCategoryData[i].category_name ) { %>
-                            <nav aria-label="...">
-                                <ul class="pagination mt-5 px-1 justify-content-end">
-                                <li class="page-item">
-                                    <a class="page-link">Previous</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item active" aria-current="page">
-                                    <a class="page-link" href="#">2</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
-                                </ul>
-                            </nav>
-                            <% break %>
-                            <% }%>
+                    <% for ( let k = 0; k < paginatedGroupedByCategory.length; k++ ) { %>
+                        <% if ( paginatedGroupedByCategory[k].categoryId == subCategoryData[i].id_category && paginatedGroupedByCategory[k].articles && paginatedGroupedByCategory[k].pageStatus.total > 1 ) { %>
+                        <nav aria-label="...">
+                            <ul class="pagination mt-5 px-1 justify-content-end">
+                                <% if (paginatedGroupedByCategory[k].pageStatus.previous) { %>
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page=<%= paginatedGroupedByCategory[k].pageStatus.previous.page %>&limit=<%= paginatedGroupedByCategory[k].pageStatus.previous.limit %>">Previous</a>
+                                    </li>
+                                <% } else { %>
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="">Previous</a>
+                                    </li>
+                                <% }%>
+                                    
+                                <div class="page-link">
+                                    <% if (paginatedGroupedByCategory[k].pageStatus.previous) { %>
+                                        <p class="page-link-p"><%= paginatedGroupedByCategory[k].pageStatus.previous.page + 1 %>/<%= paginatedGroupedByCategory[k].pageStatus.total %></p>
+                                    <% } else { %>
+                                        <p class="page-link-p"> 1/<%= paginatedGroupedByCategory[k].pageStatus.total %></p>
+                                    <% } %>
+                                </div> 
+
+                                <% if (paginatedGroupedByCategory[k].pageStatus.next) { %>
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page=<%= paginatedGroupedByCategory[k].pageStatus.next.page %>&limit=<%= paginatedGroupedByCategory[k].pageStatus.next.limit %>">Next</a>
+                                    </li>
+                                <% } else { %>
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="">Next</a>
+                                    </li>
+                                <% }%>
+                            </ul>
+                        </nav>
+                        <% break %>
                         <% }%>
-                    <% } %>
-            
-            
-                    
+                    <% }%>
                 </div>
 
 
