@@ -17,16 +17,16 @@
                 <% for ( let i = 0; i < articles.length; i++ ) { %>
                     <div class="search-items">
                         <div class="image">
-                            <a href="../html/chiTietBaiViet.html">
+                            <a href="/article/transportArticle/<%= articles[i].name_alias %>">
                                 <img src="<%= articles[i].hero_image %>" alt="">
                             </a>
                         </div>
                         <div class="content">
-                            <a href="../html/chiTietBaiViet.html"><div class="title-section"><%= articles[i].heading %></div></a>
+                            <a href="/article/transportArticle/<%= articles[i].name_alias %>"><div class="title-section"><%= articles[i].heading %></div></a>
                             <div class="date"><%= articles[i].day_created %></div>
                             <div class="description">
                                 <p>
-                                    <a href="../html/chiTietBaiViet.html">
+                                    <a href="/article/transportArticle/<%= articles[i].name_alias %>">
                                         <%= articles[i].content %>
                                     </a>
                                 </p>
