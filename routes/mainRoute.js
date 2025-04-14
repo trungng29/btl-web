@@ -29,6 +29,10 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/:id', async (req, res) => {
+    res.render('notFound404.ejs')
+})
+
 router.get('/api/weather', async (req, res) => {
     try {
         const weatherData = await WeatherService.getWeatherData();
@@ -41,5 +45,9 @@ router.get('/api/weather', async (req, res) => {
         res.status(500).json({ error: 'Failed to fetch weather data' });
     }
 });
+
+router.get('/404', (req, res) => {
+    res.render('notFound404.ejs')
+})
 
 export { router };

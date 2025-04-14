@@ -94,7 +94,7 @@ router.get('/firstcategory/:id', async (req, res) => {
 
         res.render('trangDanhMuc.ejs', { categoryData: result.recordset, subCategoryData: result1.recordset, paginatedGroupedByCategory: transformedData });
     } catch (error) {
-        console.error(error);
+        res.render('notFound404.ejs');
     }
 });
 
@@ -138,7 +138,7 @@ router.get('/secondcategory/:id', async (req, res) => {
 
         res.render('trangDanhMuc2.ejs', { pageStatus: pageStatus, articles: result1.recordset.slice(startIndex, endIndex), categoryData: result.recordset });
     } catch (error) {
-        console.error(error);
+        res.render('notFound404.ejs');
     }
 });
 
