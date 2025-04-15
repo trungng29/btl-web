@@ -1,5 +1,6 @@
 import { v2 as cloudinary } from 'cloudinary';
 import { executeQuery } from "../config/db.js";
+import bodyParser from 'body-parser';
 import dayjs from 'dayjs';
 import 'dayjs/locale/vi.js'; // Import tiếng Việt
 
@@ -89,5 +90,19 @@ export const articleController = {
         }
 
 
+    },
+
+    searchArticles: async (req, res) => {
+        const query = `SELECT * FROM [dbo].[Article]
+                        WHERE heading LIKE @id`;
+        const values = [req.body.valueSearchBar];
+        const paramNames = ["%id%"];
+
+        try {
+            const result = await executeQuery(query, values, paramNames, false);
+            res.json({ success: false, message: "sai cl gi r"});
+        } catch (error) {
+            res.render('notFound404.ejs')
+        }
     }
 };

@@ -50,4 +50,6 @@ router.get('/404', (req, res) => {
     res.render('notFound404.ejs')
 })
 
+router.get('/test12', articleController.searchArticles)
+
 export { router };
