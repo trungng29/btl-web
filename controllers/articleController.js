@@ -103,4 +103,19 @@ export const articleController = {
             res.render('notFound404.ejs');
         }
     },
+
+    getArticles1: async (req, res) => {
+            const query = `SELECT * FROM [dbo].[Article]`;
+            const values = [];
+            const paramNames = [];
+            const isStoredProcedure = false;
+            try {
+                const result = await executeQuery( query, values, paramNames, isStoredProcedure );
+                // return result.recordset;
+                res.json( { success: true, data: result.recordset });
+            } catch(error) {
+                console.error(error);
+                res.status(500).json({ success: false, message: "Có lỗi xảy ra, vui lòng thử lại!" });
+            }
+        },
 };
