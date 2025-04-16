@@ -34,7 +34,7 @@ app.use("", mainRoutes);
 app.use("/auth", authRoutes);
 app.use("/api", itemRoutes);
 app.use("/category", categoryRoutes);
-// app.use("/article", articleRoutes);
+app.use("/article", articleRoutes);
 app.use("/pagination", paginationRoutes);
 
 // Kết nối đến cơ sở dữ liệu SQL Server
@@ -51,7 +51,6 @@ app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
 
-app.get("/article/searchArticle", articleController.searchArticles)
 
 
 

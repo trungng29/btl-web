@@ -70,7 +70,6 @@ export const articleController = {
             res.status(500).json({ success: false, message: "Có lỗi xảy ra, vui lòng thử lại!" });
         }
 
-
         const query1 = `SELECT username FROM [dbo].[User] WHERE id_user = @id_user`;
         const values1 = [result.recordset[0].id_user];
         const paramNames1 = ["id_user"];
@@ -88,8 +87,6 @@ export const articleController = {
             console.error(error);
             res.status(500).json({ success: false, message: "Có lỗi xảy ra, vui lòng thử lại!" });
         }
-
-
     },
 
     searchArticles: async (req, res) => {
@@ -97,8 +94,6 @@ export const articleController = {
                     WHERE heading COLLATE Latin1_General_CI_AI LIKE '%' + @id + '%';`;
         const values = [`%${req.body.navbarTrenSb}%`]; // Đưa dấu % vào giá trị
         const paramNames = ["id"];
-    
-        // console.log(req.body.navbarTrenSb);
     
         try {
             const result = await executeQuery(query, values, paramNames, false);
