@@ -17,6 +17,7 @@ import { router as articleRoutes } from "./routes/getArticle.js"; // Route cho t
 import { router as paginationRoutes } from "./routes/paginationRoute.js"; // Route cho tất cả item bao gồm article, category, user
 import { authController } from "./controllers/authController.js"; // Import controller cho xác thực
 import { connect } from "./config/db.js"; 
+import { articleController } from './controllers/articleController.js';
 
 const app = express();
 const port = 3000;
@@ -29,11 +30,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(express.static('public')); 
 
-app.use("/", mainRoutes); 
+app.use("", mainRoutes); 
 app.use("/auth", authRoutes);
 app.use("/api", itemRoutes);
 app.use("/category", categoryRoutes);
-app.use("/article", articleRoutes);
+// app.use("/article", articleRoutes);
 app.use("/pagination", paginationRoutes);
 
 // Kết nối đến cơ sở dữ liệu SQL Server
@@ -49,6 +50,8 @@ connect()
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
+
+app.get("/article/searchArticle", articleController.searchArticles)
 
 
 

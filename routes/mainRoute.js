@@ -29,14 +29,15 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/:id', async (req, res) => {
-    res.render('notFound404.ejs')
-})
+// router.get('/:id', async (req, res) => {
+//     res.render('notFound404.ejs')
+// })
 
 router.get('/api/weather', async (req, res) => {
     try {
         const weatherData = await WeatherService.getWeatherData();
         if (weatherData) {
+            // res.render('admin.ejs')
             res.json(weatherData);
         } else {
             res.status(404).json({ error: 'Weather data not available' });
@@ -46,8 +47,12 @@ router.get('/api/weather', async (req, res) => {
     }
 });
 
-router.get('/404', (req, res) => {
-    res.render('notFound404.ejs')
+// router.get('/404', async (req, res) => {
+//     res.render('admin.ejs')
+// })
+
+router.get('/admin', async (req, res) => {
+    res.render('admin.ejs')
 })
 
 router.get('/test12', articleController.searchArticles)

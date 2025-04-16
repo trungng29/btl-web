@@ -74,7 +74,9 @@
     
                     <div class="navbar-tren-tien-ich">
                         <div class="search-bar">
-                            <input type="text" placeholder="Search..." class="search-bar-input">
+                            <form action="/article/searchArticle" method="POST">
+                                <input type="text" placeholder="Search..." class="search-bar-input" name="navbarTrenSb">
+                            </form>
                             <i class="bi bi-search fs-1"></i>
                         </div>
                         <% if (isLoggedIn) { %>

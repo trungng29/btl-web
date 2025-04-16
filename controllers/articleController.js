@@ -94,15 +94,18 @@ export const articleController = {
 
     searchArticles: async (req, res) => {
         const query = `SELECT * FROM [dbo].[Article]
-                        WHERE heading LIKE @id`;
-        const values = [req.body.valueSearchBar];
-        const paramNames = ["%id%"];
-
+                    WHERE heading COLLATE Latin1_General_CI_AI LIKE '%' + @id + '%';`;
+        const values = [`%${req.body.navbarTrenSb}%`]; // Đưa dấu % vào giá trị
+        const paramNames = ["id"];
+    
+        // console.log(req.body.navbarTrenSb);
+    
         try {
             const result = await executeQuery(query, values, paramNames, false);
-            res.json({ success: false, message: "sai cl gi r"});
+            res.json({ success: true, data: result.recordset }); // Gửi lại kết quả nếu đúng
         } catch (error) {
-            res.render('notFound404.ejs')
+            console.error(error);
+            res.render('notFound404.ejs');
         }
-    }
+    },
 };
