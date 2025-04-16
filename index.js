@@ -15,6 +15,8 @@ import { router as itemRoutes } from "./routes/articleItems.js"; // Route cho t�
 import { router as categoryRoutes } from "./routes/categoryRoute.js"; // Route cho tất cả item bao gồm article, category, user
 import { router as articleRoutes } from "./routes/getArticle.js"; // Route cho tất cả item bao gồm article, category, user
 import { router as paginationRoutes } from "./routes/paginationRoute.js"; // Route cho tất cả item bao gồm article, category, user
+import { router as testRoutes } from "./routes/testRoute.js"; // Route cho tất cả item bao gồm article, category, user
+import { router as uploadRoutes } from "./routes/uploadPics.js"; // Route cho tất cả item bao gồm article, category, user
 import { authController } from "./controllers/authController.js"; // Import controller cho xác thực
 import { connect } from "./config/db.js"; 
 import { articleController } from './controllers/articleController.js';
@@ -36,6 +38,8 @@ app.use("/api", itemRoutes);
 app.use("/category", categoryRoutes);
 app.use("/article", articleRoutes);
 app.use("/pagination", paginationRoutes);
+app.use("/test", testRoutes); // Route cho tất cả item bao gồm article, category, user
+app.use("/upload", uploadRoutes); // Route cho tất cả item bao gồm article, category, user
 
 // Kết nối đến cơ sở dữ liệu SQL Server
 connect()
