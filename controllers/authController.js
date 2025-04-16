@@ -90,7 +90,7 @@ export const authController = {
         };
 
         const accessToken = generateAccessToken(user);
-        console.log(accessToken)
+
         console.log("Created token payload:", user);
 
         res.cookie("user", accessToken, {
@@ -104,7 +104,6 @@ export const authController = {
             success: true,
             message: "Đăng nhập thành công!",
             user: result.recordset[0],
-            accessToken: accessToken
           });
 
       } else {

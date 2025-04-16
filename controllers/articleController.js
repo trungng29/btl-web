@@ -1,5 +1,6 @@
 import { v2 as cloudinary } from 'cloudinary';
 import { executeQuery } from "../config/db.js";
+import bodyParser from 'body-parser';
 import dayjs from 'dayjs';
 import 'dayjs/locale/vi.js'; // Import tiếng Việt
 
@@ -69,7 +70,6 @@ export const articleController = {
             res.status(500).json({ success: false, message: "Có lỗi xảy ra, vui lòng thử lại!" });
         }
 
-
         const query1 = `SELECT username FROM [dbo].[User] WHERE id_user = @id_user`;
         const values1 = [result.recordset[0].id_user];
         const paramNames1 = ["id_user"];
@@ -87,22 +87,20 @@ export const articleController = {
             console.error(error);
             res.status(500).json({ success: false, message: "Có lỗi xảy ra, vui lòng thử lại!" });
         }
-
-
     },
 
-    getArticles1: async (req, res) => {
-        const query = `SELECT * FROM [dbo].[Article]`;
-        const values = [];
-        const paramNames = [];
-        const isStoredProcedure = false;
+    searchArticles: async (req, res) => {
+        const query = `SELECT * FROM [dbo].[Article]
+                    WHERE heading COLLATE Latin1_General_CI_AI LIKE '%' + @id + '%';`;
+        const values = [`%${req.body.navbarTrenSb}%`]; // Đưa dấu % vào giá trị
+        const paramNames = ["id"];
+    
         try {
-            const result = await executeQuery( query, values, paramNames, isStoredProcedure );
-            // return result.recordset;
-            res.json( { success: true, data: result.recordset });
-        } catch(error) {
+            const result = await executeQuery(query, values, paramNames, false);
+            res.json({ success: true, data: result.recordset }); // Gửi lại kết quả nếu đúng
+        } catch (error) {
             console.error(error);
-            res.status(500).json({ success: false, message: "Có lỗi xảy ra, vui lòng thử lại!" });
+            res.render('notFound404.ejs');
         }
     },
 };

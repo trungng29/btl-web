@@ -31,6 +31,7 @@
         <link rel="stylesheet" href="/../css/quantri.css">
         <link rel="stylesheet" href="/../css/trangTimKiemBaiViet.css"/>
         <link rel="stylesheet" href="/../css/congDangNhap.css">
+        <link rel="stylesheet" href="/../css/notFound404.css">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
@@ -73,7 +74,9 @@
     
                     <div class="navbar-tren-tien-ich">
                         <div class="search-bar">
-                            <input type="text" placeholder="Search..." class="search-bar-input">
+                            <form action="/article/searchArticle" method="POST">
+                                <input type="text" placeholder="Search..." class="search-bar-input" name="navbarTrenSb">
+                            </form>
                             <i class="bi bi-search fs-1"></i>
                         </div>
                         <% if (isLoggedIn) { %>
@@ -144,7 +147,7 @@
     
                     <div class="search-bar-big-container">
                         <div class="search-bar-big">
-                            <input type="text" placeholder="Search..." class="search-bar-big-input-menu">
+                            <input type="text" placeholder="Search..." class="search-bar-big-input-menu" name="valueSearchBar">
                             <i class="bi bi-search fs-1"></i>
                         </div>
                     </div>

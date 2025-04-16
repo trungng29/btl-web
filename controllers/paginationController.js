@@ -30,7 +30,7 @@ export const paginationController = {
 
         res.json({ success: true, data: result.recordset.slice(startIndex, endIndex), data: pageStatus });
        } catch (error) {
-
+        
        }
     },
 };
