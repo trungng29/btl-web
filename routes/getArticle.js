@@ -11,6 +11,8 @@ router.get("/searchArticle", articleController.searchArticles);
 
 router.get("/getArticlesOldest/:id", articleController.getArticlesOldest);
 
-router.put("/likeArticle/:id", articleController.likeArticle)
+router.put("/likeArticle/:id", articleController.likeArticle);
+
+router.get("/sortArticlesByLikes/:id", articleController.sortArticlesByLikesCount);
 
 export { router }
