@@ -142,7 +142,6 @@ export const articleController = {
   },
 
   getArticlesOldest: async (req, res) => {
-
     const subQuery = `SELECT Category.id_category FROM Category WHERE Category.alias_name = @id`
     const subValues = [req.params.id];
     const subParamName = ['id'];
@@ -163,11 +162,20 @@ export const articleController = {
         .status(500)
         .json({ success: false, message: "Có lỗi xảy ra, vui lòng thử lại!" });
     }
-
-    
-
-   
   },
 
+  likeArticle: async (req, res) => {
+    const query = `UPDATE [dbo].[Article]
+                  SET like_count = like_count + 1
+                  WHERE name_alias = @name_alias;`
+    const values = [req.params.id]
+    const paramName = ['name_alias']
+    try {
+      const result = await executeQuery(query, values, paramName, false);
+      res.json({ success: "Thanh cong !"})
+    } catch (error) {
+      res.json({success: error})
+    }
+  }
 
 };
