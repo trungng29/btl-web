@@ -228,6 +228,26 @@ export const articleController = {
     }
   },
 
+  sortArticlesByViewsCount: async(req, res) => {
+    const query = `SELECT *
+        FROM [dbo].[Article]
+        WHERE id_category = (
+            SELECT id_category
+            FROM Category
+            WHERE alias_name = @id
+        )
+        ORDER BY views DESC;`
+    const values = [req.params.id]
+    const paramName = ['id']
+
+    try {
+    const result = await executeQuery(query, values, paramName, false)
+    res.json({success: "Thanh cong !", data: result.recordset})
+    } catch(error) {
+    res.json( { success: error } )
+    }
+  },
+
   removeLikedArticle: async (req, res) => {
     try {
       const query = `WITH UserCTE AS (

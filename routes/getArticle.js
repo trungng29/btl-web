@@ -18,4 +18,6 @@ router.delete("/removeArticle/:id", authController.authenticateToken, articleCon
 
 router.get("/sortArticlesByLikes/:id", articleController.sortArticlesByLikesCount);
 
+router.get("/sortArticlesByViews/:id", articleController.sortArticlesByViewsCount);
+
 export { router }
