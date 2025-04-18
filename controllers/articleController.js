@@ -165,17 +165,50 @@ export const articleController = {
   },
 
   likeArticle: async (req, res) => {
-    const query = `UPDATE [dbo].[Article]
-                  SET like_count = like_count + 1
-                  WHERE name_alias = @name_alias;`
-    const values = [req.params.id]
-    const paramName = ['name_alias']
+
     try {
+      const query = `WITH UserCTE AS (
+                        SELECT id_user
+                        FROM [dbo].[User]
+                        WHERE email = @email
+                    ),
+                    ArticleCTE AS (
+                        SELECT id_article
+                        FROM [dbo].[Article]
+                        WHERE name_alias = @name_alias
+                    )
+                    INSERT INTO [dbo].[LikeArticle]
+                    SELECT u.id_user, a.id_article
+                    FROM UserCTE u, ArticleCTE a;`
+      const values = [res.locals.email, req.params.id];
+      const paramName = ['email', 'name_alias'];
       const result = await executeQuery(query, values, paramName, false);
-      res.json({ success: "Thanh cong !"})
+
+      try {
+        const query = `UPDATE [dbo].[Article]
+        SET like_count = like_count + 1
+        WHERE name_alias = @name_alias;`
+        const values = [req.params.id]
+        const paramName = ['name_alias']
+        try {
+        const result = await executeQuery(query, values, paramName, false);
+        // res.json({ success: "Thanh cong !"})
+        } catch (error) {
+        res.json({success: error})
+        }
+      } catch (error) {
+        res.json({success: error})
+      }
+      console.log(res.locals.email)
+      // Gửi email trong phản hồi
+      res.json({ success: "thanh cong", email: res.locals.email });
     } catch (error) {
-      res.json({success: error})
+      // console.log(res.locals.email)
+      res.json({ success: false, message: "Có lỗi xảy ra!" });
     }
+
+
+
   },
 
   sortArticlesByLikesCount: async (req, res) => {
@@ -196,6 +229,8 @@ export const articleController = {
     } catch(error) {
       res.json( { success: error } )
     }
-  }
+  },
+
+
 
 };

@@ -1,5 +1,6 @@
 import express from 'express';
 import { articleController } from '../controllers/articleController.js';
+import { authController } from "../controllers/authController.js";
 
 const router = express.Router();
 
@@ -11,7 +12,7 @@ router.get("/searchArticle", articleController.searchArticles);
 
 router.get("/getArticlesOldest/:id", articleController.getArticlesOldest);
 
-router.put("/likeArticle/:id", articleController.likeArticle);
+router.get("/likeArticle/:id", authController.authenticateToken, articleController.likeArticle);
 
 router.get("/sortArticlesByLikes/:id", articleController.sortArticlesByLikesCount);
 

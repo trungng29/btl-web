@@ -186,6 +186,7 @@ export const authController = {
             res.locals.email = decoded.email;
             res.locals.role = decoded.role;
 
+            // console.log(res.locals.email)
             
             next();
 
