@@ -1,6 +1,7 @@
 import express from 'express';
 import { articleController } from '../controllers/articleController.js';
 import { authController } from "../controllers/authController.js";
+import { commentController } from '../controllers/commentController.js';
 
 const router = express.Router();
 
@@ -19,5 +20,7 @@ router.delete("/removeArticle/:id", authController.authenticateToken, articleCon
 router.get("/sortArticlesByLikes/:id", articleController.sortArticlesByLikesCount);
 
 router.get("/sortArticlesByViews/:id", articleController.sortArticlesByViewsCount);
+
+router.post("/comment/:id", authController.authenticateToken, commentController.commentParent)
 
 export { router }
