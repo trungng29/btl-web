@@ -165,6 +165,27 @@ export const commentController = {
     }
   },
 
+  removeComment: async (req, res) => {
+    try {
+      const query = `DELETE FROM [dbo].[Comment] 
+                    WHERE id_comment = @id_comment 
+                    AND id_user IN (
+                      SELECT id_user 
+                      FROM [dbo].[User] 
+                      WHERE email = @email
+                    );`;
+      
+      const values = [req.params.id, res.locals.email];
+      const paramName = ["id_comment", "email"];
+      const result = await executeQuery(query, values, paramName, false);
+
+      res.redirect('back');
+      
+    } catch (error) {
+      res.json({ success: false, message: "Có lỗi xảy ra khi xóa bình luận!" });
+    }
+  },
+
   getCommentByArticle: async (req, res) => {
     const query = `SELECT * 
                     FROM [dbo].[Comment]

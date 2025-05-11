@@ -133,6 +133,18 @@ router.get("/backdetails", authController.authenticateToken, getArticles, getCat
                               JOIN Article A ON LA.id_article = A.id_article
                               WHERE LA.id_user = @id;`;
 
+    const UserCommentQuery = `
+            SELECT 
+                id_comment,
+                a.heading as ten_bai_viet,
+                c.comment_content as noi_dung_binh_luan,
+                FORMAT(c.day_created, 'dd/MM/yyyy HH:mm') as ngay_binh_luan
+            FROM Comment c
+            LEFT JOIN Article a ON c.id_article = a.id_article
+            WHERE c.id_user = @id
+            ORDER BY c.day_created DESC
+        `;
+
     try {
       const result = await executeQuery(query, values, paramNames, false);
 
@@ -141,6 +153,8 @@ router.get("/backdetails", authController.authenticateToken, getArticles, getCat
       result5 = await executeQuery(query5, [], [], isStoredProcedure);
 
       const result1 = await executeQuery(likeArticleQuery, [result.recordset[0].id_user], ["id"], false);
+      const result6 = await executeQuery(UserCommentQuery, [result.recordset[0].id_user], ["id"], false);
+
 
       // Lấy từ khóa tìm kiếm từ query string
       const searchQuery = req.query.searchInp || "";
@@ -229,6 +243,7 @@ router.get("/backdetails", authController.authenticateToken, getArticles, getCat
         categories: categoriesData.data, 
         comments: commentsData.data, 
         users: usersData.data,
+        userComments: result6.recordset,
         limit: limit,
         activeSection: activeSection,
         currentPage: currentPage,
@@ -260,7 +275,21 @@ router.get("/backdetails", authController.authenticateToken, getArticles, getCat
       res.render("notFound404.ejs");
     }
   } else if (role == "NhaBao") {
-    res.render("nhaBao.ejs");
+
+    const query = `SELECT * FROM [dbo].[User] WHERE email = @email`;
+    const values = [res.locals.email];
+    const paramNames = ["email"];
+
+    try {
+      const result = await executeQuery(query, values, paramNames, false);
+    } catch (error) {
+      console.error(error);
+    }
+
+    res.render("nhaBao.ejs", {
+      user: result.recordset
+    }
+    );
   } else if (role == "DocGia") {
     res.render("docGia.ejs");
   }

@@ -749,9 +749,94 @@ function initStatusToggles() {
     });
 }
 
+// CSS cho checkbox nổi bật
+const featuredStyle = document.createElement('style');
+featuredStyle.textContent = `
+    .featured-checkbox {
+        position: relative;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+    }
+
+    .featured-checkbox input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        position: absolute;
+    }
+
+    .featured-checkbox .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        background-color: #fff;
+        border: 2px solid #ddd;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .featured-checkbox input:checked ~ .checkmark {
+        background-color: #2196F3;
+        border-color: #2196F3;
+    }
+
+    .featured-checkbox .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    .featured-checkbox input:checked ~ .checkmark:after {
+        display: block;
+    }
+
+    .featured-checkbox .checkmark:after {
+        left: 6px;
+        top: 2px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+    }
+`;
+document.head.appendChild(featuredStyle);
+
+// Xử lý sự kiện khi checkbox nổi bật được click
+function initFeaturedToggles() {
+    const featuredToggles = document.querySelectorAll('.featured-toggle');
+    
+    featuredToggles.forEach(toggle => {
+        // Xóa tất cả event listener trước đó để tránh trùng lặp
+        const newToggle = toggle.cloneNode(true);
+        toggle.parentNode.replaceChild(newToggle, toggle);
+        
+        newToggle.addEventListener('change', function() {
+            const articleId = this.dataset.articleId;
+            const isFeatured = this.checked ? 1 : 0;
+            
+            // Gửi request cập nhật trạng thái nổi bật
+            fetch(`/api/article/updateFeatured/${articleId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ is_featured: isFeatured })
+            })
+            .catch(error => {
+                console.error('Error updating featured status:', error);
+            });
+        });
+    });
+}
+
 // Chạy khi trang đã tải xong
 document.addEventListener('DOMContentLoaded', function() {
     initStatusToggles();
+    initFeaturedToggles();
     
     // Thêm xử lý cho trường hợp nội dung được tải động (AJAX)
     const tbodyArticle = document.getElementById('tbodyArticle');
@@ -759,6 +844,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Theo dõi thay đổi trong bảng bài viết
         const observer = new MutationObserver(function(mutations) {
             initStatusToggles();
+            initFeaturedToggles();
         });
         
         observer.observe(tbodyArticle, { childList: true, subtree: true });
